@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+import "geometry.proto";
+import "object.proto";
+import "section.proto";
+
+package hdmap_proto;
+
+// PROJ.4 setting:
+// "+proj=tmerc +lat_0={origin.lat} +lon_0={origin.lon} +k={scale_factor} +ellps=WGS84 +no_defs"
+
+message Header {
+  optional string version = 1;
+  optional string date = 2;
+  optional string projection = 3;
+}
+
+message Map {
+  optional Header header = 1;
+  repeated Section sections = 2;
+  repeated Zone zones = 3;
+  repeated Obstacle obstacles = 4;
+   repeated  SemanticPoint  segPoint = 5;
+}

@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package hdmap_proto;
+
+message Vector3d {
+  required double x = 1;
+  required double y = 2;
+  required double z = 3;
+}
+
+// cubic bezier curve
+message CurveLine {
+  repeated Vector3d points = 1;
+  repeated Vector3d pred_points = 2;
+  repeated Vector3d succ_points = 3;
+  optional float width = 4;
+}
+
+message Polygon {
+  repeated Vector3d points = 1;
+  optional float width = 2;
+}
+

@@ -1,0 +1,47 @@
+syntax = "proto2";
+
+package hdmap_proto;
+
+import "id.proto";
+import "geometry.proto";
+
+message SemanticPoint{
+    required Id id = 1;
+
+    enum PointType {
+    EXIT_POINT  =  1;      //出口
+    ENTRY_POINT = 2;     //入口
+    TASK_POINT = 3;       //任务点
+    DEVICE_POINT = 4;  //路侧设备点
+    UNCERTAIN= 5;         //未知
+  }
+  optional PointType  Type = 2; 
+  required Vector3d pos = 3;
+  repeated Id link_ids = 4;
+}
+
+// Zone
+message Zone {
+  required Id id = 1;
+  required Polygon border = 2;
+  optional string  description = 3;
+  repeated Id link_ids = 4;
+}
+
+message Obstacle
+{
+required Id id = 1;
+required Polygon border = 2;
+optional double Height = 3;
+
+enum  ObstacleType
+{
+    TRUNK = 1;
+    PERSON = 2;
+    CAR = 3;
+    EXCAVATOR = 4;
+    UNCERTAIN = 5;
+}
+optional  ObstacleType Type = 4;
+repeated Id link_ids = 5;
+}

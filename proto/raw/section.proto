@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+import "id.proto";
+import "geometry.proto";
+//import "object.proto";
+
+package hdmap_proto;
+
+message Section {
+  required Id id = 1;
+
+  enum LaneDirection {
+    FORWARD = 1;
+    BACKWARD = 2;
+    TWOWAY= 3;
+  }
+  optional LaneDirection direction = 2; 
+  repeated CurveLine lines = 3;
+
+  repeated uint32 pred_indices = 10;
+  repeated uint32 succ_indices = 11;
+}
