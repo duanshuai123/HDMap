@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package hdmap_proto;
+
+import "id.proto";
+import "geometry.proto";
+
+message Lane {
+  required Id id = 1;
+  repeated CurveLine lines = 2;
+}

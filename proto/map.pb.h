@@ -24,7 +24,6 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "geometry.pb.h"
 #include "object.pb.h"
 #include "section.pb.h"
 // @@protoc_insertion_point(includes)

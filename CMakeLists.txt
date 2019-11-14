@@ -44,4 +44,4 @@ file( GLOB Interface_cpp_list ${INTERFACE_DIR}*.cpp)
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR})      #设置输出路径                           
 add_library(${PROJECT_NAME} SHARED ${PROTOBUF_GEN_SRCS} ${PROTOBUF_GEN_INCS}  ${Interface_h_list} ${Interface_cpp_list})
                                                                                                                                                
-add_subdirectory(test)
+#add_subdirectory(test)

@@ -105,19 +105,18 @@ void protobuf_AddDesc_map_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::hdmap_proto::protobuf_AddDesc_geometry_2eproto();
   ::hdmap_proto::protobuf_AddDesc_object_2eproto();
   ::hdmap_proto::protobuf_AddDesc_section_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tmap.proto\022\013hdmap_proto\032\016geometry.proto"
-    "\032\014object.proto\032\rsection.proto\";\n\006Header\022"
-    "\017\n\007version\030\001 \001(\t\022\014\n\004date\030\002 \001(\t\022\022\n\nprojec"
-    "tion\030\003 \001(\t\"\314\001\n\003Map\022#\n\006header\030\001 \001(\0132\023.hdm"
-    "ap_proto.Header\022&\n\010sections\030\002 \003(\0132\024.hdma"
-    "p_proto.Section\022 \n\005zones\030\003 \003(\0132\021.hdmap_p"
-    "roto.Zone\022(\n\tobstacles\030\004 \003(\0132\025.hdmap_pro"
-    "to.Obstacle\022,\n\010segPoint\030\005 \003(\0132\032.hdmap_pr"
-    "oto.SemanticPoint", 337);
+    "\n\tmap.proto\022\013hdmap_proto\032\014object.proto\032\r"
+    "section.proto\";\n\006Header\022\017\n\007version\030\001 \001(\t"
+    "\022\014\n\004date\030\002 \001(\t\022\022\n\nprojection\030\003 \001(\t\"\314\001\n\003M"
+    "ap\022#\n\006header\030\001 \001(\0132\023.hdmap_proto.Header\022"
+    "&\n\010sections\030\002 \003(\0132\024.hdmap_proto.Section\022"
+    " \n\005zones\030\003 \003(\0132\021.hdmap_proto.Zone\022(\n\tobs"
+    "tacles\030\004 \003(\0132\025.hdmap_proto.Obstacle\022,\n\010s"
+    "egPoint\030\005 \003(\0132\032.hdmap_proto.SemanticPoin"
+    "t", 321);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "map.proto", &protobuf_RegisterTypes);
   Header::default_instance_ = new Header();

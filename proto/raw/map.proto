@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-import "geometry.proto";
+//import "geometry.proto";
 import "object.proto";
 import "section.proto";
 

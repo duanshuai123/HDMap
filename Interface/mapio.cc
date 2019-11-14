@@ -4,7 +4,7 @@
 using std::ios;
 using std::ios_base;
 
-namespace hdmap_op {
+namespace hdmap_kq_op {
 
 std::string MapIO::toString() {
   std::string str;

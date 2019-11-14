@@ -27,6 +27,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "id.pb.h"
 #include "geometry.pb.h"
+#include "lane.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace hdmap_proto {
@@ -154,17 +155,17 @@ class Section : public ::google::protobuf::Message {
   inline ::hdmap_proto::Section_LaneDirection direction() const;
   inline void set_direction(::hdmap_proto::Section_LaneDirection value);
 
-  // repeated .hdmap_proto.CurveLine lines = 3;
-  inline int lines_size() const;
-  inline void clear_lines();
-  static const int kLinesFieldNumber = 3;
-  inline const ::hdmap_proto::CurveLine& lines(int index) const;
-  inline ::hdmap_proto::CurveLine* mutable_lines(int index);
-  inline ::hdmap_proto::CurveLine* add_lines();
-  inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >&
-      lines() const;
-  inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >*
-      mutable_lines();
+  // repeated .hdmap_proto.Lane lanes = 3;
+  inline int lanes_size() const;
+  inline void clear_lanes();
+  static const int kLanesFieldNumber = 3;
+  inline const ::hdmap_proto::Lane& lanes(int index) const;
+  inline ::hdmap_proto::Lane* mutable_lanes(int index);
+  inline ::hdmap_proto::Lane* add_lanes();
+  inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >&
+      lanes() const;
+  inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >*
+      mutable_lanes();
 
   // repeated uint32 pred_indices = 10;
   inline int pred_indices_size() const;
@@ -202,7 +203,7 @@ class Section : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::hdmap_proto::Id* id_;
-  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine > lines_;
+  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane > lanes_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > pred_indices_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > succ_indices_;
   int direction_;
@@ -286,34 +287,34 @@ inline void Section::set_direction(::hdmap_proto::Section_LaneDirection value) {
   // @@protoc_insertion_point(field_set:hdmap_proto.Section.direction)
 }
 
-// repeated .hdmap_proto.CurveLine lines = 3;
-inline int Section::lines_size() const {
-  return lines_.size();
+// repeated .hdmap_proto.Lane lanes = 3;
+inline int Section::lanes_size() const {
+  return lanes_.size();
 }
-inline void Section::clear_lines() {
-  lines_.Clear();
+inline void Section::clear_lanes() {
+  lanes_.Clear();
 }
-inline const ::hdmap_proto::CurveLine& Section::lines(int index) const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Section.lines)
-  return lines_.Get(index);
+inline const ::hdmap_proto::Lane& Section::lanes(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.lanes)
+  return lanes_.Get(index);
 }
-inline ::hdmap_proto::CurveLine* Section::mutable_lines(int index) {
-  // @@protoc_insertion_point(field_mutable:hdmap_proto.Section.lines)
-  return lines_.Mutable(index);
+inline ::hdmap_proto::Lane* Section::mutable_lanes(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Section.lanes)
+  return lanes_.Mutable(index);
 }
-inline ::hdmap_proto::CurveLine* Section::add_lines() {
-  // @@protoc_insertion_point(field_add:hdmap_proto.Section.lines)
-  return lines_.Add();
+inline ::hdmap_proto::Lane* Section::add_lanes() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Section.lanes)
+  return lanes_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >&
-Section::lines() const {
-  // @@protoc_insertion_point(field_list:hdmap_proto.Section.lines)
-  return lines_;
+inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >&
+Section::lanes() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Section.lanes)
+  return lanes_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >*
-Section::mutable_lines() {
-  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Section.lines)
-  return &lines_;
+inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >*
+Section::mutable_lanes() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Section.lanes)
+  return &lanes_;
 }
 
 // repeated uint32 pred_indices = 10;

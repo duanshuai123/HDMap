@@ -38,7 +38,7 @@ void protobuf_AssignDesc_section_2eproto() {
   static const int Section_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, direction_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, lines_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, lanes_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, pred_indices_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, succ_indices_),
   };
@@ -85,15 +85,16 @@ void protobuf_AddDesc_section_2eproto() {
 
   ::hdmap_proto::protobuf_AddDesc_id_2eproto();
   ::hdmap_proto::protobuf_AddDesc_geometry_2eproto();
+  ::hdmap_proto::protobuf_AddDesc_lane_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rsection.proto\022\013hdmap_proto\032\010id.proto\032\016"
-    "geometry.proto\"\350\001\n\007Section\022\033\n\002id\030\001 \002(\0132\017"
-    ".hdmap_proto.Id\0225\n\tdirection\030\002 \001(\0162\".hdm"
-    "ap_proto.Section.LaneDirection\022%\n\005lines\030"
-    "\003 \003(\0132\026.hdmap_proto.CurveLine\022\024\n\014pred_in"
-    "dices\030\n \003(\r\022\024\n\014succ_indices\030\013 \003(\r\"6\n\rLan"
-    "eDirection\022\013\n\007FORWARD\020\001\022\014\n\010BACKWARD\020\002\022\n\n"
-    "\006TWOWAY\020\003", 289);
+    "geometry.proto\032\nlane.proto\"\343\001\n\007Section\022\033"
+    "\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\0225\n\tdirection"
+    "\030\002 \001(\0162\".hdmap_proto.Section.LaneDirecti"
+    "on\022 \n\005lanes\030\003 \003(\0132\021.hdmap_proto.Lane\022\024\n\014"
+    "pred_indices\030\n \003(\r\022\024\n\014succ_indices\030\013 \003(\r"
+    "\"6\n\rLaneDirection\022\013\n\007FORWARD\020\001\022\014\n\010BACKWA"
+    "RD\020\002\022\n\n\006TWOWAY\020\003", 296);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "section.proto", &protobuf_RegisterTypes);
   Section::default_instance_ = new Section();
@@ -136,7 +137,7 @@ const int Section::LaneDirection_ARRAYSIZE;
 #ifndef _MSC_VER
 const int Section::kIdFieldNumber;
 const int Section::kDirectionFieldNumber;
-const int Section::kLinesFieldNumber;
+const int Section::kLanesFieldNumber;
 const int Section::kPredIndicesFieldNumber;
 const int Section::kSuccIndicesFieldNumber;
 #endif  // !_MSC_VER
@@ -204,7 +205,7 @@ void Section::Clear() {
     }
     direction_ = 1;
   }
-  lines_.Clear();
+  lanes_.Clear();
   pred_indices_.Clear();
   succ_indices_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -249,20 +250,20 @@ bool Section::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_lines;
+        if (input->ExpectTag(26)) goto parse_lanes;
         break;
       }
 
-      // repeated .hdmap_proto.CurveLine lines = 3;
+      // repeated .hdmap_proto.Lane lanes = 3;
       case 3: {
         if (tag == 26) {
-         parse_lines:
+         parse_lanes:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_lines()));
+                input, add_lanes()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_lines;
+        if (input->ExpectTag(26)) goto parse_lanes;
         if (input->ExpectTag(80)) goto parse_pred_indices;
         break;
       }
@@ -342,10 +343,10 @@ void Section::SerializeWithCachedSizes(
       2, this->direction(), output);
   }
 
-  // repeated .hdmap_proto.CurveLine lines = 3;
-  for (int i = 0; i < this->lines_size(); i++) {
+  // repeated .hdmap_proto.Lane lanes = 3;
+  for (int i = 0; i < this->lanes_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->lines(i), output);
+      3, this->lanes(i), output);
   }
 
   // repeated uint32 pred_indices = 10;
@@ -383,11 +384,11 @@ void Section::SerializeWithCachedSizes(
       2, this->direction(), target);
   }
 
-  // repeated .hdmap_proto.CurveLine lines = 3;
-  for (int i = 0; i < this->lines_size(); i++) {
+  // repeated .hdmap_proto.Lane lanes = 3;
+  for (int i = 0; i < this->lanes_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->lines(i), target);
+        3, this->lanes(i), target);
   }
 
   // repeated uint32 pred_indices = 10;
@@ -428,12 +429,12 @@ int Section::ByteSize() const {
     }
 
   }
-  // repeated .hdmap_proto.CurveLine lines = 3;
-  total_size += 1 * this->lines_size();
-  for (int i = 0; i < this->lines_size(); i++) {
+  // repeated .hdmap_proto.Lane lanes = 3;
+  total_size += 1 * this->lanes_size();
+  for (int i = 0; i < this->lanes_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->lines(i));
+        this->lanes(i));
   }
 
   // repeated uint32 pred_indices = 10;
@@ -481,7 +482,7 @@ void Section::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Section::MergeFrom(const Section& from) {
   GOOGLE_CHECK_NE(&from, this);
-  lines_.MergeFrom(from.lines_);
+  lanes_.MergeFrom(from.lanes_);
   pred_indices_.MergeFrom(from.pred_indices_);
   succ_indices_.MergeFrom(from.succ_indices_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -513,7 +514,7 @@ bool Section::IsInitialized() const {
   if (has_id()) {
     if (!this->id().IsInitialized()) return false;
   }
-  if (!::google::protobuf::internal::AllAreInitialized(this->lines())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->lanes())) return false;
   return true;
 }
 
@@ -521,7 +522,7 @@ void Section::Swap(Section* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(direction_, other->direction_);
-    lines_.Swap(&other->lines_);
+    lanes_.Swap(&other->lanes_);
     pred_indices_.Swap(&other->pred_indices_);
     succ_indices_.Swap(&other->succ_indices_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
