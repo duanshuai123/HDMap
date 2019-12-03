@@ -27,6 +27,7 @@ const ::google::protobuf::EnumDescriptor* SemanticPoint_PointType_descriptor_ = 
 const ::google::protobuf::Descriptor* Zone_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Zone_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* Zone_ZoneType_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* Obstacle_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Obstacle_reflection_ = NULL;
@@ -64,7 +65,7 @@ void protobuf_AssignDesc_object_2eproto() {
   static const int Zone_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, border_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, description_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, link_ids_),
   };
   Zone_reflection_ =
@@ -78,6 +79,7 @@ void protobuf_AssignDesc_object_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Zone));
+  Zone_ZoneType_descriptor_ = Zone_descriptor_->enum_type(0);
   Obstacle_descriptor_ = file->message_type(2);
   static const int Obstacle_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Obstacle, id_),
@@ -139,23 +141,26 @@ void protobuf_AddDesc_object_2eproto() {
   ::hdmap_proto::protobuf_AddDesc_geometry_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014object.proto\022\013hdmap_proto\032\010id.proto\032\016g"
-    "eometry.proto\"\206\002\n\rSemanticPoint\022\033\n\002id\030\001 "
+    "eometry.proto\"\224\002\n\rSemanticPoint\022\033\n\002id\030\001 "
     "\002(\0132\017.hdmap_proto.Id\0222\n\004Type\030\002 \001(\0162$.hdm"
     "ap_proto.SemanticPoint.PointType\022\"\n\003pos\030"
     "\003 \002(\0132\025.hdmap_proto.Vector3d\022!\n\010link_ids"
-    "\030\004 \003(\0132\017.hdmap_proto.Id\"]\n\tPointType\022\016\n\n"
-    "EXIT_POINT\020\001\022\017\n\013ENTRY_POINT\020\002\022\016\n\nTASK_PO"
-    "INT\020\003\022\020\n\014DEVICE_POINT\020\004\022\r\n\tUNCERTAIN\020\005\"\201"
-    "\001\n\004Zone\022\033\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\022$\n\006"
-    "border\030\002 \002(\0132\024.hdmap_proto.Polygon\022\023\n\013de"
-    "scription\030\003 \001(\t\022!\n\010link_ids\030\004 \003(\0132\017.hdma"
-    "p_proto.Id\"\200\002\n\010Obstacle\022\033\n\002id\030\001 \002(\0132\017.hd"
-    "map_proto.Id\022$\n\006border\030\002 \002(\0132\024.hdmap_pro"
-    "to.Polygon\022\016\n\006Height\030\003 \001(\001\0220\n\004Type\030\004 \001(\016"
-    "2\".hdmap_proto.Obstacle.ObstacleType\022!\n\010"
-    "link_ids\030\005 \003(\0132\017.hdmap_proto.Id\"L\n\014Obsta"
-    "cleType\022\t\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022"
-    "\r\n\tEXCAVATOR\020\004\022\r\n\tUNCERTAIN\020\005", 709);
+    "\030\004 \003(\0132\017.hdmap_proto.Id\"k\n\tPointType\022\014\n\010"
+    "UN_KNOWN\020\000\022\016\n\nEXIT_POINT\020\001\022\017\n\013ENTRY_POIN"
+    "T\020\002\022\016\n\nTASK_POINT\020\003\022\020\n\014DEVICE_POINT\020\004\022\r\n"
+    "\tUNCERTAIN\020\005\"\324\001\n\004Zone\022\033\n\002id\030\001 \002(\0132\017.hdma"
+    "p_proto.Id\022$\n\006border\030\002 \002(\0132\024.hdmap_proto"
+    ".Polygon\022(\n\004Type\030\003 \001(\0162\032.hdmap_proto.Zon"
+    "e.ZoneType\022!\n\010link_ids\030\004 \003(\0132\017.hdmap_pro"
+    "to.Id\"<\n\010ZoneType\022\014\n\010UN_KNOWN\020\000\022\020\n\014MINII"
+    "NG_SOIL\020\001\022\020\n\014DUMPING_SOIL\020\002\"\216\002\n\010Obstacle"
+    "\022\033\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\022$\n\006border\030"
+    "\002 \002(\0132\024.hdmap_proto.Polygon\022\016\n\006Height\030\003 "
+    "\001(\001\0220\n\004Type\030\004 \001(\0162\".hdmap_proto.Obstacle"
+    ".ObstacleType\022!\n\010link_ids\030\005 \003(\0132\017.hdmap_"
+    "proto.Id\"Z\n\014ObstacleType\022\014\n\010UN_KNOWN\020\000\022\t"
+    "\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022\r\n\tEXCAVA"
+    "TOR\020\004\022\r\n\tUNCERTAIN\020\005", 820);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "object.proto", &protobuf_RegisterTypes);
   SemanticPoint::default_instance_ = new SemanticPoint();
@@ -182,6 +187,7 @@ const ::google::protobuf::EnumDescriptor* SemanticPoint_PointType_descriptor() {
 }
 bool SemanticPoint_PointType_IsValid(int value) {
   switch(value) {
+    case 0:
     case 1:
     case 2:
     case 3:
@@ -194,6 +200,7 @@ bool SemanticPoint_PointType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
+const SemanticPoint_PointType SemanticPoint::UN_KNOWN;
 const SemanticPoint_PointType SemanticPoint::EXIT_POINT;
 const SemanticPoint_PointType SemanticPoint::ENTRY_POINT;
 const SemanticPoint_PointType SemanticPoint::TASK_POINT;
@@ -231,7 +238,7 @@ SemanticPoint::SemanticPoint(const SemanticPoint& from)
 void SemanticPoint::SharedCtor() {
   _cached_size_ = 0;
   id_ = NULL;
-  type_ = 1;
+  type_ = 0;
   pos_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -274,7 +281,7 @@ void SemanticPoint::Clear() {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
-    type_ = 1;
+    type_ = 0;
     if (has_pos()) {
       if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
     }
@@ -568,10 +575,33 @@ void SemanticPoint::Swap(SemanticPoint* other) {
 
 // ===================================================================
 
+const ::google::protobuf::EnumDescriptor* Zone_ZoneType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Zone_ZoneType_descriptor_;
+}
+bool Zone_ZoneType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Zone_ZoneType Zone::UN_KNOWN;
+const Zone_ZoneType Zone::MINIING_SOIL;
+const Zone_ZoneType Zone::DUMPING_SOIL;
+const Zone_ZoneType Zone::ZoneType_MIN;
+const Zone_ZoneType Zone::ZoneType_MAX;
+const int Zone::ZoneType_ARRAYSIZE;
+#endif  // _MSC_VER
 #ifndef _MSC_VER
 const int Zone::kIdFieldNumber;
 const int Zone::kBorderFieldNumber;
-const int Zone::kDescriptionFieldNumber;
+const int Zone::kTypeFieldNumber;
 const int Zone::kLinkIdsFieldNumber;
 #endif  // !_MSC_VER
 
@@ -594,11 +624,10 @@ Zone::Zone(const Zone& from)
 }
 
 void Zone::SharedCtor() {
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   id_ = NULL;
   border_ = NULL;
-  description_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -608,9 +637,6 @@ Zone::~Zone() {
 }
 
 void Zone::SharedDtor() {
-  if (description_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete description_;
-  }
   if (this != default_instance_) {
     delete id_;
     delete border_;
@@ -646,11 +672,7 @@ void Zone::Clear() {
     if (has_border()) {
       if (border_ != NULL) border_->::hdmap_proto::Polygon::Clear();
     }
-    if (has_description()) {
-      if (description_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        description_->clear();
-      }
-    }
+    type_ = 0;
   }
   link_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -688,20 +710,23 @@ bool Zone::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_description;
+        if (input->ExpectTag(24)) goto parse_Type;
         break;
       }
 
-      // optional string description = 3;
+      // optional .hdmap_proto.Zone.ZoneType Type = 3;
       case 3: {
-        if (tag == 26) {
-         parse_description:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_description()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->description().data(), this->description().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "description");
+        if (tag == 24) {
+         parse_Type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::hdmap_proto::Zone_ZoneType_IsValid(value)) {
+            set_type(static_cast< ::hdmap_proto::Zone_ZoneType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
+          }
         } else {
           goto handle_unusual;
         }
@@ -760,14 +785,10 @@ void Zone::SerializeWithCachedSizes(
       2, this->border(), output);
   }
 
-  // optional string description = 3;
-  if (has_description()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->description().data(), this->description().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "description");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->description(), output);
+  // optional .hdmap_proto.Zone.ZoneType Type = 3;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->type(), output);
   }
 
   // repeated .hdmap_proto.Id link_ids = 4;
@@ -800,15 +821,10 @@ void Zone::SerializeWithCachedSizes(
         2, this->border(), target);
   }
 
-  // optional string description = 3;
-  if (has_description()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->description().data(), this->description().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "description");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->description(), target);
+  // optional .hdmap_proto.Zone.ZoneType Type = 3;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->type(), target);
   }
 
   // repeated .hdmap_proto.Id link_ids = 4;
@@ -844,11 +860,10 @@ int Zone::ByteSize() const {
           this->border());
     }
 
-    // optional string description = 3;
-    if (has_description()) {
+    // optional .hdmap_proto.Zone.ZoneType Type = 3;
+    if (has_type()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->description());
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
   }
@@ -893,8 +908,8 @@ void Zone::MergeFrom(const Zone& from) {
     if (from.has_border()) {
       mutable_border()->::hdmap_proto::Polygon::MergeFrom(from.border());
     }
-    if (from.has_description()) {
-      set_description(from.description());
+    if (from.has_type()) {
+      set_type(from.type());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -929,7 +944,7 @@ void Zone::Swap(Zone* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(border_, other->border_);
-    std::swap(description_, other->description_);
+    std::swap(type_, other->type_);
     link_ids_.Swap(&other->link_ids_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -954,6 +969,7 @@ const ::google::protobuf::EnumDescriptor* Obstacle_ObstacleType_descriptor() {
 }
 bool Obstacle_ObstacleType_IsValid(int value) {
   switch(value) {
+    case 0:
     case 1:
     case 2:
     case 3:
@@ -966,6 +982,7 @@ bool Obstacle_ObstacleType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
+const Obstacle_ObstacleType Obstacle::UN_KNOWN;
 const Obstacle_ObstacleType Obstacle::TRUNK;
 const Obstacle_ObstacleType Obstacle::PERSON;
 const Obstacle_ObstacleType Obstacle::CAR;
@@ -1006,7 +1023,7 @@ void Obstacle::SharedCtor() {
   id_ = NULL;
   border_ = NULL;
   height_ = 0;
-  type_ = 1;
+  type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1052,7 +1069,7 @@ void Obstacle::Clear() {
       if (border_ != NULL) border_->::hdmap_proto::Polygon::Clear();
     }
     height_ = 0;
-    type_ = 1;
+    type_ = 0;
   }
   link_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));

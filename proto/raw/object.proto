@@ -9,11 +9,12 @@ message SemanticPoint{
     required Id id = 1;
 
     enum PointType {
+    UN_KNOWN   =   0;
     EXIT_POINT  =  1;      //出口
-    ENTRY_POINT = 2;     //入口
-    TASK_POINT = 3;       //任务点
-    DEVICE_POINT = 4;  //路侧设备点
-    UNCERTAIN= 5;         //未知
+    ENTRY_POINT = 2;       //入口
+    TASK_POINT = 3;        //任务点
+    DEVICE_POINT = 4;      //路侧设备点
+    UNCERTAIN= 5;          //未知
   }
   optional PointType  Type = 2; 
   required Vector3d pos = 3;
@@ -22,9 +23,17 @@ message SemanticPoint{
 
 // Zone
 message Zone {
+
+  enum  ZoneType
+  {
+     UN_KNOWN   =   0;
+     MINIING_SOIL = 1;//采土区
+     DUMPING_SOIL = 2;//排土区
+  }
+
   required Id id = 1;
   required Polygon border = 2;
-  optional string  description = 3;
+  optional ZoneType Type = 3;
   repeated Id link_ids = 4;
 }
 
@@ -36,6 +45,7 @@ optional double Height = 3;
 
 enum  ObstacleType
 {
+    UN_KNOWN   =   0;
     TRUNK = 1;
     PERSON = 2;
     CAR = 3;

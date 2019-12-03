@@ -40,12 +40,13 @@ void protobuf_ShutdownFile_section_2eproto();
 class Section;
 
 enum Section_LaneDirection {
+  Section_LaneDirection_UN_KNOWN = 0,
   Section_LaneDirection_FORWARD = 1,
   Section_LaneDirection_BACKWARD = 2,
   Section_LaneDirection_TWOWAY = 3
 };
 bool Section_LaneDirection_IsValid(int value);
-const Section_LaneDirection Section_LaneDirection_LaneDirection_MIN = Section_LaneDirection_FORWARD;
+const Section_LaneDirection Section_LaneDirection_LaneDirection_MIN = Section_LaneDirection_UN_KNOWN;
 const Section_LaneDirection Section_LaneDirection_LaneDirection_MAX = Section_LaneDirection_TWOWAY;
 const int Section_LaneDirection_LaneDirection_ARRAYSIZE = Section_LaneDirection_LaneDirection_MAX + 1;
 
@@ -113,6 +114,7 @@ class Section : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef Section_LaneDirection LaneDirection;
+  static const LaneDirection UN_KNOWN = Section_LaneDirection_UN_KNOWN;
   static const LaneDirection FORWARD = Section_LaneDirection_FORWARD;
   static const LaneDirection BACKWARD = Section_LaneDirection_BACKWARD;
   static const LaneDirection TWOWAY = Section_LaneDirection_TWOWAY;
@@ -273,7 +275,7 @@ inline void Section::clear_has_direction() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Section::clear_direction() {
-  direction_ = 1;
+  direction_ = 0;
   clear_has_direction();
 }
 inline ::hdmap_proto::Section_LaneDirection Section::direction() const {

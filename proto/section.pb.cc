@@ -88,13 +88,13 @@ void protobuf_AddDesc_section_2eproto() {
   ::hdmap_proto::protobuf_AddDesc_lane_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rsection.proto\022\013hdmap_proto\032\010id.proto\032\016"
-    "geometry.proto\032\nlane.proto\"\343\001\n\007Section\022\033"
+    "geometry.proto\032\nlane.proto\"\361\001\n\007Section\022\033"
     "\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\0225\n\tdirection"
     "\030\002 \001(\0162\".hdmap_proto.Section.LaneDirecti"
     "on\022 \n\005lanes\030\003 \003(\0132\021.hdmap_proto.Lane\022\024\n\014"
     "pred_indices\030\n \003(\r\022\024\n\014succ_indices\030\013 \003(\r"
-    "\"6\n\rLaneDirection\022\013\n\007FORWARD\020\001\022\014\n\010BACKWA"
-    "RD\020\002\022\n\n\006TWOWAY\020\003", 296);
+    "\"D\n\rLaneDirection\022\014\n\010UN_KNOWN\020\000\022\013\n\007FORWA"
+    "RD\020\001\022\014\n\010BACKWARD\020\002\022\n\n\006TWOWAY\020\003", 310);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "section.proto", &protobuf_RegisterTypes);
   Section::default_instance_ = new Section();
@@ -117,6 +117,7 @@ const ::google::protobuf::EnumDescriptor* Section_LaneDirection_descriptor() {
 }
 bool Section_LaneDirection_IsValid(int value) {
   switch(value) {
+    case 0:
     case 1:
     case 2:
     case 3:
@@ -127,6 +128,7 @@ bool Section_LaneDirection_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
+const Section_LaneDirection Section::UN_KNOWN;
 const Section_LaneDirection Section::FORWARD;
 const Section_LaneDirection Section::BACKWARD;
 const Section_LaneDirection Section::TWOWAY;
@@ -162,7 +164,7 @@ Section::Section(const Section& from)
 void Section::SharedCtor() {
   _cached_size_ = 0;
   id_ = NULL;
-  direction_ = 1;
+  direction_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -203,7 +205,7 @@ void Section::Clear() {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
-    direction_ = 1;
+    direction_ = 0;
   }
   lanes_.Clear();
   pred_indices_.Clear();

@@ -41,6 +41,7 @@ class Zone;
 class Obstacle;
 
 enum SemanticPoint_PointType {
+  SemanticPoint_PointType_UN_KNOWN = 0,
   SemanticPoint_PointType_EXIT_POINT = 1,
   SemanticPoint_PointType_ENTRY_POINT = 2,
   SemanticPoint_PointType_TASK_POINT = 3,
@@ -48,7 +49,7 @@ enum SemanticPoint_PointType {
   SemanticPoint_PointType_UNCERTAIN = 5
 };
 bool SemanticPoint_PointType_IsValid(int value);
-const SemanticPoint_PointType SemanticPoint_PointType_PointType_MIN = SemanticPoint_PointType_EXIT_POINT;
+const SemanticPoint_PointType SemanticPoint_PointType_PointType_MIN = SemanticPoint_PointType_UN_KNOWN;
 const SemanticPoint_PointType SemanticPoint_PointType_PointType_MAX = SemanticPoint_PointType_UNCERTAIN;
 const int SemanticPoint_PointType_PointType_ARRAYSIZE = SemanticPoint_PointType_PointType_MAX + 1;
 
@@ -62,7 +63,28 @@ inline bool SemanticPoint_PointType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<SemanticPoint_PointType>(
     SemanticPoint_PointType_descriptor(), name, value);
 }
+enum Zone_ZoneType {
+  Zone_ZoneType_UN_KNOWN = 0,
+  Zone_ZoneType_MINIING_SOIL = 1,
+  Zone_ZoneType_DUMPING_SOIL = 2
+};
+bool Zone_ZoneType_IsValid(int value);
+const Zone_ZoneType Zone_ZoneType_ZoneType_MIN = Zone_ZoneType_UN_KNOWN;
+const Zone_ZoneType Zone_ZoneType_ZoneType_MAX = Zone_ZoneType_DUMPING_SOIL;
+const int Zone_ZoneType_ZoneType_ARRAYSIZE = Zone_ZoneType_ZoneType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Zone_ZoneType_descriptor();
+inline const ::std::string& Zone_ZoneType_Name(Zone_ZoneType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Zone_ZoneType_descriptor(), value);
+}
+inline bool Zone_ZoneType_Parse(
+    const ::std::string& name, Zone_ZoneType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Zone_ZoneType>(
+    Zone_ZoneType_descriptor(), name, value);
+}
 enum Obstacle_ObstacleType {
+  Obstacle_ObstacleType_UN_KNOWN = 0,
   Obstacle_ObstacleType_TRUNK = 1,
   Obstacle_ObstacleType_PERSON = 2,
   Obstacle_ObstacleType_CAR = 3,
@@ -70,7 +92,7 @@ enum Obstacle_ObstacleType {
   Obstacle_ObstacleType_UNCERTAIN = 5
 };
 bool Obstacle_ObstacleType_IsValid(int value);
-const Obstacle_ObstacleType Obstacle_ObstacleType_ObstacleType_MIN = Obstacle_ObstacleType_TRUNK;
+const Obstacle_ObstacleType Obstacle_ObstacleType_ObstacleType_MIN = Obstacle_ObstacleType_UN_KNOWN;
 const Obstacle_ObstacleType Obstacle_ObstacleType_ObstacleType_MAX = Obstacle_ObstacleType_UNCERTAIN;
 const int Obstacle_ObstacleType_ObstacleType_ARRAYSIZE = Obstacle_ObstacleType_ObstacleType_MAX + 1;
 
@@ -138,6 +160,7 @@ class SemanticPoint : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef SemanticPoint_PointType PointType;
+  static const PointType UN_KNOWN = SemanticPoint_PointType_UN_KNOWN;
   static const PointType EXIT_POINT = SemanticPoint_PointType_EXIT_POINT;
   static const PointType ENTRY_POINT = SemanticPoint_PointType_ENTRY_POINT;
   static const PointType TASK_POINT = SemanticPoint_PointType_TASK_POINT;
@@ -280,6 +303,31 @@ class Zone : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
+  typedef Zone_ZoneType ZoneType;
+  static const ZoneType UN_KNOWN = Zone_ZoneType_UN_KNOWN;
+  static const ZoneType MINIING_SOIL = Zone_ZoneType_MINIING_SOIL;
+  static const ZoneType DUMPING_SOIL = Zone_ZoneType_DUMPING_SOIL;
+  static inline bool ZoneType_IsValid(int value) {
+    return Zone_ZoneType_IsValid(value);
+  }
+  static const ZoneType ZoneType_MIN =
+    Zone_ZoneType_ZoneType_MIN;
+  static const ZoneType ZoneType_MAX =
+    Zone_ZoneType_ZoneType_MAX;
+  static const int ZoneType_ARRAYSIZE =
+    Zone_ZoneType_ZoneType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ZoneType_descriptor() {
+    return Zone_ZoneType_descriptor();
+  }
+  static inline const ::std::string& ZoneType_Name(ZoneType value) {
+    return Zone_ZoneType_Name(value);
+  }
+  static inline bool ZoneType_Parse(const ::std::string& name,
+      ZoneType* value) {
+    return Zone_ZoneType_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // required .hdmap_proto.Id id = 1;
@@ -300,17 +348,12 @@ class Zone : public ::google::protobuf::Message {
   inline ::hdmap_proto::Polygon* release_border();
   inline void set_allocated_border(::hdmap_proto::Polygon* border);
 
-  // optional string description = 3;
-  inline bool has_description() const;
-  inline void clear_description();
-  static const int kDescriptionFieldNumber = 3;
-  inline const ::std::string& description() const;
-  inline void set_description(const ::std::string& value);
-  inline void set_description(const char* value);
-  inline void set_description(const char* value, size_t size);
-  inline ::std::string* mutable_description();
-  inline ::std::string* release_description();
-  inline void set_allocated_description(::std::string* description);
+  // optional .hdmap_proto.Zone.ZoneType Type = 3;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 3;
+  inline ::hdmap_proto::Zone_ZoneType type() const;
+  inline void set_type(::hdmap_proto::Zone_ZoneType value);
 
   // repeated .hdmap_proto.Id link_ids = 4;
   inline int link_ids_size() const;
@@ -330,8 +373,8 @@ class Zone : public ::google::protobuf::Message {
   inline void clear_has_id();
   inline void set_has_border();
   inline void clear_has_border();
-  inline void set_has_description();
-  inline void clear_has_description();
+  inline void set_has_type();
+  inline void clear_has_type();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -339,8 +382,8 @@ class Zone : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::hdmap_proto::Id* id_;
   ::hdmap_proto::Polygon* border_;
-  ::std::string* description_;
   ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id > link_ids_;
+  int type_;
   friend void  protobuf_AddDesc_object_2eproto();
   friend void protobuf_AssignDesc_object_2eproto();
   friend void protobuf_ShutdownFile_object_2eproto();
@@ -402,6 +445,7 @@ class Obstacle : public ::google::protobuf::Message {
   // nested types ----------------------------------------------------
 
   typedef Obstacle_ObstacleType ObstacleType;
+  static const ObstacleType UN_KNOWN = Obstacle_ObstacleType_UN_KNOWN;
   static const ObstacleType TRUNK = Obstacle_ObstacleType_TRUNK;
   static const ObstacleType PERSON = Obstacle_ObstacleType_PERSON;
   static const ObstacleType CAR = Obstacle_ObstacleType_CAR;
@@ -560,7 +604,7 @@ inline void SemanticPoint::clear_has_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void SemanticPoint::clear_type() {
-  type_ = 1;
+  type_ = 0;
   clear_has_type();
 }
 inline ::hdmap_proto::SemanticPoint_PointType SemanticPoint::type() const {
@@ -731,80 +775,29 @@ inline void Zone::set_allocated_border(::hdmap_proto::Polygon* border) {
   // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Zone.border)
 }
 
-// optional string description = 3;
-inline bool Zone::has_description() const {
+// optional .hdmap_proto.Zone.ZoneType Type = 3;
+inline bool Zone::has_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Zone::set_has_description() {
+inline void Zone::set_has_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Zone::clear_has_description() {
+inline void Zone::clear_has_type() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Zone::clear_description() {
-  if (description_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    description_->clear();
-  }
-  clear_has_description();
+inline void Zone::clear_type() {
+  type_ = 0;
+  clear_has_type();
 }
-inline const ::std::string& Zone::description() const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.description)
-  return *description_;
+inline ::hdmap_proto::Zone_ZoneType Zone::type() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.Type)
+  return static_cast< ::hdmap_proto::Zone_ZoneType >(type_);
 }
-inline void Zone::set_description(const ::std::string& value) {
-  set_has_description();
-  if (description_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    description_ = new ::std::string;
-  }
-  description_->assign(value);
-  // @@protoc_insertion_point(field_set:hdmap_proto.Zone.description)
-}
-inline void Zone::set_description(const char* value) {
-  set_has_description();
-  if (description_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    description_ = new ::std::string;
-  }
-  description_->assign(value);
-  // @@protoc_insertion_point(field_set_char:hdmap_proto.Zone.description)
-}
-inline void Zone::set_description(const char* value, size_t size) {
-  set_has_description();
-  if (description_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    description_ = new ::std::string;
-  }
-  description_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:hdmap_proto.Zone.description)
-}
-inline ::std::string* Zone::mutable_description() {
-  set_has_description();
-  if (description_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    description_ = new ::std::string;
-  }
-  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.description)
-  return description_;
-}
-inline ::std::string* Zone::release_description() {
-  clear_has_description();
-  if (description_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    return NULL;
-  } else {
-    ::std::string* temp = description_;
-    description_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    return temp;
-  }
-}
-inline void Zone::set_allocated_description(::std::string* description) {
-  if (description_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete description_;
-  }
-  if (description) {
-    set_has_description();
-    description_ = description;
-  } else {
-    clear_has_description();
-    description_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
-  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Zone.description)
+inline void Zone::set_type(::hdmap_proto::Zone_ZoneType value) {
+  assert(::hdmap_proto::Zone_ZoneType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Zone.Type)
 }
 
 // repeated .hdmap_proto.Id link_ids = 4;
@@ -958,7 +951,7 @@ inline void Obstacle::clear_has_type() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void Obstacle::clear_type() {
-  type_ = 1;
+  type_ = 0;
   clear_has_type();
 }
 inline ::hdmap_proto::Obstacle_ObstacleType Obstacle::type() const {
@@ -1015,6 +1008,11 @@ template <> struct is_proto_enum< ::hdmap_proto::SemanticPoint_PointType> : ::go
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::hdmap_proto::SemanticPoint_PointType>() {
   return ::hdmap_proto::SemanticPoint_PointType_descriptor();
+}
+template <> struct is_proto_enum< ::hdmap_proto::Zone_ZoneType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::hdmap_proto::Zone_ZoneType>() {
+  return ::hdmap_proto::Zone_ZoneType_descriptor();
 }
 template <> struct is_proto_enum< ::hdmap_proto::Obstacle_ObstacleType> : ::google::protobuf::internal::true_type {};
 template <>

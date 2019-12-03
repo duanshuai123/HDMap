@@ -10,6 +10,7 @@ message Section {
   required Id id = 1;
 
   enum LaneDirection {
+    UN_KNOWN = 0;
     FORWARD = 1;
     BACKWARD = 2;
     TWOWAY= 3;
