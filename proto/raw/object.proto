@@ -34,7 +34,8 @@ message Zone {
   required Id id = 1;
   required Polygon border = 2;
   optional ZoneType Type = 3;
-  repeated Id link_ids = 4;
+  repeated Id link_pre_ids = 4;
+  repeated Id link_suc_ids = 5;
 }
 
 message Obstacle

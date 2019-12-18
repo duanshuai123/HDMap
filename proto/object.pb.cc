@@ -62,11 +62,12 @@ void protobuf_AssignDesc_object_2eproto() {
       sizeof(SemanticPoint));
   SemanticPoint_PointType_descriptor_ = SemanticPoint_descriptor_->enum_type(0);
   Zone_descriptor_ = file->message_type(1);
-  static const int Zone_offsets_[4] = {
+  static const int Zone_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, border_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, link_ids_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, link_pre_ids_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, link_suc_ids_),
   };
   Zone_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -148,19 +149,20 @@ void protobuf_AddDesc_object_2eproto() {
     "\030\004 \003(\0132\017.hdmap_proto.Id\"k\n\tPointType\022\014\n\010"
     "UN_KNOWN\020\000\022\016\n\nEXIT_POINT\020\001\022\017\n\013ENTRY_POIN"
     "T\020\002\022\016\n\nTASK_POINT\020\003\022\020\n\014DEVICE_POINT\020\004\022\r\n"
-    "\tUNCERTAIN\020\005\"\324\001\n\004Zone\022\033\n\002id\030\001 \002(\0132\017.hdma"
+    "\tUNCERTAIN\020\005\"\377\001\n\004Zone\022\033\n\002id\030\001 \002(\0132\017.hdma"
     "p_proto.Id\022$\n\006border\030\002 \002(\0132\024.hdmap_proto"
     ".Polygon\022(\n\004Type\030\003 \001(\0162\032.hdmap_proto.Zon"
-    "e.ZoneType\022!\n\010link_ids\030\004 \003(\0132\017.hdmap_pro"
-    "to.Id\"<\n\010ZoneType\022\014\n\010UN_KNOWN\020\000\022\020\n\014MINII"
-    "NG_SOIL\020\001\022\020\n\014DUMPING_SOIL\020\002\"\216\002\n\010Obstacle"
-    "\022\033\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\022$\n\006border\030"
-    "\002 \002(\0132\024.hdmap_proto.Polygon\022\016\n\006Height\030\003 "
-    "\001(\001\0220\n\004Type\030\004 \001(\0162\".hdmap_proto.Obstacle"
-    ".ObstacleType\022!\n\010link_ids\030\005 \003(\0132\017.hdmap_"
-    "proto.Id\"Z\n\014ObstacleType\022\014\n\010UN_KNOWN\020\000\022\t"
-    "\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022\r\n\tEXCAVA"
-    "TOR\020\004\022\r\n\tUNCERTAIN\020\005", 820);
+    "e.ZoneType\022%\n\014link_pre_ids\030\004 \003(\0132\017.hdmap"
+    "_proto.Id\022%\n\014link_suc_ids\030\005 \003(\0132\017.hdmap_"
+    "proto.Id\"<\n\010ZoneType\022\014\n\010UN_KNOWN\020\000\022\020\n\014MI"
+    "NIING_SOIL\020\001\022\020\n\014DUMPING_SOIL\020\002\"\216\002\n\010Obsta"
+    "cle\022\033\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\022$\n\006bord"
+    "er\030\002 \002(\0132\024.hdmap_proto.Polygon\022\016\n\006Height"
+    "\030\003 \001(\001\0220\n\004Type\030\004 \001(\0162\".hdmap_proto.Obsta"
+    "cle.ObstacleType\022!\n\010link_ids\030\005 \003(\0132\017.hdm"
+    "ap_proto.Id\"Z\n\014ObstacleType\022\014\n\010UN_KNOWN\020"
+    "\000\022\t\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022\r\n\tEXC"
+    "AVATOR\020\004\022\r\n\tUNCERTAIN\020\005", 863);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "object.proto", &protobuf_RegisterTypes);
   SemanticPoint::default_instance_ = new SemanticPoint();
@@ -602,7 +604,8 @@ const int Zone::ZoneType_ARRAYSIZE;
 const int Zone::kIdFieldNumber;
 const int Zone::kBorderFieldNumber;
 const int Zone::kTypeFieldNumber;
-const int Zone::kLinkIdsFieldNumber;
+const int Zone::kLinkPreIdsFieldNumber;
+const int Zone::kLinkSucIdsFieldNumber;
 #endif  // !_MSC_VER
 
 Zone::Zone()
@@ -674,7 +677,8 @@ void Zone::Clear() {
     }
     type_ = 0;
   }
-  link_ids_.Clear();
+  link_pre_ids_.Clear();
+  link_suc_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -730,20 +734,34 @@ bool Zone::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_link_ids;
+        if (input->ExpectTag(34)) goto parse_link_pre_ids;
         break;
       }
 
-      // repeated .hdmap_proto.Id link_ids = 4;
+      // repeated .hdmap_proto.Id link_pre_ids = 4;
       case 4: {
         if (tag == 34) {
-         parse_link_ids:
+         parse_link_pre_ids:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_link_ids()));
+                input, add_link_pre_ids()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_link_ids;
+        if (input->ExpectTag(34)) goto parse_link_pre_ids;
+        if (input->ExpectTag(42)) goto parse_link_suc_ids;
+        break;
+      }
+
+      // repeated .hdmap_proto.Id link_suc_ids = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_link_suc_ids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_link_suc_ids()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_link_suc_ids;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -791,10 +809,16 @@ void Zone::SerializeWithCachedSizes(
       3, this->type(), output);
   }
 
-  // repeated .hdmap_proto.Id link_ids = 4;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  // repeated .hdmap_proto.Id link_pre_ids = 4;
+  for (int i = 0; i < this->link_pre_ids_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->link_ids(i), output);
+      4, this->link_pre_ids(i), output);
+  }
+
+  // repeated .hdmap_proto.Id link_suc_ids = 5;
+  for (int i = 0; i < this->link_suc_ids_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->link_suc_ids(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -827,11 +851,18 @@ void Zone::SerializeWithCachedSizes(
       3, this->type(), target);
   }
 
-  // repeated .hdmap_proto.Id link_ids = 4;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  // repeated .hdmap_proto.Id link_pre_ids = 4;
+  for (int i = 0; i < this->link_pre_ids_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        4, this->link_ids(i), target);
+        4, this->link_pre_ids(i), target);
+  }
+
+  // repeated .hdmap_proto.Id link_suc_ids = 5;
+  for (int i = 0; i < this->link_suc_ids_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->link_suc_ids(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -867,12 +898,20 @@ int Zone::ByteSize() const {
     }
 
   }
-  // repeated .hdmap_proto.Id link_ids = 4;
-  total_size += 1 * this->link_ids_size();
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  // repeated .hdmap_proto.Id link_pre_ids = 4;
+  total_size += 1 * this->link_pre_ids_size();
+  for (int i = 0; i < this->link_pre_ids_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->link_ids(i));
+        this->link_pre_ids(i));
+  }
+
+  // repeated .hdmap_proto.Id link_suc_ids = 5;
+  total_size += 1 * this->link_suc_ids_size();
+  for (int i = 0; i < this->link_suc_ids_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->link_suc_ids(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -900,7 +939,8 @@ void Zone::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Zone::MergeFrom(const Zone& from) {
   GOOGLE_CHECK_NE(&from, this);
-  link_ids_.MergeFrom(from.link_ids_);
+  link_pre_ids_.MergeFrom(from.link_pre_ids_);
+  link_suc_ids_.MergeFrom(from.link_suc_ids_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       mutable_id()->::hdmap_proto::Id::MergeFrom(from.id());
@@ -936,7 +976,8 @@ bool Zone::IsInitialized() const {
   if (has_border()) {
     if (!this->border().IsInitialized()) return false;
   }
-  if (!::google::protobuf::internal::AllAreInitialized(this->link_ids())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->link_pre_ids())) return false;
+  if (!::google::protobuf::internal::AllAreInitialized(this->link_suc_ids())) return false;
   return true;
 }
 
@@ -945,7 +986,8 @@ void Zone::Swap(Zone* other) {
     std::swap(id_, other->id_);
     std::swap(border_, other->border_);
     std::swap(type_, other->type_);
-    link_ids_.Swap(&other->link_ids_);
+    link_pre_ids_.Swap(&other->link_pre_ids_);
+    link_suc_ids_.Swap(&other->link_suc_ids_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

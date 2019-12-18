@@ -355,17 +355,29 @@ class Zone : public ::google::protobuf::Message {
   inline ::hdmap_proto::Zone_ZoneType type() const;
   inline void set_type(::hdmap_proto::Zone_ZoneType value);
 
-  // repeated .hdmap_proto.Id link_ids = 4;
-  inline int link_ids_size() const;
-  inline void clear_link_ids();
-  static const int kLinkIdsFieldNumber = 4;
-  inline const ::hdmap_proto::Id& link_ids(int index) const;
-  inline ::hdmap_proto::Id* mutable_link_ids(int index);
-  inline ::hdmap_proto::Id* add_link_ids();
+  // repeated .hdmap_proto.Id link_pre_ids = 4;
+  inline int link_pre_ids_size() const;
+  inline void clear_link_pre_ids();
+  static const int kLinkPreIdsFieldNumber = 4;
+  inline const ::hdmap_proto::Id& link_pre_ids(int index) const;
+  inline ::hdmap_proto::Id* mutable_link_pre_ids(int index);
+  inline ::hdmap_proto::Id* add_link_pre_ids();
   inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
-      link_ids() const;
+      link_pre_ids() const;
   inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
-      mutable_link_ids();
+      mutable_link_pre_ids();
+
+  // repeated .hdmap_proto.Id link_suc_ids = 5;
+  inline int link_suc_ids_size() const;
+  inline void clear_link_suc_ids();
+  static const int kLinkSucIdsFieldNumber = 5;
+  inline const ::hdmap_proto::Id& link_suc_ids(int index) const;
+  inline ::hdmap_proto::Id* mutable_link_suc_ids(int index);
+  inline ::hdmap_proto::Id* add_link_suc_ids();
+  inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+      link_suc_ids() const;
+  inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+      mutable_link_suc_ids();
 
   // @@protoc_insertion_point(class_scope:hdmap_proto.Zone)
  private:
@@ -382,7 +394,8 @@ class Zone : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::hdmap_proto::Id* id_;
   ::hdmap_proto::Polygon* border_;
-  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id > link_ids_;
+  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id > link_pre_ids_;
+  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id > link_suc_ids_;
   int type_;
   friend void  protobuf_AddDesc_object_2eproto();
   friend void protobuf_AssignDesc_object_2eproto();
@@ -800,34 +813,64 @@ inline void Zone::set_type(::hdmap_proto::Zone_ZoneType value) {
   // @@protoc_insertion_point(field_set:hdmap_proto.Zone.Type)
 }
 
-// repeated .hdmap_proto.Id link_ids = 4;
-inline int Zone::link_ids_size() const {
-  return link_ids_.size();
+// repeated .hdmap_proto.Id link_pre_ids = 4;
+inline int Zone::link_pre_ids_size() const {
+  return link_pre_ids_.size();
 }
-inline void Zone::clear_link_ids() {
-  link_ids_.Clear();
+inline void Zone::clear_link_pre_ids() {
+  link_pre_ids_.Clear();
 }
-inline const ::hdmap_proto::Id& Zone::link_ids(int index) const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.link_ids)
-  return link_ids_.Get(index);
+inline const ::hdmap_proto::Id& Zone::link_pre_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Get(index);
 }
-inline ::hdmap_proto::Id* Zone::mutable_link_ids(int index) {
-  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.link_ids)
-  return link_ids_.Mutable(index);
+inline ::hdmap_proto::Id* Zone::mutable_link_pre_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Mutable(index);
 }
-inline ::hdmap_proto::Id* Zone::add_link_ids() {
-  // @@protoc_insertion_point(field_add:hdmap_proto.Zone.link_ids)
-  return link_ids_.Add();
+inline ::hdmap_proto::Id* Zone::add_link_pre_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
-Zone::link_ids() const {
-  // @@protoc_insertion_point(field_list:hdmap_proto.Zone.link_ids)
-  return link_ids_;
+Zone::link_pre_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
-Zone::mutable_link_ids() {
-  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Zone.link_ids)
-  return &link_ids_;
+Zone::mutable_link_pre_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Zone.link_pre_ids)
+  return &link_pre_ids_;
+}
+
+// repeated .hdmap_proto.Id link_suc_ids = 5;
+inline int Zone::link_suc_ids_size() const {
+  return link_suc_ids_.size();
+}
+inline void Zone::clear_link_suc_ids() {
+  link_suc_ids_.Clear();
+}
+inline const ::hdmap_proto::Id& Zone::link_suc_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Get(index);
+}
+inline ::hdmap_proto::Id* Zone::mutable_link_suc_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Mutable(index);
+}
+inline ::hdmap_proto::Id* Zone::add_link_suc_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+Zone::link_suc_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+Zone::mutable_link_suc_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Zone.link_suc_ids)
+  return &link_suc_ids_;
 }
 
 // -------------------------------------------------------------------
