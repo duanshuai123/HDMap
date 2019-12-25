@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 2.8)
 project(HDmap_param)
 
 message("config types: ${CMAKE_CONFIGURATION_TYPES}")
-
-set(CMAKE_BUILD_TYPE Release)
-
 add_compile_options(-std=c++11  -fPIC )                                                    
                                                                                    
 find_package(Protobuf REQUIRED)  
@@ -31,7 +28,7 @@ foreach(fil ${PROTOBUF_FILES})
            "${PROTOBUF_DIR}/${fil_we}_pb2.py"                                      
     WORKING_DIRECTORY ${PROTOBUF_RAW_DIR}                                          
     COMMAND ${CMAKE_COMMAND} -E make_directory "${PROTOBUF_DIR}"                   
-    COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} -I${PROTOBUF_RAW_DIR} --cpp_out "${PROTOBUF_DIR}" ${abs_fil}            #生成C++
+    COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} -I${PROTOBUF_RAW_DIR} --cpp_out "${PROTOBUF_DIR}" ${abs_fil}        #生成C++
     #COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} -I${PROTOBUF_RAW_DIR} --python_out "${PROTOBUF_DIR}" ${abs_fil}    #生成Python
     DEPENDS ${PROTOBUF_PROTOC_EXECUTABLE} ${abs_fil}                               
     COMMENT "Running C++/Python protocol buffer compiler on ${fil}" VERBATIM )  
@@ -39,9 +36,12 @@ foreach(fil ${PROTOBUF_FILES})
 endforeach()                                                                       
                                
 file( GLOB Interface_h_list  ${INTERFACE_DIR}*.h)
-file( GLOB Interface_cpp_list ${INTERFACE_DIR}*.cpp)
+file( GLOB Interface_cpp_list ${INTERFACE_DIR}*.cc)
 
 #set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR})      #设置输出路径                           
 add_library(${PROJECT_NAME} SHARED ${PROTOBUF_GEN_SRCS} ${PROTOBUF_GEN_INCS}  ${Interface_h_list} ${Interface_cpp_list})
-                                                                                                                                               
-#add_subdirectory(test)
+            
+target_link_libraries( ${PROJECT_NAME} ${PROTOBUF_LIBRARIES})
+
+add_subdirectory(test)
+

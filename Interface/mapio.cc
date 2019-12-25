@@ -1,5 +1,5 @@
 
-#include "include/mapio.h"
+#include "mapio.h"
 
 using std::ios;
 using std::ios_base;

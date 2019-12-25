@@ -1,13 +1,13 @@
-include_directories(
-  ${PROJECT_SOURCE_DIR}/include
-)
+#include_directories(
+#  ${PROJECT_SOURCE_DIR}/include
+#)
+project(unit_test)
 
+#find_package(Protobuf REQUIRED)  #Protobuf
+set( SOURCE_FILES main.cc )
 
-set(SOURCE_FILES
-        gtest_main.cc
-        )
-
-add_executable(unit_test ${SOURCE_FILES})
+add_executable( ${PROJECT_NAME} ${SOURCE_FILES} )
+target_link_libraries( unit_test  HDmap_param )
 
 if (${PLATFORM_WIN})
      set(CMAKE_CXX_FLAGS_RELEASE "/MT")

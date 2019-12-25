@@ -5,7 +5,7 @@
 
 #ifndef MAP_KQ_IO_H_
 #define MAP_KQ_IO_H_
-#include "proto/map.pb.h"
+#include "../proto/map.pb.h"
 
 #include <fcntl.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
@@ -17,12 +17,13 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+using namespace hdmap_proto;
 
 namespace hdmap_kq_op {
 class MapIO {
  public:
   MapIO() {}
-  explicit MapIO(hdmap_kq_proto::Map *map) : map_(map) {}
+  explicit MapIO(Map *map) : map_(map) {}
 
   bool readTextFileToProtobufMap(const std::string &file_path);
   bool saveProtobufMapToTextFile(const std::string &save_path);
@@ -33,7 +34,7 @@ class MapIO {
   std::string toString();
 
  private:
-  hdmap_kq_proto::Map *map_;
+  Map *map_;
 };
 
 }  // namespace hdmap_kq_proto
