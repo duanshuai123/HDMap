@@ -16,33 +16,9 @@ int id_num = 0;
 using namespace hdmap_proto;
 using namespace hdmap_kq_op;
 
-void initialMap(Map *map) {
-  // ************  Set head  ************************************
-  Header *head = map->mutable_header();
-  head->set_version("1.0");
-  head->set_date("30-10-2018");
-  head->set_projection("proj");
-
-  Zone *zone;
-
-  zone = map->add_zones();
-  Id* id = zone->mutable_id();
-  id->set_id(id_num++);
-  id->set_name("zone a");
-
-  // section
-  Section *section;
-
-  section = map->add_sections();
-  id = section->mutable_id();
-  id->set_id(id_num++);
-  id->set_name("section a");
-}
-
 int main(void) 
 {
   Map proto_map;
-  //initialMap(&proto_map);
   std::cout << "initial OK" << std::endl;
 
   std::string txt_file = "../../test/testData_ZGC.txt";
