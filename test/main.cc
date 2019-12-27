@@ -1,5 +1,4 @@
 
-
 #include "../proto/map.pb.h"
 #include "../proto/object.pb.h"
 #include "../Interface/mapio.h"
@@ -19,11 +18,9 @@ using namespace hdmap_kq_op;
 int main(void) 
 {
   Map proto_map;
-  std::cout << "initial OK" << std::endl;
-
   std::string txt_file = "../../test/testData_ZGC.txt";
   MapIO io(&proto_map);
-  if (!io.readTextFileToProtobufMap(txt_file)) 
+  if (!io.readTextFileToProtobufMap(txt_file))
     return -1;
   
   HDMapTopoHelper* pHelper = new HDMapTopoHelper();
@@ -45,5 +42,6 @@ int main(void)
      std::cout <<  pt.x() << " " <<  pt.y() << " " << pt.z() << std::endl;
   }
   
+  delete pHelper;
   return 0;
 }
