@@ -20,5 +20,5 @@ message Map {
   repeated Section sections = 2;
   repeated Zone zones = 3;
   repeated Obstacle obstacles = 4;
-   repeated  SemanticPoint  segPoint = 5;
+  repeated  SemanticPoint  segPoint = 5;
 }

@@ -1,6 +1,6 @@
 
 #include "mapCommonFunc.h"
-
+#include <float.h>
 using std::ios;
 using std::ios_base;
 
@@ -141,5 +141,165 @@ double mapCommonFunc::getSectionDistance(Section* pSection)
     return geoAlgorithm::DisTance(vecPts);
 }
 
+void geoSpatialSearch::clearTree()
+{
+    for(int i = 0;i < m_vecTempDatas.size();i++)
+    {
+        delete m_vecTempDatas[i];
+    }
+    m_vecTempDatas.clear();
+    m_mapRtree.RemoveAll();//回归到初始化
+}
+
+void geoSpatialSearch::InitialMap(const Map* pMap) 
+{
+    m_MapData = pMap;
+    clearTree();
+    
+    int nSectionSize = pMap->sections_size();
+    for(int i = 0;i<nSectionSize;i++)
+    {
+        const Section section =  pMap->sections(i);
+        int nLaneSize = section.lanes_size();
+        for(int j = 0; j < nLaneSize; j++)
+        {
+           const Lane lane = section.lanes(j);
+           double a_min[3],a_max[3];
+           getLaneBBox(lane,a_min,a_max);
+           GeoInfo* info = new GeoInfo();
+           info->m_eType = mt_Lane;
+           info->m_nLaneIndex = j;
+           info->m_nSectionIndex = i;
+           m_mapRtree.Insert(a_min,a_max,info);
+           m_vecTempDatas.push_back(info);
+        }
+    }
+    
+    int nZoneSize = pMap->zones_size();
+    for(int i = 0;i<nZoneSize;i++)
+    {
+        const Zone zone =  pMap->zones(i);
+        Polygon polygon = zone.border();
+        double a_min[3],a_max[3];
+        getPolygonBBox(polygon,a_min,a_max);
+        GeoInfo* info = new GeoInfo();
+        info->m_eType = mt_Zone;
+        info->m_nZoneIndex = i;
+        m_mapRtree.Insert(a_min,a_max,info);
+        m_vecTempDatas.push_back(info);
+    }
+    
+    int nObstaclesSize = pMap->obstacles_size();
+    for(int i = 0;i<nObstaclesSize;i++)
+    {
+        const Obstacle obs =  pMap->obstacles(i);
+        Polygon polygon = obs.border();
+        double a_min[3],a_max[3];
+        getPolygonBBox(polygon,a_min,a_max);
+        GeoInfo* info = new GeoInfo();
+        info->m_eType = mt_Obstacle;
+        info->m_nObstacleIndex = i;
+        m_mapRtree.Insert(a_min,a_max,info);
+        m_vecTempDatas.push_back(info);
+    }
+    
+    int nSegPtSize = pMap->segpoint_size();
+    for(int i = 0;i<nSegPtSize;i++)
+    {
+        const SemanticPoint obs =  pMap->segpoint(i);
+        Vector3d pos = obs.pos();
+        double a_min[3] = { pos.x(),pos.y(),pos.z() };
+        double a_max[3] = { pos.x(),pos.y(),pos.z() };
+        
+        GeoInfo* info = new GeoInfo();
+        info->m_eType = mt_SemanticPoint;
+        info->m_nSegPtIndex = i;
+        m_mapRtree.Insert(a_min,a_max,info);
+        m_vecTempDatas.push_back(info);
+    }
+    //other ...
+}
+
+void geoSpatialSearch::Search(Vector3d pt,double dRadius,vector<GeoInfo*>& results)
+{
+    //查询区域向外拓展固定容差，防止漏选
+    double ExtentRangMin[3] = { pt.x()-dRadius, pt.y()-dRadius, pt.z()-dRadius };
+    double ExtentRangMax[3] = { pt.x()+dRadius, pt.y()+dRadius, pt.z()+dRadius };
+
+    int nSize = m_mapRtree.Search(ExtentRangMin,ExtentRangMax,results);
+    return ;
+}
+
+void geoSpatialSearch::Search(Vector3d MinPt,Vector3d MaxPt,vector<GeoInfo*>& results)
+{
+    //查询区域向外拓展固定容差，防止漏选
+    double ExtentRangMin[3] = { MinPt.x(), MinPt.y(), MinPt.z() };
+    double ExtentRangMax[3] = { MaxPt.x(), MaxPt.y(), MaxPt.z() };
+
+    int nSize = m_mapRtree.Search(ExtentRangMin,ExtentRangMax,results);
+    return ;
+}
+
+void geoSpatialSearch::getPolygonBBox(const Polygon& polygon,double* min,double* max)
+{
+    double dMinX=DBL_MAX,dMinY=DBL_MAX,dMinZ=DBL_MAX;
+    double dMaxX=DBL_MIN,dMaxY=DBL_MIN,dMaxZ=DBL_MIN;
+    
+    int nSize = polygon.points_size();
+    for(int i = 0; i < nSize;i++)
+    {
+        Vector3d  protoPt = polygon.points(i);
+        dMinX = protoPt.x() < dMinX ? protoPt.x() : dMinX;
+        dMinY = protoPt.y() < dMinY ? protoPt.y() : dMinY;
+        dMinZ = protoPt.z() < dMinZ ? protoPt.z() : dMinZ;
+            
+        dMaxX = protoPt.x() > dMaxX ? protoPt.x() : dMaxX;
+        dMaxY = protoPt.y() > dMaxY ? protoPt.y() : dMaxY;
+        dMaxZ = protoPt.z() > dMaxZ ? protoPt.z() : dMaxZ;
+    }
+    
+    min[0]= dMinX;
+    min[1]= dMinY;
+    min[2]= dMinZ;
+    max[0]= dMaxX;
+    max[1]= dMaxY;
+    max[2]= dMaxZ;
+    return;
+}
+
+void geoSpatialSearch::getLaneBBox(const Lane& lane,double* min,double* max)
+{
+    double dMinX=DBL_MAX,dMinY=DBL_MAX,dMinZ=DBL_MAX;
+    double dMaxX=DBL_MIN,dMaxY=DBL_MIN,dMaxZ=DBL_MIN;
+    
+    int nSize = lane.lines_size();
+    for(int i = 0; i < nSize;i++)
+    {
+        CurveLine  pcurveLine = lane.lines(i);
+        int nPtSize = pcurveLine.points_size();
+        if(nPtSize<1)
+            continue;
+
+        for(int j = 0; j < nPtSize; j++)
+        {
+            hdmap_proto::Vector3d protoPt = pcurveLine.points(j);
+            dMinX = protoPt.x() < dMinX ? protoPt.x() : dMinX;
+            dMinY = protoPt.y() < dMinY ? protoPt.y() : dMinY;
+            dMinZ = protoPt.z() < dMinZ ? protoPt.z() : dMinZ;
+            
+            dMaxX = protoPt.x() > dMaxX ? protoPt.x() : dMaxX;
+            dMaxY = protoPt.y() > dMaxY ? protoPt.y() : dMaxY;
+            dMaxZ = protoPt.z() > dMaxZ ? protoPt.z() : dMaxZ;
+        }
+    }
+    
+    min[0]= dMinX;
+    min[1]= dMinY;
+    min[2]= dMinZ;
+    max[0]= dMaxX;
+    max[1]= dMaxY;
+    max[2]= dMaxZ;
+    return;
+}
 
 }  // namespace hdmap_op

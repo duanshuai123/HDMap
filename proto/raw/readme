@@ -16,7 +16,5 @@ Map
 |--|--|--float
 |--|--Zone                               //多边形，黄色填充
 
-CrossWalk                                //外多边形不显示，内多边形组白色填充
-section-border                           //bezier曲线，默认宽度0.3，绿色
 section-refline                          //bezier曲线，默认无宽度（最细），红色
 map-borders                              //bezier曲线，默认宽度0.3，绿色

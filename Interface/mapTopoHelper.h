@@ -69,7 +69,6 @@ public:
     HDMapTopoHelper();
     ~HDMapTopoHelper();
 public:
-
     //点对点路径查询，输出路径点
     vector<Vector3d>  Search(Vector3d  startPt, Vector3d endPt);
     //初始化地图数据，并构建路网

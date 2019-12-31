@@ -5,9 +5,8 @@ package hdmap_proto;
 import "id.proto";
 import "geometry.proto";
 
-message SemanticPoint{
+message SemanticPoint {
     required Id id = 1;
-
     enum PointType {
     UN_KNOWN   =   0;
     EXIT_POINT  =  1;      //出口
@@ -23,7 +22,6 @@ message SemanticPoint{
 
 // Zone
 message Zone {
-
   enum  ZoneType
   {
      UN_KNOWN   =   0;
@@ -38,8 +36,7 @@ message Zone {
   repeated Id link_suc_ids = 5;
 }
 
-message Obstacle
-{
+message Obstacle {
 required Id id = 1;
 required Polygon border = 2;
 optional double Height = 3;

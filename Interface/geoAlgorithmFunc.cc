@@ -96,6 +96,4 @@ double geoAlgorithm::DisTance(Vector3d pt1,Vector3d pt2)
     return sqrt(pow((pt1.x()-pt2.x()),2.0)+pow((pt1.y()-pt2.y()),2.0)+pow((pt1.z()-pt2.z()),2.0));
 }
 
-
-
 }  // namespace hdmap_op

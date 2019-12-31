@@ -21,21 +21,21 @@ using  namespace std;
 using  namespace hdmap_proto;
 
 namespace hdmap_kq_op {
-    
+
 class geoAlgorithm
 {
 public:
+    static  void DistanceofPointToPolyLine(const Vector3d& Pt,const vector<Vector3d>& vecLine2,
+                                        double& dDis,Vector3d& PtNearest,int& nSegIndex);
     
-    static  void DistanceofPointToPolyLine(const Vector3d& Pt,const vector<Vector3d>&  vecLine2,
-                                    double& dDis,Vector3d& PtNearest,int& nSegIndex);
     static  void DistanceOfPointToSegment(const Vector3d& PtA,const Vector3d& PtB,const Vector3d& PtS,
-                                    double& dDis,Vector3d& PtNearest);
-    static double NormalizeValue(Vector3d v);
+                                        double& dDis,Vector3d& PtNearest);
     
-    static double DisTance(const vector<Vector3d>& vecPts);
-    static double DisTance(Vector3d pt1,Vector3d pt2);
+    static  double NormalizeValue(Vector3d v);
+    
+    static  double DisTance(const vector<Vector3d>& vecPts);
+    static  double DisTance(Vector3d pt1,Vector3d pt2);
 };
-
-    
+ 
 };  // namespace hdmap_kq_proto
 #endif  // 
