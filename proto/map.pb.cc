@@ -37,10 +37,12 @@ void protobuf_AssignDesc_map_2eproto() {
       "map.proto");
   GOOGLE_CHECK(file != NULL);
   Header_descriptor_ = file->message_type(0);
-  static const int Header_offsets_[3] = {
+  static const int Header_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Header, version_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Header, date_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Header, projection_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Header, low_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Header, high_),
   };
   Header_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -54,12 +56,13 @@ void protobuf_AssignDesc_map_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Header));
   Map_descriptor_ = file->message_type(1);
-  static const int Map_offsets_[5] = {
+  static const int Map_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, header_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, sections_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, zones_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, obstacles_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, segpoint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Map, slopes_),
   };
   Map_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -105,18 +108,22 @@ void protobuf_AddDesc_map_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::hdmap_proto::protobuf_AddDesc_object_2eproto();
+  ::hdmap_proto::protobuf_AddDesc_geometry_2eproto();
   ::hdmap_proto::protobuf_AddDesc_section_2eproto();
+  ::hdmap_proto::protobuf_AddDesc_object_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\tmap.proto\022\013hdmap_proto\032\014object.proto\032\r"
-    "section.proto\";\n\006Header\022\017\n\007version\030\001 \001(\t"
-    "\022\014\n\004date\030\002 \001(\t\022\022\n\nprojection\030\003 \001(\t\"\314\001\n\003M"
-    "ap\022#\n\006header\030\001 \001(\0132\023.hdmap_proto.Header\022"
-    "&\n\010sections\030\002 \003(\0132\024.hdmap_proto.Section\022"
-    " \n\005zones\030\003 \003(\0132\021.hdmap_proto.Zone\022(\n\tobs"
-    "tacles\030\004 \003(\0132\025.hdmap_proto.Obstacle\022,\n\010s"
-    "egPoint\030\005 \003(\0132\032.hdmap_proto.SemanticPoin"
-    "t", 321);
+    "\n\tmap.proto\022\013hdmap_proto\032\016geometry.proto"
+    "\032\rsection.proto\032\014object.proto\"\204\001\n\006Header"
+    "\022\017\n\007version\030\001 \001(\t\022\014\n\004date\030\002 \001(\t\022\022\n\nproje"
+    "ction\030\003 \001(\t\022\"\n\003low\030\004 \002(\0132\025.hdmap_proto.V"
+    "ector3d\022#\n\004high\030\005 \002(\0132\025.hdmap_proto.Vect"
+    "or3d\"\364\001\n\003Map\022#\n\006header\030\001 \001(\0132\023.hdmap_pro"
+    "to.Header\022&\n\010sections\030\002 \003(\0132\024.hdmap_prot"
+    "o.Section\022 \n\005zones\030\003 \003(\0132\021.hdmap_proto.Z"
+    "one\022(\n\tobstacles\030\004 \003(\0132\025.hdmap_proto.Obs"
+    "tacle\022,\n\010segPoint\030\005 \003(\0132\032.hdmap_proto.Se"
+    "manticPoint\022&\n\006slopes\030\006 \001(\0132\026.hdmap_prot"
+    "o.SlopeSets", 451);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "map.proto", &protobuf_RegisterTypes);
   Header::default_instance_ = new Header();
@@ -139,6 +146,8 @@ struct StaticDescriptorInitializer_map_2eproto {
 const int Header::kVersionFieldNumber;
 const int Header::kDateFieldNumber;
 const int Header::kProjectionFieldNumber;
+const int Header::kLowFieldNumber;
+const int Header::kHighFieldNumber;
 #endif  // !_MSC_VER
 
 Header::Header()
@@ -148,6 +157,8 @@ Header::Header()
 }
 
 void Header::InitAsDefaultInstance() {
+  low_ = const_cast< ::hdmap_proto::Vector3d*>(&::hdmap_proto::Vector3d::default_instance());
+  high_ = const_cast< ::hdmap_proto::Vector3d*>(&::hdmap_proto::Vector3d::default_instance());
 }
 
 Header::Header(const Header& from)
@@ -163,6 +174,8 @@ void Header::SharedCtor() {
   version_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   date_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   projection_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  low_ = NULL;
+  high_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -182,6 +195,8 @@ void Header::SharedDtor() {
     delete projection_;
   }
   if (this != default_instance_) {
+    delete low_;
+    delete high_;
   }
 }
 
@@ -207,7 +222,7 @@ Header* Header::New() const {
 }
 
 void Header::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
+  if (_has_bits_[0 / 32] & 31) {
     if (has_version()) {
       if (version_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         version_->clear();
@@ -222,6 +237,12 @@ void Header::Clear() {
       if (projection_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         projection_->clear();
       }
+    }
+    if (has_low()) {
+      if (low_ != NULL) low_->::hdmap_proto::Vector3d::Clear();
+    }
+    if (has_high()) {
+      if (high_ != NULL) high_->::hdmap_proto::Vector3d::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -284,6 +305,32 @@ bool Header::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_low;
+        break;
+      }
+
+      // required .hdmap_proto.Vector3d low = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_low:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_low()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_high;
+        break;
+      }
+
+      // required .hdmap_proto.Vector3d high = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_high:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_high()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -343,6 +390,18 @@ void Header::SerializeWithCachedSizes(
       3, this->projection(), output);
   }
 
+  // required .hdmap_proto.Vector3d low = 4;
+  if (has_low()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->low(), output);
+  }
+
+  // required .hdmap_proto.Vector3d high = 5;
+  if (has_high()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->high(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -386,6 +445,20 @@ void Header::SerializeWithCachedSizes(
         3, this->projection(), target);
   }
 
+  // required .hdmap_proto.Vector3d low = 4;
+  if (has_low()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->low(), target);
+  }
+
+  // required .hdmap_proto.Vector3d high = 5;
+  if (has_high()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->high(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -417,6 +490,20 @@ int Header::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->projection());
+    }
+
+    // required .hdmap_proto.Vector3d low = 4;
+    if (has_low()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->low());
+    }
+
+    // required .hdmap_proto.Vector3d high = 5;
+    if (has_high()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->high());
     }
 
   }
@@ -455,6 +542,12 @@ void Header::MergeFrom(const Header& from) {
     if (from.has_projection()) {
       set_projection(from.projection());
     }
+    if (from.has_low()) {
+      mutable_low()->::hdmap_proto::Vector3d::MergeFrom(from.low());
+    }
+    if (from.has_high()) {
+      mutable_high()->::hdmap_proto::Vector3d::MergeFrom(from.high());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -472,7 +565,14 @@ void Header::CopyFrom(const Header& from) {
 }
 
 bool Header::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000018) != 0x00000018) return false;
 
+  if (has_low()) {
+    if (!this->low().IsInitialized()) return false;
+  }
+  if (has_high()) {
+    if (!this->high().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -481,6 +581,8 @@ void Header::Swap(Header* other) {
     std::swap(version_, other->version_);
     std::swap(date_, other->date_);
     std::swap(projection_, other->projection_);
+    std::swap(low_, other->low_);
+    std::swap(high_, other->high_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -504,6 +606,7 @@ const int Map::kSectionsFieldNumber;
 const int Map::kZonesFieldNumber;
 const int Map::kObstaclesFieldNumber;
 const int Map::kSegPointFieldNumber;
+const int Map::kSlopesFieldNumber;
 #endif  // !_MSC_VER
 
 Map::Map()
@@ -514,6 +617,7 @@ Map::Map()
 
 void Map::InitAsDefaultInstance() {
   header_ = const_cast< ::hdmap_proto::Header*>(&::hdmap_proto::Header::default_instance());
+  slopes_ = const_cast< ::hdmap_proto::SlopeSets*>(&::hdmap_proto::SlopeSets::default_instance());
 }
 
 Map::Map(const Map& from)
@@ -526,6 +630,7 @@ Map::Map(const Map& from)
 void Map::SharedCtor() {
   _cached_size_ = 0;
   header_ = NULL;
+  slopes_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -537,6 +642,7 @@ Map::~Map() {
 void Map::SharedDtor() {
   if (this != default_instance_) {
     delete header_;
+    delete slopes_;
   }
 }
 
@@ -562,8 +668,13 @@ Map* Map::New() const {
 }
 
 void Map::Clear() {
-  if (has_header()) {
-    if (header_ != NULL) header_->::hdmap_proto::Header::Clear();
+  if (_has_bits_[0 / 32] & 33) {
+    if (has_header()) {
+      if (header_ != NULL) header_->::hdmap_proto::Header::Clear();
+    }
+    if (has_slopes()) {
+      if (slopes_ != NULL) slopes_->::hdmap_proto::SlopeSets::Clear();
+    }
   }
   sections_.Clear();
   zones_.Clear();
@@ -647,6 +758,19 @@ bool Map::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(42)) goto parse_segPoint;
+        if (input->ExpectTag(50)) goto parse_slopes;
+        break;
+      }
+
+      // optional .hdmap_proto.SlopeSets slopes = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_slopes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_slopes()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -706,6 +830,12 @@ void Map::SerializeWithCachedSizes(
       5, this->segpoint(i), output);
   }
 
+  // optional .hdmap_proto.SlopeSets slopes = 6;
+  if (has_slopes()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->slopes(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -751,6 +881,13 @@ void Map::SerializeWithCachedSizes(
         5, this->segpoint(i), target);
   }
 
+  // optional .hdmap_proto.SlopeSets slopes = 6;
+  if (has_slopes()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->slopes(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -768,6 +905,13 @@ int Map::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->header());
+    }
+
+    // optional .hdmap_proto.SlopeSets slopes = 6;
+    if (has_slopes()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->slopes());
     }
 
   }
@@ -836,6 +980,9 @@ void Map::MergeFrom(const Map& from) {
     if (from.has_header()) {
       mutable_header()->::hdmap_proto::Header::MergeFrom(from.header());
     }
+    if (from.has_slopes()) {
+      mutable_slopes()->::hdmap_proto::SlopeSets::MergeFrom(from.slopes());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -854,10 +1001,16 @@ void Map::CopyFrom(const Map& from) {
 
 bool Map::IsInitialized() const {
 
+  if (has_header()) {
+    if (!this->header().IsInitialized()) return false;
+  }
   if (!::google::protobuf::internal::AllAreInitialized(this->sections())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->zones())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->obstacles())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->segpoint())) return false;
+  if (has_slopes()) {
+    if (!this->slopes().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -868,6 +1021,7 @@ void Map::Swap(Map* other) {
     zones_.Swap(&other->zones_);
     obstacles_.Swap(&other->obstacles_);
     segpoint_.Swap(&other->segpoint_);
+    std::swap(slopes_, other->slopes_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

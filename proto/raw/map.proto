@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-//import "geometry.proto";
-import "object.proto";
+import "geometry.proto";
 import "section.proto";
+import "object.proto";
 
 package hdmap_proto;
 
@@ -13,6 +13,8 @@ message Header {
   optional string version = 1;
   optional string date = 2;
   optional string projection = 3;
+  required Vector3d low = 4;
+  required Vector3d high = 5;
 }
 
 message Map {
@@ -20,5 +22,6 @@ message Map {
   repeated Section sections = 2;
   repeated Zone zones = 3;
   repeated Obstacle obstacles = 4;
-  repeated  SemanticPoint  segPoint = 5;
+  repeated SemanticPoint segPoint = 5;
+  optional SlopeSets  slopes = 6;
 }

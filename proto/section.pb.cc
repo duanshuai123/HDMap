@@ -84,17 +84,16 @@ void protobuf_AddDesc_section_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::hdmap_proto::protobuf_AddDesc_id_2eproto();
-  ::hdmap_proto::protobuf_AddDesc_geometry_2eproto();
   ::hdmap_proto::protobuf_AddDesc_lane_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rsection.proto\022\013hdmap_proto\032\010id.proto\032\016"
-    "geometry.proto\032\nlane.proto\"\361\001\n\007Section\022\033"
-    "\n\002id\030\001 \002(\0132\017.hdmap_proto.Id\0225\n\tdirection"
-    "\030\002 \001(\0162\".hdmap_proto.Section.LaneDirecti"
-    "on\022 \n\005lanes\030\003 \003(\0132\021.hdmap_proto.Lane\022\024\n\014"
-    "pred_indices\030\n \003(\r\022\024\n\014succ_indices\030\013 \003(\r"
-    "\"D\n\rLaneDirection\022\014\n\010UN_KNOWN\020\000\022\013\n\007FORWA"
-    "RD\020\001\022\014\n\010BACKWARD\020\002\022\n\n\006TWOWAY\020\003", 310);
+    "\n\rsection.proto\022\013hdmap_proto\032\010id.proto\032\n"
+    "lane.proto\"\361\001\n\007Section\022\033\n\002id\030\001 \002(\0132\017.hdm"
+    "ap_proto.Id\0225\n\tdirection\030\002 \001(\0162\".hdmap_p"
+    "roto.Section.LaneDirection\022 \n\005lanes\030\003 \003("
+    "\0132\021.hdmap_proto.Lane\022\024\n\014pred_indices\030\n \003"
+    "(\r\022\024\n\014succ_indices\030\013 \003(\r\"D\n\rLaneDirectio"
+    "n\022\014\n\010UN_KNOWN\020\000\022\013\n\007FORWARD\020\001\022\014\n\010BACKWARD"
+    "\020\002\022\n\n\006TWOWAY\020\003", 294);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "section.proto", &protobuf_RegisterTypes);
   Section::default_instance_ = new Section();

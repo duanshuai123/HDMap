@@ -54,16 +54,21 @@ class mapCommonFunc
 {
 public:
    static  vector<Section*> GetAllSection(Map* pMap);
-   static  vector<Zone*> getAllZoneObjs(Map* pMap);
+   static  vector<Zone*>    getAllZoneObjs(Map* pMap);
     
-   static  int  GetSectionID(Section* pSection);
-   static  int  GetSectionPreID(Section* pSection);
-   static  int  GetSectionSucID(Section* pSection);
-    
-   static  vector<int> GetRelatedIDs(Zone* pZone,bool bPreOrSuc); //true means pre;false means suc
-   static  Lane* getRefLineSet(Section* pSection); //One
+   static  int              GetSectionID(Section* pSection);
+   static  int              GetSectionPreID(Section* pSection);
+   static  int              GetSectionSucID(Section* pSection);
+   static  vector<int>      GetRelatedIDs(Zone* pZone,bool bPreOrSuc); //true means pre;false means suc
+   static  Lane*            getRefLineSet(Section* pSection); //One
    static  vector<Vector3d> getPtsFromLineSet(Lane* pLane);
-   static  double getSectionDistance(Section* pSection);
+   static  double           getSectionDistance(Section* pSection);
+   
+//    //根据ID进行查询
+//    static  Section*         GetSectionFromID(Map* pMap,const int& nID);
+//    static  Zone*            GetZoneFromID(Map* pMap,const int& nID);
+//    static  Obstacle*        GetObstacleFromID(Map* pMap,const int& nID);
+//    static  SemanticPoint*   GetSemanticPointFromID(Map* pMap,const int& nID);
 };
 
 

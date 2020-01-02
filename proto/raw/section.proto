@@ -1,7 +1,6 @@
 syntax = "proto2";
 
 import "id.proto";
-import "geometry.proto";
 import "lane.proto";
 
 package hdmap_proto;

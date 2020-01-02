@@ -24,8 +24,9 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "object.pb.h"
+#include "geometry.pb.h"
 #include "section.pb.h"
+#include "object.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace hdmap_proto {
@@ -129,6 +130,24 @@ class Header : public ::google::protobuf::Message {
   inline ::std::string* release_projection();
   inline void set_allocated_projection(::std::string* projection);
 
+  // required .hdmap_proto.Vector3d low = 4;
+  inline bool has_low() const;
+  inline void clear_low();
+  static const int kLowFieldNumber = 4;
+  inline const ::hdmap_proto::Vector3d& low() const;
+  inline ::hdmap_proto::Vector3d* mutable_low();
+  inline ::hdmap_proto::Vector3d* release_low();
+  inline void set_allocated_low(::hdmap_proto::Vector3d* low);
+
+  // required .hdmap_proto.Vector3d high = 5;
+  inline bool has_high() const;
+  inline void clear_high();
+  static const int kHighFieldNumber = 5;
+  inline const ::hdmap_proto::Vector3d& high() const;
+  inline ::hdmap_proto::Vector3d* mutable_high();
+  inline ::hdmap_proto::Vector3d* release_high();
+  inline void set_allocated_high(::hdmap_proto::Vector3d* high);
+
   // @@protoc_insertion_point(class_scope:hdmap_proto.Header)
  private:
   inline void set_has_version();
@@ -137,6 +156,10 @@ class Header : public ::google::protobuf::Message {
   inline void clear_has_date();
   inline void set_has_projection();
   inline void clear_has_projection();
+  inline void set_has_low();
+  inline void clear_has_low();
+  inline void set_has_high();
+  inline void clear_has_high();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -145,6 +168,8 @@ class Header : public ::google::protobuf::Message {
   ::std::string* version_;
   ::std::string* date_;
   ::std::string* projection_;
+  ::hdmap_proto::Vector3d* low_;
+  ::hdmap_proto::Vector3d* high_;
   friend void  protobuf_AddDesc_map_2eproto();
   friend void protobuf_AssignDesc_map_2eproto();
   friend void protobuf_ShutdownFile_map_2eproto();
@@ -264,10 +289,21 @@ class Map : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::SemanticPoint >*
       mutable_segpoint();
 
+  // optional .hdmap_proto.SlopeSets slopes = 6;
+  inline bool has_slopes() const;
+  inline void clear_slopes();
+  static const int kSlopesFieldNumber = 6;
+  inline const ::hdmap_proto::SlopeSets& slopes() const;
+  inline ::hdmap_proto::SlopeSets* mutable_slopes();
+  inline ::hdmap_proto::SlopeSets* release_slopes();
+  inline void set_allocated_slopes(::hdmap_proto::SlopeSets* slopes);
+
   // @@protoc_insertion_point(class_scope:hdmap_proto.Map)
  private:
   inline void set_has_header();
   inline void clear_has_header();
+  inline void set_has_slopes();
+  inline void clear_has_slopes();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -278,6 +314,7 @@ class Map : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Zone > zones_;
   ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Obstacle > obstacles_;
   ::google::protobuf::RepeatedPtrField< ::hdmap_proto::SemanticPoint > segpoint_;
+  ::hdmap_proto::SlopeSets* slopes_;
   friend void  protobuf_AddDesc_map_2eproto();
   friend void protobuf_AssignDesc_map_2eproto();
   friend void protobuf_ShutdownFile_map_2eproto();
@@ -520,6 +557,88 @@ inline void Header::set_allocated_projection(::std::string* projection) {
   // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Header.projection)
 }
 
+// required .hdmap_proto.Vector3d low = 4;
+inline bool Header::has_low() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Header::set_has_low() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Header::clear_has_low() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Header::clear_low() {
+  if (low_ != NULL) low_->::hdmap_proto::Vector3d::Clear();
+  clear_has_low();
+}
+inline const ::hdmap_proto::Vector3d& Header::low() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Header.low)
+  return low_ != NULL ? *low_ : *default_instance_->low_;
+}
+inline ::hdmap_proto::Vector3d* Header::mutable_low() {
+  set_has_low();
+  if (low_ == NULL) low_ = new ::hdmap_proto::Vector3d;
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Header.low)
+  return low_;
+}
+inline ::hdmap_proto::Vector3d* Header::release_low() {
+  clear_has_low();
+  ::hdmap_proto::Vector3d* temp = low_;
+  low_ = NULL;
+  return temp;
+}
+inline void Header::set_allocated_low(::hdmap_proto::Vector3d* low) {
+  delete low_;
+  low_ = low;
+  if (low) {
+    set_has_low();
+  } else {
+    clear_has_low();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Header.low)
+}
+
+// required .hdmap_proto.Vector3d high = 5;
+inline bool Header::has_high() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Header::set_has_high() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Header::clear_has_high() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Header::clear_high() {
+  if (high_ != NULL) high_->::hdmap_proto::Vector3d::Clear();
+  clear_has_high();
+}
+inline const ::hdmap_proto::Vector3d& Header::high() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Header.high)
+  return high_ != NULL ? *high_ : *default_instance_->high_;
+}
+inline ::hdmap_proto::Vector3d* Header::mutable_high() {
+  set_has_high();
+  if (high_ == NULL) high_ = new ::hdmap_proto::Vector3d;
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Header.high)
+  return high_;
+}
+inline ::hdmap_proto::Vector3d* Header::release_high() {
+  clear_has_high();
+  ::hdmap_proto::Vector3d* temp = high_;
+  high_ = NULL;
+  return temp;
+}
+inline void Header::set_allocated_high(::hdmap_proto::Vector3d* high) {
+  delete high_;
+  high_ = high;
+  if (high) {
+    set_has_high();
+  } else {
+    clear_has_high();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Header.high)
+}
+
 // -------------------------------------------------------------------
 
 // Map
@@ -683,6 +802,47 @@ inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::SemanticPoint >*
 Map::mutable_segpoint() {
   // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Map.segPoint)
   return &segpoint_;
+}
+
+// optional .hdmap_proto.SlopeSets slopes = 6;
+inline bool Map::has_slopes() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Map::set_has_slopes() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Map::clear_has_slopes() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Map::clear_slopes() {
+  if (slopes_ != NULL) slopes_->::hdmap_proto::SlopeSets::Clear();
+  clear_has_slopes();
+}
+inline const ::hdmap_proto::SlopeSets& Map::slopes() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Map.slopes)
+  return slopes_ != NULL ? *slopes_ : *default_instance_->slopes_;
+}
+inline ::hdmap_proto::SlopeSets* Map::mutable_slopes() {
+  set_has_slopes();
+  if (slopes_ == NULL) slopes_ = new ::hdmap_proto::SlopeSets;
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Map.slopes)
+  return slopes_;
+}
+inline ::hdmap_proto::SlopeSets* Map::release_slopes() {
+  clear_has_slopes();
+  ::hdmap_proto::SlopeSets* temp = slopes_;
+  slopes_ = NULL;
+  return temp;
+}
+inline void Map::set_allocated_slopes(::hdmap_proto::SlopeSets* slopes) {
+  delete slopes_;
+  slopes_ = slopes;
+  if (slopes) {
+    set_has_slopes();
+  } else {
+    clear_has_slopes();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Map.slopes)
 }
 
 

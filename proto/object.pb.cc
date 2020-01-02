@@ -32,6 +32,12 @@ const ::google::protobuf::Descriptor* Obstacle_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Obstacle_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Obstacle_ObstacleType_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Slope_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Slope_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SlopeSets_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SlopeSets_reflection_ = NULL;
 
 }  // namespace
 
@@ -101,6 +107,40 @@ void protobuf_AssignDesc_object_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Obstacle));
   Obstacle_ObstacleType_descriptor_ = Obstacle_descriptor_->enum_type(0);
+  Slope_descriptor_ = file->message_type(3);
+  static const int Slope_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, nx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, ny_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, flag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, slopevalue_),
+  };
+  Slope_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Slope_descriptor_,
+      Slope::default_instance_,
+      Slope_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Slope));
+  SlopeSets_descriptor_ = file->message_type(4);
+  static const int SlopeSets_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, pixsize_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, item_),
+  };
+  SlopeSets_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SlopeSets_descriptor_,
+      SlopeSets::default_instance_,
+      SlopeSets_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SlopeSets));
 }
 
 namespace {
@@ -119,6 +159,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Zone_descriptor_, &Zone::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Obstacle_descriptor_, &Obstacle::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Slope_descriptor_, &Slope::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SlopeSets_descriptor_, &SlopeSets::default_instance());
 }
 
 }  // namespace
@@ -130,6 +174,10 @@ void protobuf_ShutdownFile_object_2eproto() {
   delete Zone_reflection_;
   delete Obstacle::default_instance_;
   delete Obstacle_reflection_;
+  delete Slope::default_instance_;
+  delete Slope_reflection_;
+  delete SlopeSets::default_instance_;
+  delete SlopeSets_reflection_;
 }
 
 void protobuf_AddDesc_object_2eproto() {
@@ -162,15 +210,22 @@ void protobuf_AddDesc_object_2eproto() {
     "cle.ObstacleType\022!\n\010link_ids\030\005 \003(\0132\017.hdm"
     "ap_proto.Id\"Z\n\014ObstacleType\022\014\n\010UN_KNOWN\020"
     "\000\022\t\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022\r\n\tEXC"
-    "AVATOR\020\004\022\r\n\tUNCERTAIN\020\005", 863);
+    "AVATOR\020\004\022\r\n\tUNCERTAIN\020\005\"A\n\005Slope\022\n\n\002nx\030\001"
+    " \002(\005\022\n\n\002ny\030\002 \002(\005\022\014\n\004flag\030\003 \002(\r\022\022\n\nSlopeV"
+    "alue\030\004 \001(\001\">\n\tSlopeSets\022\017\n\007pixSize\030\002 \002(\001"
+    "\022 \n\004item\030\003 \003(\0132\022.hdmap_proto.Slope", 994);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "object.proto", &protobuf_RegisterTypes);
   SemanticPoint::default_instance_ = new SemanticPoint();
   Zone::default_instance_ = new Zone();
   Obstacle::default_instance_ = new Obstacle();
+  Slope::default_instance_ = new Slope();
+  SlopeSets::default_instance_ = new SlopeSets();
   SemanticPoint::default_instance_->InitAsDefaultInstance();
   Zone::default_instance_->InitAsDefaultInstance();
   Obstacle::default_instance_->InitAsDefaultInstance();
+  Slope::default_instance_->InitAsDefaultInstance();
+  SlopeSets::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_object_2eproto);
 }
 
@@ -1430,6 +1485,616 @@ void Obstacle::Swap(Obstacle* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Obstacle_descriptor_;
   metadata.reflection = Obstacle_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Slope::kNxFieldNumber;
+const int Slope::kNyFieldNumber;
+const int Slope::kFlagFieldNumber;
+const int Slope::kSlopeValueFieldNumber;
+#endif  // !_MSC_VER
+
+Slope::Slope()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:hdmap_proto.Slope)
+}
+
+void Slope::InitAsDefaultInstance() {
+}
+
+Slope::Slope(const Slope& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:hdmap_proto.Slope)
+}
+
+void Slope::SharedCtor() {
+  _cached_size_ = 0;
+  nx_ = 0;
+  ny_ = 0;
+  flag_ = 0u;
+  slopevalue_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Slope::~Slope() {
+  // @@protoc_insertion_point(destructor:hdmap_proto.Slope)
+  SharedDtor();
+}
+
+void Slope::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Slope::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slope::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Slope_descriptor_;
+}
+
+const Slope& Slope::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_object_2eproto();
+  return *default_instance_;
+}
+
+Slope* Slope::default_instance_ = NULL;
+
+Slope* Slope::New() const {
+  return new Slope;
+}
+
+void Slope::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<Slope*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  ZR_(nx_, flag_);
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Slope::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:hdmap_proto.Slope)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 nx = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &nx_)));
+          set_has_nx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_ny;
+        break;
+      }
+
+      // required int32 ny = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_ny:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ny_)));
+          set_has_ny();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_flag;
+        break;
+      }
+
+      // required uint32 flag = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_flag:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &flag_)));
+          set_has_flag();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(33)) goto parse_SlopeValue;
+        break;
+      }
+
+      // optional double SlopeValue = 4;
+      case 4: {
+        if (tag == 33) {
+         parse_SlopeValue:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &slopevalue_)));
+          set_has_slopevalue();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:hdmap_proto.Slope)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:hdmap_proto.Slope)
+  return false;
+#undef DO_
+}
+
+void Slope::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:hdmap_proto.Slope)
+  // required int32 nx = 1;
+  if (has_nx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->nx(), output);
+  }
+
+  // required int32 ny = 2;
+  if (has_ny()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ny(), output);
+  }
+
+  // required uint32 flag = 3;
+  if (has_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->flag(), output);
+  }
+
+  // optional double SlopeValue = 4;
+  if (has_slopevalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->slopevalue(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:hdmap_proto.Slope)
+}
+
+::google::protobuf::uint8* Slope::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Slope)
+  // required int32 nx = 1;
+  if (has_nx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->nx(), target);
+  }
+
+  // required int32 ny = 2;
+  if (has_ny()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ny(), target);
+  }
+
+  // required uint32 flag = 3;
+  if (has_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->flag(), target);
+  }
+
+  // optional double SlopeValue = 4;
+  if (has_slopevalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->slopevalue(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:hdmap_proto.Slope)
+  return target;
+}
+
+int Slope::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 nx = 1;
+    if (has_nx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->nx());
+    }
+
+    // required int32 ny = 2;
+    if (has_ny()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ny());
+    }
+
+    // required uint32 flag = 3;
+    if (has_flag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->flag());
+    }
+
+    // optional double SlopeValue = 4;
+    if (has_slopevalue()) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slope::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Slope* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Slope*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Slope::MergeFrom(const Slope& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_nx()) {
+      set_nx(from.nx());
+    }
+    if (from.has_ny()) {
+      set_ny(from.ny());
+    }
+    if (from.has_flag()) {
+      set_flag(from.flag());
+    }
+    if (from.has_slopevalue()) {
+      set_slopevalue(from.slopevalue());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Slope::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slope::CopyFrom(const Slope& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slope::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+
+  return true;
+}
+
+void Slope::Swap(Slope* other) {
+  if (other != this) {
+    std::swap(nx_, other->nx_);
+    std::swap(ny_, other->ny_);
+    std::swap(flag_, other->flag_);
+    std::swap(slopevalue_, other->slopevalue_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Slope::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Slope_descriptor_;
+  metadata.reflection = Slope_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SlopeSets::kPixSizeFieldNumber;
+const int SlopeSets::kItemFieldNumber;
+#endif  // !_MSC_VER
+
+SlopeSets::SlopeSets()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:hdmap_proto.SlopeSets)
+}
+
+void SlopeSets::InitAsDefaultInstance() {
+}
+
+SlopeSets::SlopeSets(const SlopeSets& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:hdmap_proto.SlopeSets)
+}
+
+void SlopeSets::SharedCtor() {
+  _cached_size_ = 0;
+  pixsize_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SlopeSets::~SlopeSets() {
+  // @@protoc_insertion_point(destructor:hdmap_proto.SlopeSets)
+  SharedDtor();
+}
+
+void SlopeSets::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SlopeSets::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SlopeSets::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SlopeSets_descriptor_;
+}
+
+const SlopeSets& SlopeSets::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_object_2eproto();
+  return *default_instance_;
+}
+
+SlopeSets* SlopeSets::default_instance_ = NULL;
+
+SlopeSets* SlopeSets::New() const {
+  return new SlopeSets;
+}
+
+void SlopeSets::Clear() {
+  pixsize_ = 0;
+  item_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SlopeSets::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:hdmap_proto.SlopeSets)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required double pixSize = 2;
+      case 2: {
+        if (tag == 17) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &pixsize_)));
+          set_has_pixsize();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_item;
+        break;
+      }
+
+      // repeated .hdmap_proto.Slope item = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_item:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_item()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_item;
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:hdmap_proto.SlopeSets)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:hdmap_proto.SlopeSets)
+  return false;
+#undef DO_
+}
+
+void SlopeSets::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:hdmap_proto.SlopeSets)
+  // required double pixSize = 2;
+  if (has_pixsize()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->pixsize(), output);
+  }
+
+  // repeated .hdmap_proto.Slope item = 3;
+  for (int i = 0; i < this->item_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->item(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:hdmap_proto.SlopeSets)
+}
+
+::google::protobuf::uint8* SlopeSets::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.SlopeSets)
+  // required double pixSize = 2;
+  if (has_pixsize()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->pixsize(), target);
+  }
+
+  // repeated .hdmap_proto.Slope item = 3;
+  for (int i = 0; i < this->item_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->item(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:hdmap_proto.SlopeSets)
+  return target;
+}
+
+int SlopeSets::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required double pixSize = 2;
+    if (has_pixsize()) {
+      total_size += 1 + 8;
+    }
+
+  }
+  // repeated .hdmap_proto.Slope item = 3;
+  total_size += 1 * this->item_size();
+  for (int i = 0; i < this->item_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->item(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SlopeSets::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SlopeSets* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SlopeSets*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SlopeSets::MergeFrom(const SlopeSets& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  item_.MergeFrom(from.item_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_pixsize()) {
+      set_pixsize(from.pixsize());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SlopeSets::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SlopeSets::CopyFrom(const SlopeSets& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SlopeSets::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  if (!::google::protobuf::internal::AllAreInitialized(this->item())) return false;
+  return true;
+}
+
+void SlopeSets::Swap(SlopeSets* other) {
+  if (other != this) {
+    std::swap(pixsize_, other->pixsize_);
+    item_.Swap(&other->item_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SlopeSets::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SlopeSets_descriptor_;
+  metadata.reflection = SlopeSets_reflection_;
   return metadata;
 }
 

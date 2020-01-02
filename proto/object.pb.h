@@ -39,6 +39,8 @@ void protobuf_ShutdownFile_object_2eproto();
 class SemanticPoint;
 class Zone;
 class Obstacle;
+class Slope;
+class SlopeSets;
 
 enum SemanticPoint_PointType {
   SemanticPoint_PointType_UN_KNOWN = 0,
@@ -558,6 +560,207 @@ class Obstacle : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Obstacle* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Slope : public ::google::protobuf::Message {
+ public:
+  Slope();
+  virtual ~Slope();
+
+  Slope(const Slope& from);
+
+  inline Slope& operator=(const Slope& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slope& default_instance();
+
+  void Swap(Slope* other);
+
+  // implements Message ----------------------------------------------
+
+  Slope* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Slope& from);
+  void MergeFrom(const Slope& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 nx = 1;
+  inline bool has_nx() const;
+  inline void clear_nx();
+  static const int kNxFieldNumber = 1;
+  inline ::google::protobuf::int32 nx() const;
+  inline void set_nx(::google::protobuf::int32 value);
+
+  // required int32 ny = 2;
+  inline bool has_ny() const;
+  inline void clear_ny();
+  static const int kNyFieldNumber = 2;
+  inline ::google::protobuf::int32 ny() const;
+  inline void set_ny(::google::protobuf::int32 value);
+
+  // required uint32 flag = 3;
+  inline bool has_flag() const;
+  inline void clear_flag();
+  static const int kFlagFieldNumber = 3;
+  inline ::google::protobuf::uint32 flag() const;
+  inline void set_flag(::google::protobuf::uint32 value);
+
+  // optional double SlopeValue = 4;
+  inline bool has_slopevalue() const;
+  inline void clear_slopevalue();
+  static const int kSlopeValueFieldNumber = 4;
+  inline double slopevalue() const;
+  inline void set_slopevalue(double value);
+
+  // @@protoc_insertion_point(class_scope:hdmap_proto.Slope)
+ private:
+  inline void set_has_nx();
+  inline void clear_has_nx();
+  inline void set_has_ny();
+  inline void clear_has_ny();
+  inline void set_has_flag();
+  inline void clear_has_flag();
+  inline void set_has_slopevalue();
+  inline void clear_has_slopevalue();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 nx_;
+  ::google::protobuf::int32 ny_;
+  double slopevalue_;
+  ::google::protobuf::uint32 flag_;
+  friend void  protobuf_AddDesc_object_2eproto();
+  friend void protobuf_AssignDesc_object_2eproto();
+  friend void protobuf_ShutdownFile_object_2eproto();
+
+  void InitAsDefaultInstance();
+  static Slope* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SlopeSets : public ::google::protobuf::Message {
+ public:
+  SlopeSets();
+  virtual ~SlopeSets();
+
+  SlopeSets(const SlopeSets& from);
+
+  inline SlopeSets& operator=(const SlopeSets& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SlopeSets& default_instance();
+
+  void Swap(SlopeSets* other);
+
+  // implements Message ----------------------------------------------
+
+  SlopeSets* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SlopeSets& from);
+  void MergeFrom(const SlopeSets& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required double pixSize = 2;
+  inline bool has_pixsize() const;
+  inline void clear_pixsize();
+  static const int kPixSizeFieldNumber = 2;
+  inline double pixsize() const;
+  inline void set_pixsize(double value);
+
+  // repeated .hdmap_proto.Slope item = 3;
+  inline int item_size() const;
+  inline void clear_item();
+  static const int kItemFieldNumber = 3;
+  inline const ::hdmap_proto::Slope& item(int index) const;
+  inline ::hdmap_proto::Slope* mutable_item(int index);
+  inline ::hdmap_proto::Slope* add_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >&
+      item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >*
+      mutable_item();
+
+  // @@protoc_insertion_point(class_scope:hdmap_proto.SlopeSets)
+ private:
+  inline void set_has_pixsize();
+  inline void clear_has_pixsize();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  double pixsize_;
+  ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope > item_;
+  friend void  protobuf_AddDesc_object_2eproto();
+  friend void protobuf_AssignDesc_object_2eproto();
+  friend void protobuf_ShutdownFile_object_2eproto();
+
+  void InitAsDefaultInstance();
+  static SlopeSets* default_instance_;
+};
 // ===================================================================
 
 
@@ -1036,6 +1239,164 @@ inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
 Obstacle::mutable_link_ids() {
   // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Obstacle.link_ids)
   return &link_ids_;
+}
+
+// -------------------------------------------------------------------
+
+// Slope
+
+// required int32 nx = 1;
+inline bool Slope::has_nx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Slope::set_has_nx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Slope::clear_has_nx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Slope::clear_nx() {
+  nx_ = 0;
+  clear_has_nx();
+}
+inline ::google::protobuf::int32 Slope::nx() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.nx)
+  return nx_;
+}
+inline void Slope::set_nx(::google::protobuf::int32 value) {
+  set_has_nx();
+  nx_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.nx)
+}
+
+// required int32 ny = 2;
+inline bool Slope::has_ny() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Slope::set_has_ny() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Slope::clear_has_ny() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Slope::clear_ny() {
+  ny_ = 0;
+  clear_has_ny();
+}
+inline ::google::protobuf::int32 Slope::ny() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.ny)
+  return ny_;
+}
+inline void Slope::set_ny(::google::protobuf::int32 value) {
+  set_has_ny();
+  ny_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.ny)
+}
+
+// required uint32 flag = 3;
+inline bool Slope::has_flag() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Slope::set_has_flag() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Slope::clear_has_flag() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Slope::clear_flag() {
+  flag_ = 0u;
+  clear_has_flag();
+}
+inline ::google::protobuf::uint32 Slope::flag() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.flag)
+  return flag_;
+}
+inline void Slope::set_flag(::google::protobuf::uint32 value) {
+  set_has_flag();
+  flag_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.flag)
+}
+
+// optional double SlopeValue = 4;
+inline bool Slope::has_slopevalue() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Slope::set_has_slopevalue() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Slope::clear_has_slopevalue() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Slope::clear_slopevalue() {
+  slopevalue_ = 0;
+  clear_has_slopevalue();
+}
+inline double Slope::slopevalue() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.SlopeValue)
+  return slopevalue_;
+}
+inline void Slope::set_slopevalue(double value) {
+  set_has_slopevalue();
+  slopevalue_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.SlopeValue)
+}
+
+// -------------------------------------------------------------------
+
+// SlopeSets
+
+// required double pixSize = 2;
+inline bool SlopeSets::has_pixsize() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SlopeSets::set_has_pixsize() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SlopeSets::clear_has_pixsize() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SlopeSets::clear_pixsize() {
+  pixsize_ = 0;
+  clear_has_pixsize();
+}
+inline double SlopeSets::pixsize() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SlopeSets.pixSize)
+  return pixsize_;
+}
+inline void SlopeSets::set_pixsize(double value) {
+  set_has_pixsize();
+  pixsize_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.SlopeSets.pixSize)
+}
+
+// repeated .hdmap_proto.Slope item = 3;
+inline int SlopeSets::item_size() const {
+  return item_.size();
+}
+inline void SlopeSets::clear_item() {
+  item_.Clear();
+}
+inline const ::hdmap_proto::Slope& SlopeSets::item(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SlopeSets.item)
+  return item_.Get(index);
+}
+inline ::hdmap_proto::Slope* SlopeSets::mutable_item(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.SlopeSets.item)
+  return item_.Mutable(index);
+}
+inline ::hdmap_proto::Slope* SlopeSets::add_item() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.SlopeSets.item)
+  return item_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >&
+SlopeSets::item() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.SlopeSets.item)
+  return item_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >*
+SlopeSets::mutable_item() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.SlopeSets.item)
+  return &item_;
 }
 
 

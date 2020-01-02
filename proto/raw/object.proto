@@ -53,3 +53,16 @@ enum  ObstacleType
 optional  ObstacleType Type = 4;
 repeated Id link_ids = 5;
 }
+
+//单个坡度存储
+message Slope {
+    required int32 nx = 1;
+    required int32 ny = 2;
+    required uint32 flag = 3;
+    optional double SlopeValue = 4;
+}
+
+message SlopeSets {
+required double pixSize = 2;
+repeated Slope item = 3;
+}
