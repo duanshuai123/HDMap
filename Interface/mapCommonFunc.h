@@ -65,10 +65,11 @@ public:
    static  double           getSectionDistance(Section* pSection);
    
 //    //根据ID进行查询
-//    static  Section*         GetSectionFromID(Map* pMap,const int& nID);
-//    static  Zone*            GetZoneFromID(Map* pMap,const int& nID);
-//    static  Obstacle*        GetObstacleFromID(Map* pMap,const int& nID);
-//    static  SemanticPoint*   GetSemanticPointFromID(Map* pMap,const int& nID);
+   static  Section*         GetSectionFromID(Map* pMap,const int& nID);
+   static  Zone*            GetZoneFromID(Map* pMap,const int& nID);
+   static  Obstacle*        GetObstacleFromID(Map* pMap,const int& nID);
+   static  SemanticPoint*   GetSemanticPointFromID(Map* pMap,const int& nID);
+   static  int              getTargetIndex(Map* pMap,mapType eType,const int& nID);//内部实现
 };
 
 
@@ -90,8 +91,7 @@ protected:
 private:
    const Map* m_MapData;
    RTree<GeoInfo*,double,3>  m_mapRtree;
-   vector<GeoInfo*> m_vecTempDatas;//用于释放内存
-    
+   vector<GeoInfo*> m_vecTempDatas;//用于释放内存   
 };
    
 }  // namespace hdmap_kq_proto

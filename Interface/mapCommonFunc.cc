@@ -141,6 +141,102 @@ double mapCommonFunc::getSectionDistance(Section* pSection)
     return geoAlgorithm::DisTance(vecPts);
 }
 
+//---------------------------------------------------------
+Section*  mapCommonFunc::GetSectionFromID(Map* pMap,const int& nID)
+{
+    int nIndex = getTargetIndex(pMap,mt_Section,nID);
+    if(nIndex<0)
+        return nullptr;
+    
+    return  pMap->mutable_sections(nIndex);
+}
+
+Zone* mapCommonFunc::GetZoneFromID(Map* pMap,const int& nID)
+{
+    int nIndex = getTargetIndex(pMap,mt_Zone,nID);
+    if(nIndex<0)
+        return nullptr;
+    
+    return  pMap->mutable_zones(nIndex);
+}
+
+Obstacle*  mapCommonFunc::GetObstacleFromID(Map* pMap,const int& nID)
+{
+    int nIndex = getTargetIndex(pMap,mt_Obstacle,nID);
+    if(nIndex<0)
+        return nullptr;
+    
+    return  pMap->mutable_obstacles(nIndex);
+}
+
+SemanticPoint*   mapCommonFunc::GetSemanticPointFromID(Map* pMap,const int& nID)
+{
+    int nIndex = getTargetIndex(pMap,mt_SemanticPoint,nID);
+    if(nIndex<0)
+        return nullptr;
+    
+    return  pMap->mutable_segpoint(nIndex);
+}
+
+int  mapCommonFunc::getTargetIndex(Map* pMap,mapType eType,const int& nID)
+{
+    int  nSize = -1;
+    if(eType == mt_Section)
+    {
+        nSize = pMap->sections_size(); //0 ~ nSize-1
+    }
+    else if(eType == mt_Zone)
+    {
+        nSize = pMap->zones_size(); //0 ~ nSize-1
+    }
+    else if(eType == mt_Obstacle)
+    {
+        nSize = pMap->obstacles_size(); //0 ~ nSize-1
+    }
+    else if(eType == mt_SemanticPoint)
+    {
+        nSize = pMap->segpoint_size(); //0 ~ nSize-1
+    }
+    
+    int low = 0,high = nSize-1, mid = 0;
+    while(low <= high)
+    {
+        mid=(low+high)/2;
+        int nTempID = -1;
+        if(eType== mt_Section)
+        {
+            Section section = pMap->sections(mid); //0 ~ nSize-1
+            nTempID = section.id().id();
+        }
+        else if(eType == mt_Zone)
+        {
+            Zone zone = pMap->zones(mid); //0 ~ nSize-1
+            nTempID = zone.id().id();
+        }
+        else if(eType == mt_Obstacle)
+        {
+            Obstacle obj = pMap->obstacles(mid);
+            nTempID = obj.id().id(); //0 ~ nSize-1
+        }
+        else if(eType == mt_SemanticPoint)
+        {
+            SemanticPoint pt = pMap->segpoint(mid); //0 ~ nSize-1
+            nTempID = pt.id().id(); //0 ~ nSize-1
+        }
+        
+        if (nTempID == nID)
+            return mid;
+        
+        if (nTempID < nID)
+            low = mid+1;
+        else
+            high = mid-1;
+    }
+    
+    return -1;
+}
+
+//---------------------------------------------------------
 void geoSpatialSearch::clearTree()
 {
     for(int i = 0;i < m_vecTempDatas.size();i++)
