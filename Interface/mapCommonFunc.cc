@@ -314,6 +314,28 @@ void geoSpatialSearch::InitialMap(const Map* pMap)
         m_vecTempDatas.push_back(info);
     }
     //other ...
+    
+    //坡度信息的初始化
+    m_SlopeKey2Index.clear();
+    if(!pMap->has_header())
+        return;
+    m_low = pMap->header().low();
+    m_high = pMap->header().high();
+    
+    bool bHasSlopes =  pMap->has_slopes();
+    if(!bHasSlopes)
+        return;
+    SlopeSets pSlopsets = pMap->slopes();
+    m_dSlopePixSize = pSlopsets.pixsize();
+    int itemSize =  pSlopsets.item_size();
+    for(int i = 0;i < itemSize;i++)
+    {
+       Slope slope = pSlopsets.item(i);
+       int nX = slope.nx();
+       int nY = slope.ny();
+       long int key = 100000*nX + nY;
+       m_SlopeKey2Index[key] = i;
+    }
 }
 
 void geoSpatialSearch::Search(Vector3d pt,double dRadius,vector<GeoInfo*>& results)
@@ -334,6 +356,33 @@ void geoSpatialSearch::Search(Vector3d MinPt,Vector3d MaxPt,vector<GeoInfo*>& re
 
     int nSize = m_mapRtree.Search(ExtentRangMin,ExtentRangMax,results);
     return ;
+}
+
+SlopeInfo  geoSpatialSearch::getSlopeInfo(Vector3d curPos)
+{
+    SlopeInfo info;
+    int nX = int( curPos.x()/m_dSlopePixSize );
+    int nY = int( curPos.y()/m_dSlopePixSize );
+    
+    long int key = 100000*nX + nY;
+    if( m_SlopeKey2Index.find(key) == m_SlopeKey2Index.end())
+        return info;
+    
+    int nIndex = m_SlopeKey2Index[key];
+    
+    SlopeSets pSlopsets = m_MapData->slopes();
+    int itemSize =  pSlopsets.item_size();
+    if(nIndex >= itemSize)
+        return info;
+    
+    Slope slope = pSlopsets.item(nIndex);
+    info.m_flag = slope.flag();
+    info.m_normal = slope.normal();
+    info.m_pos = slope.pos();
+    info.m_SlopeValue = slope.slopevalue();
+    info.m_bValid = true;
+ 
+    return info;
 }
 
 void geoSpatialSearch::getPolygonBBox(const Polygon& polygon,double* min,double* max)
