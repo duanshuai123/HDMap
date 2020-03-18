@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -27,6 +28,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_lane_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_lane_2eproto() {
   protobuf_AddDesc_lane_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -39,16 +41,16 @@ void protobuf_AssignDesc_lane_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Lane, lines_),
   };
   Lane_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Lane_descriptor_,
       Lane::default_instance_,
       Lane_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Lane, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Lane, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Lane));
+      -1,
+      sizeof(Lane),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Lane, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -59,10 +61,11 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_lane_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Lane_descriptor_, &Lane::default_instance());
+      Lane_descriptor_, &Lane::default_instance());
 }
 
 }  // namespace
@@ -72,6 +75,7 @@ void protobuf_ShutdownFile_lane_2eproto() {
   delete Lane_reflection_;
 }
 
+void protobuf_AddDesc_lane_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_lane_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -101,13 +105,13 @@ struct StaticDescriptorInitializer_lane_2eproto {
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Lane::kIdFieldNumber;
 const int Lane::kLinesFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Lane::Lane()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Lane)
 }
@@ -117,7 +121,8 @@ void Lane::InitAsDefaultInstance() {
 }
 
 Lane::Lane(const Lane& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Lane)
@@ -157,22 +162,29 @@ const Lane& Lane::default_instance() {
 
 Lane* Lane::default_instance_ = NULL;
 
-Lane* Lane::New() const {
-  return new Lane;
+Lane* Lane::New(::google::protobuf::Arena* arena) const {
+  Lane* n = new Lane;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Lane::Clear() {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Lane)
   if (has_id()) {
     if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
   }
   lines_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Lane::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Lane)
   for (;;) {
@@ -196,12 +208,15 @@ bool Lane::MergePartialFromCodedStream(
       case 2: {
         if (tag == 18) {
          parse_lines:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_lines:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_lines()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_lines;
+        if (input->ExpectTag(18)) goto parse_loop_lines;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -234,40 +249,40 @@ void Lane::SerializeWithCachedSizes(
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->id(), output);
+      1, *this->id_, output);
   }
 
   // repeated .hdmap_proto.CurveLine lines = 2;
-  for (int i = 0; i < this->lines_size(); i++) {
+  for (unsigned int i = 0, n = this->lines_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->lines(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Lane)
 }
 
-::google::protobuf::uint8* Lane::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Lane::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Lane)
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->id(), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->id_, false, target);
   }
 
   // repeated .hdmap_proto.CurveLine lines = 2;
-  for (int i = 0; i < this->lines_size(); i++) {
+  for (unsigned int i = 0, n = this->lines_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->lines(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        2, this->lines(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -276,16 +291,14 @@ void Lane::SerializeWithCachedSizes(
 }
 
 int Lane::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Lane)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .hdmap_proto.Id id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->id());
-    }
-
+  // required .hdmap_proto.Id id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
   }
   // repeated .hdmap_proto.CurveLine lines = 2;
   total_size += 1 * this->lines_size();
@@ -295,7 +308,7 @@ int Lane::ByteSize() const {
         this->lines(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -307,35 +320,47 @@ int Lane::ByteSize() const {
 }
 
 void Lane::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Lane* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Lane*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Lane)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Lane* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Lane>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Lane)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Lane)
     MergeFrom(*source);
   }
 }
 
 void Lane::MergeFrom(const Lane& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Lane)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   lines_.MergeFrom(from.lines_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
       mutable_id()->::hdmap_proto::Id::MergeFrom(from.id());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Lane::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Lane)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Lane::CopyFrom(const Lane& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Lane)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -345,20 +370,22 @@ bool Lane::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   if (has_id()) {
-    if (!this->id().IsInitialized()) return false;
+    if (!this->id_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->lines())) return false;
   return true;
 }
 
 void Lane::Swap(Lane* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    lines_.Swap(&other->lines_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Lane::InternalSwap(Lane* other) {
+  std::swap(id_, other->id_);
+  lines_.UnsafeArenaSwap(&other->lines_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Lane::GetMetadata() const {
@@ -369,6 +396,84 @@ void Lane::Swap(Lane* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Lane
+
+// required .hdmap_proto.Id id = 1;
+bool Lane::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Lane::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Lane::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Lane::clear_id() {
+  if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
+  clear_has_id();
+}
+const ::hdmap_proto::Id& Lane::id() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Lane.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+::hdmap_proto::Id* Lane::mutable_id() {
+  set_has_id();
+  if (id_ == NULL) {
+    id_ = new ::hdmap_proto::Id;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Lane.id)
+  return id_;
+}
+::hdmap_proto::Id* Lane::release_id() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Lane.id)
+  clear_has_id();
+  ::hdmap_proto::Id* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+void Lane::set_allocated_id(::hdmap_proto::Id* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Lane.id)
+}
+
+// repeated .hdmap_proto.CurveLine lines = 2;
+int Lane::lines_size() const {
+  return lines_.size();
+}
+void Lane::clear_lines() {
+  lines_.Clear();
+}
+const ::hdmap_proto::CurveLine& Lane::lines(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Lane.lines)
+  return lines_.Get(index);
+}
+::hdmap_proto::CurveLine* Lane::mutable_lines(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Lane.lines)
+  return lines_.Mutable(index);
+}
+::hdmap_proto::CurveLine* Lane::add_lines() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Lane.lines)
+  return lines_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >*
+Lane::mutable_lines() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Lane.lines)
+  return &lines_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::CurveLine >&
+Lane::lines() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Lane.lines)
+  return lines_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

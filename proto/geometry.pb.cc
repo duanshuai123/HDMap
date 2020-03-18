@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -33,6 +34,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_geometry_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_geometry_2eproto() {
   protobuf_AddDesc_geometry_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -46,16 +48,16 @@ void protobuf_AssignDesc_geometry_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3d, z_),
   };
   Vector3d_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Vector3d_descriptor_,
       Vector3d::default_instance_,
       Vector3d_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3d, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3d, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Vector3d));
+      -1,
+      sizeof(Vector3d),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3d, _internal_metadata_),
+      -1);
   CurveLine_descriptor_ = file->message_type(1);
   static const int CurveLine_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurveLine, points_),
@@ -64,32 +66,32 @@ void protobuf_AssignDesc_geometry_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurveLine, width_),
   };
   CurveLine_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       CurveLine_descriptor_,
       CurveLine::default_instance_,
       CurveLine_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurveLine, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurveLine, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(CurveLine));
+      -1,
+      sizeof(CurveLine),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CurveLine, _internal_metadata_),
+      -1);
   Polygon_descriptor_ = file->message_type(2);
   static const int Polygon_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, points_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, width_),
   };
   Polygon_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Polygon_descriptor_,
       Polygon::default_instance_,
       Polygon_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Polygon));
+      -1,
+      sizeof(Polygon),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -100,14 +102,15 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_geometry_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Vector3d_descriptor_, &Vector3d::default_instance());
+      Vector3d_descriptor_, &Vector3d::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    CurveLine_descriptor_, &CurveLine::default_instance());
+      CurveLine_descriptor_, &CurveLine::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Polygon_descriptor_, &Polygon::default_instance());
+      Polygon_descriptor_, &Polygon::default_instance());
 }
 
 }  // namespace
@@ -121,6 +124,7 @@ void protobuf_ShutdownFile_geometry_2eproto() {
   delete Polygon_reflection_;
 }
 
+void protobuf_AddDesc_geometry_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_geometry_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -156,14 +160,14 @@ struct StaticDescriptorInitializer_geometry_2eproto {
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Vector3d::kXFieldNumber;
 const int Vector3d::kYFieldNumber;
 const int Vector3d::kZFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Vector3d::Vector3d()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Vector3d)
 }
@@ -172,7 +176,8 @@ void Vector3d::InitAsDefaultInstance() {
 }
 
 Vector3d::Vector3d(const Vector3d& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Vector3d)
@@ -213,33 +218,46 @@ const Vector3d& Vector3d::default_instance() {
 
 Vector3d* Vector3d::default_instance_ = NULL;
 
-Vector3d* Vector3d::New() const {
-  return new Vector3d;
+Vector3d* Vector3d::New(::google::protobuf::Arena* arena) const {
+  Vector3d* n = new Vector3d;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Vector3d::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<Vector3d*>(16)->f) - \
-   reinterpret_cast<char*>(16))
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Vector3d)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(Vector3d, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<Vector3d*>(16)->f)
+#endif
 
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
 
   ZR_(x_, z_);
 
-#undef OFFSET_OF_FIELD_
+#undef ZR_HELPER_
 #undef ZR_
 
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Vector3d::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Vector3d)
   for (;;) {
@@ -331,15 +349,15 @@ void Vector3d::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->z(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Vector3d)
 }
 
-::google::protobuf::uint8* Vector3d::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Vector3d::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Vector3d)
   // required double x = 1;
   if (has_x()) {
@@ -356,7 +374,7 @@ void Vector3d::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->z(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -364,27 +382,45 @@ void Vector3d::SerializeWithCachedSizes(
   return target;
 }
 
-int Vector3d::ByteSize() const {
+int Vector3d::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:hdmap_proto.Vector3d)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_x()) {
     // required double x = 1;
-    if (has_x()) {
-      total_size += 1 + 8;
-    }
+    total_size += 1 + 8;
+  }
+
+  if (has_y()) {
+    // required double y = 2;
+    total_size += 1 + 8;
+  }
+
+  if (has_z()) {
+    // required double z = 3;
+    total_size += 1 + 8;
+  }
+
+  return total_size;
+}
+int Vector3d::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Vector3d)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required double x = 1;
+    total_size += 1 + 8;
 
     // required double y = 2;
-    if (has_y()) {
-      total_size += 1 + 8;
-    }
+    total_size += 1 + 8;
 
     // required double z = 3;
-    if (has_z()) {
-      total_size += 1 + 8;
-    }
+    total_size += 1 + 8;
 
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -396,19 +432,27 @@ int Vector3d::ByteSize() const {
 }
 
 void Vector3d::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Vector3d* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Vector3d*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Vector3d)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Vector3d* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Vector3d>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Vector3d)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Vector3d)
     MergeFrom(*source);
   }
 }
 
 void Vector3d::MergeFrom(const Vector3d& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Vector3d)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_x()) {
       set_x(from.x());
@@ -420,16 +464,20 @@ void Vector3d::MergeFrom(const Vector3d& from) {
       set_z(from.z());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Vector3d::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Vector3d)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Vector3d::CopyFrom(const Vector3d& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Vector3d)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -442,14 +490,16 @@ bool Vector3d::IsInitialized() const {
 }
 
 void Vector3d::Swap(Vector3d* other) {
-  if (other != this) {
-    std::swap(x_, other->x_);
-    std::swap(y_, other->y_);
-    std::swap(z_, other->z_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Vector3d::InternalSwap(Vector3d* other) {
+  std::swap(x_, other->x_);
+  std::swap(y_, other->y_);
+  std::swap(z_, other->z_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Vector3d::GetMetadata() const {
@@ -460,18 +510,94 @@ void Vector3d::Swap(Vector3d* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Vector3d
+
+// required double x = 1;
+bool Vector3d::has_x() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Vector3d::set_has_x() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Vector3d::clear_has_x() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Vector3d::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+ double Vector3d::x() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Vector3d.x)
+  return x_;
+}
+ void Vector3d::set_x(double value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Vector3d.x)
+}
+
+// required double y = 2;
+bool Vector3d::has_y() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Vector3d::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Vector3d::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Vector3d::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+ double Vector3d::y() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Vector3d.y)
+  return y_;
+}
+ void Vector3d::set_y(double value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Vector3d.y)
+}
+
+// required double z = 3;
+bool Vector3d::has_z() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void Vector3d::set_has_z() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void Vector3d::clear_has_z() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void Vector3d::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+ double Vector3d::z() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Vector3d.z)
+  return z_;
+}
+ void Vector3d::set_z(double value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Vector3d.z)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int CurveLine::kPointsFieldNumber;
 const int CurveLine::kPredPointsFieldNumber;
 const int CurveLine::kSuccPointsFieldNumber;
 const int CurveLine::kWidthFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CurveLine::CurveLine()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.CurveLine)
 }
@@ -480,7 +606,8 @@ void CurveLine::InitAsDefaultInstance() {
 }
 
 CurveLine::CurveLine(const CurveLine& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.CurveLine)
@@ -519,22 +646,29 @@ const CurveLine& CurveLine::default_instance() {
 
 CurveLine* CurveLine::default_instance_ = NULL;
 
-CurveLine* CurveLine::New() const {
-  return new CurveLine;
+CurveLine* CurveLine::New(::google::protobuf::Arena* arena) const {
+  CurveLine* n = new CurveLine;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void CurveLine::Clear() {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.CurveLine)
   width_ = 0;
   points_.Clear();
   pred_points_.Clear();
   succ_points_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool CurveLine::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.CurveLine)
   for (;;) {
@@ -545,41 +679,47 @@ bool CurveLine::MergePartialFromCodedStream(
       // repeated .hdmap_proto.Vector3d points = 1;
       case 1: {
         if (tag == 10) {
-         parse_points:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_points:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_points()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_points;
-        if (input->ExpectTag(18)) goto parse_pred_points;
+        if (input->ExpectTag(10)) goto parse_loop_points;
+        if (input->ExpectTag(18)) goto parse_loop_pred_points;
+        input->UnsafeDecrementRecursionDepth();
         break;
       }
 
       // repeated .hdmap_proto.Vector3d pred_points = 2;
       case 2: {
         if (tag == 18) {
-         parse_pred_points:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_pred_points:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_pred_points()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_pred_points;
-        if (input->ExpectTag(26)) goto parse_succ_points;
+        if (input->ExpectTag(18)) goto parse_loop_pred_points;
+        if (input->ExpectTag(26)) goto parse_loop_succ_points;
+        input->UnsafeDecrementRecursionDepth();
         break;
       }
 
       // repeated .hdmap_proto.Vector3d succ_points = 3;
       case 3: {
         if (tag == 26) {
-         parse_succ_points:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_succ_points:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_succ_points()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_succ_points;
+        if (input->ExpectTag(26)) goto parse_loop_succ_points;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectTag(37)) goto parse_width;
         break;
       }
@@ -625,19 +765,19 @@ void CurveLine::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:hdmap_proto.CurveLine)
   // repeated .hdmap_proto.Vector3d points = 1;
-  for (int i = 0; i < this->points_size(); i++) {
+  for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->points(i), output);
   }
 
   // repeated .hdmap_proto.Vector3d pred_points = 2;
-  for (int i = 0; i < this->pred_points_size(); i++) {
+  for (unsigned int i = 0, n = this->pred_points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->pred_points(i), output);
   }
 
   // repeated .hdmap_proto.Vector3d succ_points = 3;
-  for (int i = 0; i < this->succ_points_size(); i++) {
+  for (unsigned int i = 0, n = this->succ_points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->succ_points(i), output);
   }
@@ -647,35 +787,35 @@ void CurveLine::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->width(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.CurveLine)
 }
 
-::google::protobuf::uint8* CurveLine::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CurveLine::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.CurveLine)
   // repeated .hdmap_proto.Vector3d points = 1;
-  for (int i = 0; i < this->points_size(); i++) {
+  for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->points(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, this->points(i), false, target);
   }
 
   // repeated .hdmap_proto.Vector3d pred_points = 2;
-  for (int i = 0; i < this->pred_points_size(); i++) {
+  for (unsigned int i = 0, n = this->pred_points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->pred_points(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        2, this->pred_points(i), false, target);
   }
 
   // repeated .hdmap_proto.Vector3d succ_points = 3;
-  for (int i = 0; i < this->succ_points_size(); i++) {
+  for (unsigned int i = 0, n = this->succ_points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->succ_points(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        3, this->succ_points(i), false, target);
   }
 
   // optional float width = 4;
@@ -683,7 +823,7 @@ void CurveLine::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->width(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -692,15 +832,14 @@ void CurveLine::SerializeWithCachedSizes(
 }
 
 int CurveLine::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.CurveLine)
   int total_size = 0;
 
-  if (_has_bits_[3 / 32] & (0xffu << (3 % 32))) {
-    // optional float width = 4;
-    if (has_width()) {
-      total_size += 1 + 4;
-    }
-
+  // optional float width = 4;
+  if (has_width()) {
+    total_size += 1 + 4;
   }
+
   // repeated .hdmap_proto.Vector3d points = 1;
   total_size += 1 * this->points_size();
   for (int i = 0; i < this->points_size(); i++) {
@@ -725,7 +864,7 @@ int CurveLine::ByteSize() const {
         this->succ_points(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -737,19 +876,27 @@ int CurveLine::ByteSize() const {
 }
 
 void CurveLine::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const CurveLine* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const CurveLine*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.CurveLine)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CurveLine* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CurveLine>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.CurveLine)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.CurveLine)
     MergeFrom(*source);
   }
 }
 
 void CurveLine::MergeFrom(const CurveLine& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.CurveLine)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   points_.MergeFrom(from.points_);
   pred_points_.MergeFrom(from.pred_points_);
   succ_points_.MergeFrom(from.succ_points_);
@@ -758,16 +905,20 @@ void CurveLine::MergeFrom(const CurveLine& from) {
       set_width(from.width());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void CurveLine::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.CurveLine)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CurveLine::CopyFrom(const CurveLine& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.CurveLine)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -782,15 +933,17 @@ bool CurveLine::IsInitialized() const {
 }
 
 void CurveLine::Swap(CurveLine* other) {
-  if (other != this) {
-    points_.Swap(&other->points_);
-    pred_points_.Swap(&other->pred_points_);
-    succ_points_.Swap(&other->succ_points_);
-    std::swap(width_, other->width_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CurveLine::InternalSwap(CurveLine* other) {
+  points_.UnsafeArenaSwap(&other->points_);
+  pred_points_.UnsafeArenaSwap(&other->pred_points_);
+  succ_points_.UnsafeArenaSwap(&other->succ_points_);
+  std::swap(width_, other->width_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata CurveLine::GetMetadata() const {
@@ -801,16 +954,134 @@ void CurveLine::Swap(CurveLine* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CurveLine
+
+// repeated .hdmap_proto.Vector3d points = 1;
+int CurveLine::points_size() const {
+  return points_.size();
+}
+void CurveLine::clear_points() {
+  points_.Clear();
+}
+const ::hdmap_proto::Vector3d& CurveLine::points(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.CurveLine.points)
+  return points_.Get(index);
+}
+::hdmap_proto::Vector3d* CurveLine::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.CurveLine.points)
+  return points_.Mutable(index);
+}
+::hdmap_proto::Vector3d* CurveLine::add_points() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.CurveLine.points)
+  return points_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >*
+CurveLine::mutable_points() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.CurveLine.points)
+  return &points_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >&
+CurveLine::points() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.CurveLine.points)
+  return points_;
+}
+
+// repeated .hdmap_proto.Vector3d pred_points = 2;
+int CurveLine::pred_points_size() const {
+  return pred_points_.size();
+}
+void CurveLine::clear_pred_points() {
+  pred_points_.Clear();
+}
+const ::hdmap_proto::Vector3d& CurveLine::pred_points(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.CurveLine.pred_points)
+  return pred_points_.Get(index);
+}
+::hdmap_proto::Vector3d* CurveLine::mutable_pred_points(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.CurveLine.pred_points)
+  return pred_points_.Mutable(index);
+}
+::hdmap_proto::Vector3d* CurveLine::add_pred_points() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.CurveLine.pred_points)
+  return pred_points_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >*
+CurveLine::mutable_pred_points() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.CurveLine.pred_points)
+  return &pred_points_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >&
+CurveLine::pred_points() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.CurveLine.pred_points)
+  return pred_points_;
+}
+
+// repeated .hdmap_proto.Vector3d succ_points = 3;
+int CurveLine::succ_points_size() const {
+  return succ_points_.size();
+}
+void CurveLine::clear_succ_points() {
+  succ_points_.Clear();
+}
+const ::hdmap_proto::Vector3d& CurveLine::succ_points(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.CurveLine.succ_points)
+  return succ_points_.Get(index);
+}
+::hdmap_proto::Vector3d* CurveLine::mutable_succ_points(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.CurveLine.succ_points)
+  return succ_points_.Mutable(index);
+}
+::hdmap_proto::Vector3d* CurveLine::add_succ_points() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.CurveLine.succ_points)
+  return succ_points_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >*
+CurveLine::mutable_succ_points() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.CurveLine.succ_points)
+  return &succ_points_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >&
+CurveLine::succ_points() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.CurveLine.succ_points)
+  return succ_points_;
+}
+
+// optional float width = 4;
+bool CurveLine::has_width() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void CurveLine::set_has_width() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void CurveLine::clear_has_width() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void CurveLine::clear_width() {
+  width_ = 0;
+  clear_has_width();
+}
+ float CurveLine::width() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.CurveLine.width)
+  return width_;
+}
+ void CurveLine::set_width(float value) {
+  set_has_width();
+  width_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.CurveLine.width)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Polygon::kPointsFieldNumber;
 const int Polygon::kWidthFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Polygon::Polygon()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Polygon)
 }
@@ -819,7 +1090,8 @@ void Polygon::InitAsDefaultInstance() {
 }
 
 Polygon::Polygon(const Polygon& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Polygon)
@@ -858,20 +1130,27 @@ const Polygon& Polygon::default_instance() {
 
 Polygon* Polygon::default_instance_ = NULL;
 
-Polygon* Polygon::New() const {
-  return new Polygon;
+Polygon* Polygon::New(::google::protobuf::Arena* arena) const {
+  Polygon* n = new Polygon;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Polygon::Clear() {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Polygon)
   width_ = 0;
   points_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Polygon::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Polygon)
   for (;;) {
@@ -882,13 +1161,15 @@ bool Polygon::MergePartialFromCodedStream(
       // repeated .hdmap_proto.Vector3d points = 1;
       case 1: {
         if (tag == 10) {
-         parse_points:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_points:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_points()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(10)) goto parse_points;
+        if (input->ExpectTag(10)) goto parse_loop_points;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectTag(21)) goto parse_width;
         break;
       }
@@ -934,7 +1215,7 @@ void Polygon::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:hdmap_proto.Polygon)
   // repeated .hdmap_proto.Vector3d points = 1;
-  for (int i = 0; i < this->points_size(); i++) {
+  for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->points(i), output);
   }
@@ -944,21 +1225,21 @@ void Polygon::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->width(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Polygon)
 }
 
-::google::protobuf::uint8* Polygon::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Polygon::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Polygon)
   // repeated .hdmap_proto.Vector3d points = 1;
-  for (int i = 0; i < this->points_size(); i++) {
+  for (unsigned int i = 0, n = this->points_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->points(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, this->points(i), false, target);
   }
 
   // optional float width = 2;
@@ -966,7 +1247,7 @@ void Polygon::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->width(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -975,15 +1256,14 @@ void Polygon::SerializeWithCachedSizes(
 }
 
 int Polygon::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Polygon)
   int total_size = 0;
 
-  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
-    // optional float width = 2;
-    if (has_width()) {
-      total_size += 1 + 4;
-    }
-
+  // optional float width = 2;
+  if (has_width()) {
+    total_size += 1 + 4;
   }
+
   // repeated .hdmap_proto.Vector3d points = 1;
   total_size += 1 * this->points_size();
   for (int i = 0; i < this->points_size(); i++) {
@@ -992,7 +1272,7 @@ int Polygon::ByteSize() const {
         this->points(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -1004,35 +1284,47 @@ int Polygon::ByteSize() const {
 }
 
 void Polygon::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Polygon* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Polygon*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Polygon)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Polygon* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Polygon>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Polygon)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Polygon)
     MergeFrom(*source);
   }
 }
 
 void Polygon::MergeFrom(const Polygon& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Polygon)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   points_.MergeFrom(from.points_);
   if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
     if (from.has_width()) {
       set_width(from.width());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Polygon::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Polygon)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Polygon::CopyFrom(const Polygon& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Polygon)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1045,13 +1337,15 @@ bool Polygon::IsInitialized() const {
 }
 
 void Polygon::Swap(Polygon* other) {
-  if (other != this) {
-    points_.Swap(&other->points_);
-    std::swap(width_, other->width_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Polygon::InternalSwap(Polygon* other) {
+  points_.UnsafeArenaSwap(&other->points_);
+  std::swap(width_, other->width_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Polygon::GetMetadata() const {
@@ -1062,6 +1356,64 @@ void Polygon::Swap(Polygon* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Polygon
+
+// repeated .hdmap_proto.Vector3d points = 1;
+int Polygon::points_size() const {
+  return points_.size();
+}
+void Polygon::clear_points() {
+  points_.Clear();
+}
+const ::hdmap_proto::Vector3d& Polygon::points(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Polygon.points)
+  return points_.Get(index);
+}
+::hdmap_proto::Vector3d* Polygon::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Polygon.points)
+  return points_.Mutable(index);
+}
+::hdmap_proto::Vector3d* Polygon::add_points() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Polygon.points)
+  return points_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >*
+Polygon::mutable_points() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Polygon.points)
+  return &points_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Vector3d >&
+Polygon::points() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Polygon.points)
+  return points_;
+}
+
+// optional float width = 2;
+bool Polygon::has_width() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Polygon::set_has_width() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Polygon::clear_has_width() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Polygon::clear_width() {
+  width_ = 0;
+  clear_has_width();
+}
+ float Polygon::width() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Polygon.width)
+  return width_;
+}
+ void Polygon::set_width(float value) {
+  set_has_width();
+  width_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Polygon.width)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

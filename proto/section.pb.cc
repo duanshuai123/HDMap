@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -28,6 +29,7 @@ const ::google::protobuf::EnumDescriptor* Section_LaneDirection_descriptor_ = NU
 }  // namespace
 
 
+void protobuf_AssignDesc_section_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_section_2eproto() {
   protobuf_AddDesc_section_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -43,16 +45,16 @@ void protobuf_AssignDesc_section_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, succ_indices_),
   };
   Section_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Section_descriptor_,
       Section::default_instance_,
       Section_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Section));
+      -1,
+      sizeof(Section),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Section, _internal_metadata_),
+      -1);
   Section_LaneDirection_descriptor_ = Section_descriptor_->enum_type(0);
 }
 
@@ -64,10 +66,11 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_section_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Section_descriptor_, &Section::default_instance());
+      Section_descriptor_, &Section::default_instance());
 }
 
 }  // namespace
@@ -77,6 +80,7 @@ void protobuf_ShutdownFile_section_2eproto() {
   delete Section_reflection_;
 }
 
+void protobuf_AddDesc_section_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_section_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -126,7 +130,7 @@ bool Section_LaneDirection_IsValid(int value) {
   }
 }
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const Section_LaneDirection Section::UN_KNOWN;
 const Section_LaneDirection Section::FORWARD;
 const Section_LaneDirection Section::BACKWARD;
@@ -134,17 +138,17 @@ const Section_LaneDirection Section::TWOWAY;
 const Section_LaneDirection Section::LaneDirection_MIN;
 const Section_LaneDirection Section::LaneDirection_MAX;
 const int Section::LaneDirection_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Section::kIdFieldNumber;
 const int Section::kDirectionFieldNumber;
 const int Section::kLanesFieldNumber;
 const int Section::kPredIndicesFieldNumber;
 const int Section::kSuccIndicesFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Section::Section()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Section)
 }
@@ -154,7 +158,8 @@ void Section::InitAsDefaultInstance() {
 }
 
 Section::Section(const Section& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Section)
@@ -195,12 +200,17 @@ const Section& Section::default_instance() {
 
 Section* Section::default_instance_ = NULL;
 
-Section* Section::New() const {
-  return new Section;
+Section* Section::New(::google::protobuf::Arena* arena) const {
+  Section* n = new Section;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Section::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Section)
+  if (_has_bits_[0 / 32] & 3u) {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
@@ -210,12 +220,14 @@ void Section::Clear() {
   pred_indices_.Clear();
   succ_indices_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Section::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Section)
   for (;;) {
@@ -259,12 +271,15 @@ bool Section::MergePartialFromCodedStream(
       case 3: {
         if (tag == 26) {
          parse_lanes:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_lanes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_lanes()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_lanes;
+        if (input->ExpectTag(26)) goto parse_loop_lanes;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectTag(80)) goto parse_pred_indices;
         break;
       }
@@ -335,7 +350,7 @@ void Section::SerializeWithCachedSizes(
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->id(), output);
+      1, *this->id_, output);
   }
 
   // optional .hdmap_proto.Section.LaneDirection direction = 2;
@@ -345,7 +360,7 @@ void Section::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Lane lanes = 3;
-  for (int i = 0; i < this->lanes_size(); i++) {
+  for (unsigned int i = 0, n = this->lanes_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->lanes(i), output);
   }
@@ -362,21 +377,21 @@ void Section::SerializeWithCachedSizes(
       11, this->succ_indices(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Section)
 }
 
-::google::protobuf::uint8* Section::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Section::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Section)
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->id(), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->id_, false, target);
   }
 
   // optional .hdmap_proto.Section.LaneDirection direction = 2;
@@ -386,10 +401,10 @@ void Section::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Lane lanes = 3;
-  for (int i = 0; i < this->lanes_size(); i++) {
+  for (unsigned int i = 0, n = this->lanes_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->lanes(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        3, this->lanes(i), false, target);
   }
 
   // repeated uint32 pred_indices = 10;
@@ -404,7 +419,7 @@ void Section::SerializeWithCachedSizes(
       WriteUInt32ToArray(11, this->succ_indices(i), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -413,23 +428,21 @@ void Section::SerializeWithCachedSizes(
 }
 
 int Section::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Section)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .hdmap_proto.Id id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->id());
-    }
-
-    // optional .hdmap_proto.Section.LaneDirection direction = 2;
-    if (has_direction()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->direction());
-    }
-
+  // required .hdmap_proto.Id id = 1;
+  if (has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
   }
+  // optional .hdmap_proto.Section.LaneDirection direction = 2;
+  if (has_direction()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->direction());
+  }
+
   // repeated .hdmap_proto.Lane lanes = 3;
   total_size += 1 * this->lanes_size();
   for (int i = 0; i < this->lanes_size(); i++) {
@@ -458,7 +471,7 @@ int Section::ByteSize() const {
     total_size += 1 * this->succ_indices_size() + data_size;
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -470,19 +483,27 @@ int Section::ByteSize() const {
 }
 
 void Section::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Section* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Section*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Section)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Section* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Section>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Section)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Section)
     MergeFrom(*source);
   }
 }
 
 void Section::MergeFrom(const Section& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Section)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   lanes_.MergeFrom(from.lanes_);
   pred_indices_.MergeFrom(from.pred_indices_);
   succ_indices_.MergeFrom(from.succ_indices_);
@@ -494,16 +515,20 @@ void Section::MergeFrom(const Section& from) {
       set_direction(from.direction());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Section::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Section)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Section::CopyFrom(const Section& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Section)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -513,23 +538,25 @@ bool Section::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   if (has_id()) {
-    if (!this->id().IsInitialized()) return false;
+    if (!this->id_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->lanes())) return false;
   return true;
 }
 
 void Section::Swap(Section* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(direction_, other->direction_);
-    lanes_.Swap(&other->lanes_);
-    pred_indices_.Swap(&other->pred_indices_);
-    succ_indices_.Swap(&other->succ_indices_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Section::InternalSwap(Section* other) {
+  std::swap(id_, other->id_);
+  std::swap(direction_, other->direction_);
+  lanes_.UnsafeArenaSwap(&other->lanes_);
+  pred_indices_.UnsafeArenaSwap(&other->pred_indices_);
+  succ_indices_.UnsafeArenaSwap(&other->succ_indices_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Section::GetMetadata() const {
@@ -540,6 +567,169 @@ void Section::Swap(Section* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Section
+
+// required .hdmap_proto.Id id = 1;
+bool Section::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Section::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Section::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Section::clear_id() {
+  if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
+  clear_has_id();
+}
+const ::hdmap_proto::Id& Section::id() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+::hdmap_proto::Id* Section::mutable_id() {
+  set_has_id();
+  if (id_ == NULL) {
+    id_ = new ::hdmap_proto::Id;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Section.id)
+  return id_;
+}
+::hdmap_proto::Id* Section::release_id() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Section.id)
+  clear_has_id();
+  ::hdmap_proto::Id* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+void Section::set_allocated_id(::hdmap_proto::Id* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Section.id)
+}
+
+// optional .hdmap_proto.Section.LaneDirection direction = 2;
+bool Section::has_direction() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Section::set_has_direction() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Section::clear_has_direction() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Section::clear_direction() {
+  direction_ = 0;
+  clear_has_direction();
+}
+ ::hdmap_proto::Section_LaneDirection Section::direction() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.direction)
+  return static_cast< ::hdmap_proto::Section_LaneDirection >(direction_);
+}
+ void Section::set_direction(::hdmap_proto::Section_LaneDirection value) {
+  assert(::hdmap_proto::Section_LaneDirection_IsValid(value));
+  set_has_direction();
+  direction_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Section.direction)
+}
+
+// repeated .hdmap_proto.Lane lanes = 3;
+int Section::lanes_size() const {
+  return lanes_.size();
+}
+void Section::clear_lanes() {
+  lanes_.Clear();
+}
+const ::hdmap_proto::Lane& Section::lanes(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.lanes)
+  return lanes_.Get(index);
+}
+::hdmap_proto::Lane* Section::mutable_lanes(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Section.lanes)
+  return lanes_.Mutable(index);
+}
+::hdmap_proto::Lane* Section::add_lanes() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Section.lanes)
+  return lanes_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >*
+Section::mutable_lanes() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Section.lanes)
+  return &lanes_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Lane >&
+Section::lanes() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Section.lanes)
+  return lanes_;
+}
+
+// repeated uint32 pred_indices = 10;
+int Section::pred_indices_size() const {
+  return pred_indices_.size();
+}
+void Section::clear_pred_indices() {
+  pred_indices_.Clear();
+}
+ ::google::protobuf::uint32 Section::pred_indices(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.pred_indices)
+  return pred_indices_.Get(index);
+}
+ void Section::set_pred_indices(int index, ::google::protobuf::uint32 value) {
+  pred_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:hdmap_proto.Section.pred_indices)
+}
+ void Section::add_pred_indices(::google::protobuf::uint32 value) {
+  pred_indices_.Add(value);
+  // @@protoc_insertion_point(field_add:hdmap_proto.Section.pred_indices)
+}
+ const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+Section::pred_indices() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Section.pred_indices)
+  return pred_indices_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+Section::mutable_pred_indices() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Section.pred_indices)
+  return &pred_indices_;
+}
+
+// repeated uint32 succ_indices = 11;
+int Section::succ_indices_size() const {
+  return succ_indices_.size();
+}
+void Section::clear_succ_indices() {
+  succ_indices_.Clear();
+}
+ ::google::protobuf::uint32 Section::succ_indices(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Section.succ_indices)
+  return succ_indices_.Get(index);
+}
+ void Section::set_succ_indices(int index, ::google::protobuf::uint32 value) {
+  succ_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:hdmap_proto.Section.succ_indices)
+}
+ void Section::add_succ_indices(::google::protobuf::uint32 value) {
+  succ_indices_.Add(value);
+  // @@protoc_insertion_point(field_add:hdmap_proto.Section.succ_indices)
+}
+ const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+Section::succ_indices() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Section.succ_indices)
+  return succ_indices_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+Section::mutable_succ_indices() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Section.succ_indices)
+  return &succ_indices_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

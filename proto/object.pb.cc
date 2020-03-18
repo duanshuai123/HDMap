@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -42,6 +43,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
+void protobuf_AssignDesc_object_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_object_2eproto() {
   protobuf_AddDesc_object_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -56,16 +58,16 @@ void protobuf_AssignDesc_object_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SemanticPoint, link_ids_),
   };
   SemanticPoint_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       SemanticPoint_descriptor_,
       SemanticPoint::default_instance_,
       SemanticPoint_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SemanticPoint, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SemanticPoint, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(SemanticPoint));
+      -1,
+      sizeof(SemanticPoint),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SemanticPoint, _internal_metadata_),
+      -1);
   SemanticPoint_PointType_descriptor_ = SemanticPoint_descriptor_->enum_type(0);
   Zone_descriptor_ = file->message_type(1);
   static const int Zone_offsets_[5] = {
@@ -76,16 +78,16 @@ void protobuf_AssignDesc_object_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, link_suc_ids_),
   };
   Zone_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Zone_descriptor_,
       Zone::default_instance_,
       Zone_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Zone));
+      -1,
+      sizeof(Zone),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Zone, _internal_metadata_),
+      -1);
   Zone_ZoneType_descriptor_ = Zone_descriptor_->enum_type(0);
   Obstacle_descriptor_ = file->message_type(2);
   static const int Obstacle_offsets_[5] = {
@@ -96,16 +98,16 @@ void protobuf_AssignDesc_object_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Obstacle, link_ids_),
   };
   Obstacle_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Obstacle_descriptor_,
       Obstacle::default_instance_,
       Obstacle_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Obstacle, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Obstacle, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Obstacle));
+      -1,
+      sizeof(Obstacle),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Obstacle, _internal_metadata_),
+      -1);
   Obstacle_ObstacleType_descriptor_ = Obstacle_descriptor_->enum_type(0);
   Slope_descriptor_ = file->message_type(3);
   static const int Slope_offsets_[6] = {
@@ -117,32 +119,32 @@ void protobuf_AssignDesc_object_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, normal_),
   };
   Slope_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       Slope_descriptor_,
       Slope::default_instance_,
       Slope_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Slope));
+      -1,
+      sizeof(Slope),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, _internal_metadata_),
+      -1);
   SlopeSets_descriptor_ = file->message_type(4);
   static const int SlopeSets_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, pixsize_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, item_),
   };
   SlopeSets_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       SlopeSets_descriptor_,
       SlopeSets::default_instance_,
       SlopeSets_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(SlopeSets));
+      -1,
+      sizeof(SlopeSets),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SlopeSets, _internal_metadata_),
+      -1);
 }
 
 namespace {
@@ -153,18 +155,19 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_object_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    SemanticPoint_descriptor_, &SemanticPoint::default_instance());
+      SemanticPoint_descriptor_, &SemanticPoint::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Zone_descriptor_, &Zone::default_instance());
+      Zone_descriptor_, &Zone::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Obstacle_descriptor_, &Obstacle::default_instance());
+      Obstacle_descriptor_, &Obstacle::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Slope_descriptor_, &Slope::default_instance());
+      Slope_descriptor_, &Slope::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    SlopeSets_descriptor_, &SlopeSets::default_instance());
+      SlopeSets_descriptor_, &SlopeSets::default_instance());
 }
 
 }  // namespace
@@ -182,6 +185,7 @@ void protobuf_ShutdownFile_object_2eproto() {
   delete SlopeSets_reflection_;
 }
 
+void protobuf_AddDesc_object_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_object_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -260,7 +264,7 @@ bool SemanticPoint_PointType_IsValid(int value) {
   }
 }
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const SemanticPoint_PointType SemanticPoint::UN_KNOWN;
 const SemanticPoint_PointType SemanticPoint::EXIT_POINT;
 const SemanticPoint_PointType SemanticPoint::ENTRY_POINT;
@@ -270,16 +274,16 @@ const SemanticPoint_PointType SemanticPoint::UNCERTAIN;
 const SemanticPoint_PointType SemanticPoint::PointType_MIN;
 const SemanticPoint_PointType SemanticPoint::PointType_MAX;
 const int SemanticPoint::PointType_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SemanticPoint::kIdFieldNumber;
 const int SemanticPoint::kTypeFieldNumber;
 const int SemanticPoint::kPosFieldNumber;
 const int SemanticPoint::kLinkIdsFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SemanticPoint::SemanticPoint()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.SemanticPoint)
 }
@@ -290,7 +294,8 @@ void SemanticPoint::InitAsDefaultInstance() {
 }
 
 SemanticPoint::SemanticPoint(const SemanticPoint& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.SemanticPoint)
@@ -333,12 +338,17 @@ const SemanticPoint& SemanticPoint::default_instance() {
 
 SemanticPoint* SemanticPoint::default_instance_ = NULL;
 
-SemanticPoint* SemanticPoint::New() const {
-  return new SemanticPoint;
+SemanticPoint* SemanticPoint::New(::google::protobuf::Arena* arena) const {
+  SemanticPoint* n = new SemanticPoint;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void SemanticPoint::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.SemanticPoint)
+  if (_has_bits_[0 / 32] & 7u) {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
@@ -349,12 +359,14 @@ void SemanticPoint::Clear() {
   }
   link_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool SemanticPoint::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.SemanticPoint)
   for (;;) {
@@ -411,12 +423,15 @@ bool SemanticPoint::MergePartialFromCodedStream(
       case 4: {
         if (tag == 34) {
          parse_link_ids:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_link_ids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_link_ids()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_link_ids;
+        if (input->ExpectTag(34)) goto parse_loop_link_ids;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -449,7 +464,7 @@ void SemanticPoint::SerializeWithCachedSizes(
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->id(), output);
+      1, *this->id_, output);
   }
 
   // optional .hdmap_proto.SemanticPoint.PointType Type = 2;
@@ -461,30 +476,30 @@ void SemanticPoint::SerializeWithCachedSizes(
   // required .hdmap_proto.Vector3d pos = 3;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->pos(), output);
+      3, *this->pos_, output);
   }
 
   // repeated .hdmap_proto.Id link_ids = 4;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_ids_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->link_ids(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.SemanticPoint)
 }
 
-::google::protobuf::uint8* SemanticPoint::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* SemanticPoint::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.SemanticPoint)
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->id(), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->id_, false, target);
   }
 
   // optional .hdmap_proto.SemanticPoint.PointType Type = 2;
@@ -496,18 +511,18 @@ void SemanticPoint::SerializeWithCachedSizes(
   // required .hdmap_proto.Vector3d pos = 3;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->pos(), target);
+      InternalWriteMessageNoVirtualToArray(
+        3, *this->pos_, false, target);
   }
 
   // repeated .hdmap_proto.Id link_ids = 4;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_ids_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->link_ids(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        4, this->link_ids(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -515,31 +530,50 @@ void SemanticPoint::SerializeWithCachedSizes(
   return target;
 }
 
-int SemanticPoint::ByteSize() const {
+int SemanticPoint::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:hdmap_proto.SemanticPoint)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_id()) {
     // required .hdmap_proto.Id id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->id());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
+  }
 
-    // optional .hdmap_proto.SemanticPoint.PointType Type = 2;
-    if (has_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-    }
+  if (has_pos()) {
+    // required .hdmap_proto.Vector3d pos = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->pos_);
+  }
+
+  return total_size;
+}
+int SemanticPoint::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.SemanticPoint)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000005) ^ 0x00000005) == 0) {  // All required fields are present.
+    // required .hdmap_proto.Id id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
 
     // required .hdmap_proto.Vector3d pos = 3;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->pos());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->pos_);
 
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional .hdmap_proto.SemanticPoint.PointType Type = 2;
+  if (has_type()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
   // repeated .hdmap_proto.Id link_ids = 4;
   total_size += 1 * this->link_ids_size();
   for (int i = 0; i < this->link_ids_size(); i++) {
@@ -548,7 +582,7 @@ int SemanticPoint::ByteSize() const {
         this->link_ids(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -560,19 +594,27 @@ int SemanticPoint::ByteSize() const {
 }
 
 void SemanticPoint::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const SemanticPoint* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const SemanticPoint*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.SemanticPoint)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const SemanticPoint* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const SemanticPoint>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.SemanticPoint)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.SemanticPoint)
     MergeFrom(*source);
   }
 }
 
 void SemanticPoint::MergeFrom(const SemanticPoint& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.SemanticPoint)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   link_ids_.MergeFrom(from.link_ids_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -585,16 +627,20 @@ void SemanticPoint::MergeFrom(const SemanticPoint& from) {
       mutable_pos()->::hdmap_proto::Vector3d::MergeFrom(from.pos());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void SemanticPoint::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.SemanticPoint)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SemanticPoint::CopyFrom(const SemanticPoint& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.SemanticPoint)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -604,25 +650,27 @@ bool SemanticPoint::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000005) != 0x00000005) return false;
 
   if (has_id()) {
-    if (!this->id().IsInitialized()) return false;
+    if (!this->id_->IsInitialized()) return false;
   }
   if (has_pos()) {
-    if (!this->pos().IsInitialized()) return false;
+    if (!this->pos_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->link_ids())) return false;
   return true;
 }
 
 void SemanticPoint::Swap(SemanticPoint* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(type_, other->type_);
-    std::swap(pos_, other->pos_);
-    link_ids_.Swap(&other->link_ids_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SemanticPoint::InternalSwap(SemanticPoint* other) {
+  std::swap(id_, other->id_);
+  std::swap(type_, other->type_);
+  std::swap(pos_, other->pos_);
+  link_ids_.UnsafeArenaSwap(&other->link_ids_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata SemanticPoint::GetMetadata() const {
@@ -633,6 +681,153 @@ void SemanticPoint::Swap(SemanticPoint* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SemanticPoint
+
+// required .hdmap_proto.Id id = 1;
+bool SemanticPoint::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void SemanticPoint::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void SemanticPoint::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void SemanticPoint::clear_id() {
+  if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
+  clear_has_id();
+}
+const ::hdmap_proto::Id& SemanticPoint::id() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SemanticPoint.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+::hdmap_proto::Id* SemanticPoint::mutable_id() {
+  set_has_id();
+  if (id_ == NULL) {
+    id_ = new ::hdmap_proto::Id;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.SemanticPoint.id)
+  return id_;
+}
+::hdmap_proto::Id* SemanticPoint::release_id() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.SemanticPoint.id)
+  clear_has_id();
+  ::hdmap_proto::Id* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+void SemanticPoint::set_allocated_id(::hdmap_proto::Id* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.SemanticPoint.id)
+}
+
+// optional .hdmap_proto.SemanticPoint.PointType Type = 2;
+bool SemanticPoint::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void SemanticPoint::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void SemanticPoint::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void SemanticPoint::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+ ::hdmap_proto::SemanticPoint_PointType SemanticPoint::type() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SemanticPoint.Type)
+  return static_cast< ::hdmap_proto::SemanticPoint_PointType >(type_);
+}
+ void SemanticPoint::set_type(::hdmap_proto::SemanticPoint_PointType value) {
+  assert(::hdmap_proto::SemanticPoint_PointType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.SemanticPoint.Type)
+}
+
+// required .hdmap_proto.Vector3d pos = 3;
+bool SemanticPoint::has_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void SemanticPoint::set_has_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void SemanticPoint::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void SemanticPoint::clear_pos() {
+  if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
+  clear_has_pos();
+}
+const ::hdmap_proto::Vector3d& SemanticPoint::pos() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SemanticPoint.pos)
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+::hdmap_proto::Vector3d* SemanticPoint::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) {
+    pos_ = new ::hdmap_proto::Vector3d;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.SemanticPoint.pos)
+  return pos_;
+}
+::hdmap_proto::Vector3d* SemanticPoint::release_pos() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.SemanticPoint.pos)
+  clear_has_pos();
+  ::hdmap_proto::Vector3d* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+void SemanticPoint::set_allocated_pos(::hdmap_proto::Vector3d* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.SemanticPoint.pos)
+}
+
+// repeated .hdmap_proto.Id link_ids = 4;
+int SemanticPoint::link_ids_size() const {
+  return link_ids_.size();
+}
+void SemanticPoint::clear_link_ids() {
+  link_ids_.Clear();
+}
+const ::hdmap_proto::Id& SemanticPoint::link_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SemanticPoint.link_ids)
+  return link_ids_.Get(index);
+}
+::hdmap_proto::Id* SemanticPoint::mutable_link_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.SemanticPoint.link_ids)
+  return link_ids_.Mutable(index);
+}
+::hdmap_proto::Id* SemanticPoint::add_link_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.SemanticPoint.link_ids)
+  return link_ids_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+SemanticPoint::mutable_link_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.SemanticPoint.link_ids)
+  return &link_ids_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+SemanticPoint::link_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.SemanticPoint.link_ids)
+  return link_ids_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -651,24 +846,24 @@ bool Zone_ZoneType_IsValid(int value) {
   }
 }
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const Zone_ZoneType Zone::UN_KNOWN;
 const Zone_ZoneType Zone::MINIING_SOIL;
 const Zone_ZoneType Zone::DUMPING_SOIL;
 const Zone_ZoneType Zone::ZoneType_MIN;
 const Zone_ZoneType Zone::ZoneType_MAX;
 const int Zone::ZoneType_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Zone::kIdFieldNumber;
 const int Zone::kBorderFieldNumber;
 const int Zone::kTypeFieldNumber;
 const int Zone::kLinkPreIdsFieldNumber;
 const int Zone::kLinkSucIdsFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Zone::Zone()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Zone)
 }
@@ -679,7 +874,8 @@ void Zone::InitAsDefaultInstance() {
 }
 
 Zone::Zone(const Zone& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Zone)
@@ -722,12 +918,17 @@ const Zone& Zone::default_instance() {
 
 Zone* Zone::default_instance_ = NULL;
 
-Zone* Zone::New() const {
-  return new Zone;
+Zone* Zone::New(::google::protobuf::Arena* arena) const {
+  Zone* n = new Zone;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Zone::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Zone)
+  if (_has_bits_[0 / 32] & 7u) {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
@@ -739,12 +940,14 @@ void Zone::Clear() {
   link_pre_ids_.Clear();
   link_suc_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Zone::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Zone)
   for (;;) {
@@ -801,26 +1004,31 @@ bool Zone::MergePartialFromCodedStream(
       case 4: {
         if (tag == 34) {
          parse_link_pre_ids:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_link_pre_ids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_link_pre_ids()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_link_pre_ids;
-        if (input->ExpectTag(42)) goto parse_link_suc_ids;
+        if (input->ExpectTag(34)) goto parse_loop_link_pre_ids;
+        if (input->ExpectTag(42)) goto parse_loop_link_suc_ids;
+        input->UnsafeDecrementRecursionDepth();
         break;
       }
 
       // repeated .hdmap_proto.Id link_suc_ids = 5;
       case 5: {
         if (tag == 42) {
-         parse_link_suc_ids:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_link_suc_ids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_link_suc_ids()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_link_suc_ids;
+        if (input->ExpectTag(42)) goto parse_loop_link_suc_ids;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -853,13 +1061,13 @@ void Zone::SerializeWithCachedSizes(
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->id(), output);
+      1, *this->id_, output);
   }
 
   // required .hdmap_proto.Polygon border = 2;
   if (has_border()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->border(), output);
+      2, *this->border_, output);
   }
 
   // optional .hdmap_proto.Zone.ZoneType Type = 3;
@@ -869,39 +1077,39 @@ void Zone::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Id link_pre_ids = 4;
-  for (int i = 0; i < this->link_pre_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_pre_ids_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->link_pre_ids(i), output);
   }
 
   // repeated .hdmap_proto.Id link_suc_ids = 5;
-  for (int i = 0; i < this->link_suc_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_suc_ids_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->link_suc_ids(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Zone)
 }
 
-::google::protobuf::uint8* Zone::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Zone::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Zone)
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->id(), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->id_, false, target);
   }
 
   // required .hdmap_proto.Polygon border = 2;
   if (has_border()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->border(), target);
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->border_, false, target);
   }
 
   // optional .hdmap_proto.Zone.ZoneType Type = 3;
@@ -911,20 +1119,20 @@ void Zone::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Id link_pre_ids = 4;
-  for (int i = 0; i < this->link_pre_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_pre_ids_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->link_pre_ids(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        4, this->link_pre_ids(i), false, target);
   }
 
   // repeated .hdmap_proto.Id link_suc_ids = 5;
-  for (int i = 0; i < this->link_suc_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_suc_ids_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->link_suc_ids(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        5, this->link_suc_ids(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -932,31 +1140,50 @@ void Zone::SerializeWithCachedSizes(
   return target;
 }
 
-int Zone::ByteSize() const {
+int Zone::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:hdmap_proto.Zone)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_id()) {
     // required .hdmap_proto.Id id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->id());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
+  }
+
+  if (has_border()) {
+    // required .hdmap_proto.Polygon border = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->border_);
+  }
+
+  return total_size;
+}
+int Zone::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Zone)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .hdmap_proto.Id id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
 
     // required .hdmap_proto.Polygon border = 2;
-    if (has_border()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->border());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->border_);
 
-    // optional .hdmap_proto.Zone.ZoneType Type = 3;
-    if (has_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-    }
-
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
   }
+  // optional .hdmap_proto.Zone.ZoneType Type = 3;
+  if (has_type()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
   // repeated .hdmap_proto.Id link_pre_ids = 4;
   total_size += 1 * this->link_pre_ids_size();
   for (int i = 0; i < this->link_pre_ids_size(); i++) {
@@ -973,7 +1200,7 @@ int Zone::ByteSize() const {
         this->link_suc_ids(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -985,19 +1212,27 @@ int Zone::ByteSize() const {
 }
 
 void Zone::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Zone* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Zone*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Zone)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Zone* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Zone>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Zone)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Zone)
     MergeFrom(*source);
   }
 }
 
 void Zone::MergeFrom(const Zone& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Zone)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   link_pre_ids_.MergeFrom(from.link_pre_ids_);
   link_suc_ids_.MergeFrom(from.link_suc_ids_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1011,16 +1246,20 @@ void Zone::MergeFrom(const Zone& from) {
       set_type(from.type());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Zone::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Zone)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Zone::CopyFrom(const Zone& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Zone)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1030,10 +1269,10 @@ bool Zone::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_id()) {
-    if (!this->id().IsInitialized()) return false;
+    if (!this->id_->IsInitialized()) return false;
   }
   if (has_border()) {
-    if (!this->border().IsInitialized()) return false;
+    if (!this->border_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->link_pre_ids())) return false;
   if (!::google::protobuf::internal::AllAreInitialized(this->link_suc_ids())) return false;
@@ -1041,16 +1280,18 @@ bool Zone::IsInitialized() const {
 }
 
 void Zone::Swap(Zone* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(border_, other->border_);
-    std::swap(type_, other->type_);
-    link_pre_ids_.Swap(&other->link_pre_ids_);
-    link_suc_ids_.Swap(&other->link_suc_ids_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Zone::InternalSwap(Zone* other) {
+  std::swap(id_, other->id_);
+  std::swap(border_, other->border_);
+  std::swap(type_, other->type_);
+  link_pre_ids_.UnsafeArenaSwap(&other->link_pre_ids_);
+  link_suc_ids_.UnsafeArenaSwap(&other->link_suc_ids_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Zone::GetMetadata() const {
@@ -1061,6 +1302,183 @@ void Zone::Swap(Zone* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Zone
+
+// required .hdmap_proto.Id id = 1;
+bool Zone::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Zone::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Zone::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Zone::clear_id() {
+  if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
+  clear_has_id();
+}
+const ::hdmap_proto::Id& Zone::id() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+::hdmap_proto::Id* Zone::mutable_id() {
+  set_has_id();
+  if (id_ == NULL) {
+    id_ = new ::hdmap_proto::Id;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.id)
+  return id_;
+}
+::hdmap_proto::Id* Zone::release_id() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Zone.id)
+  clear_has_id();
+  ::hdmap_proto::Id* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+void Zone::set_allocated_id(::hdmap_proto::Id* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Zone.id)
+}
+
+// required .hdmap_proto.Polygon border = 2;
+bool Zone::has_border() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Zone::set_has_border() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Zone::clear_has_border() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Zone::clear_border() {
+  if (border_ != NULL) border_->::hdmap_proto::Polygon::Clear();
+  clear_has_border();
+}
+const ::hdmap_proto::Polygon& Zone::border() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.border)
+  return border_ != NULL ? *border_ : *default_instance_->border_;
+}
+::hdmap_proto::Polygon* Zone::mutable_border() {
+  set_has_border();
+  if (border_ == NULL) {
+    border_ = new ::hdmap_proto::Polygon;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.border)
+  return border_;
+}
+::hdmap_proto::Polygon* Zone::release_border() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Zone.border)
+  clear_has_border();
+  ::hdmap_proto::Polygon* temp = border_;
+  border_ = NULL;
+  return temp;
+}
+void Zone::set_allocated_border(::hdmap_proto::Polygon* border) {
+  delete border_;
+  border_ = border;
+  if (border) {
+    set_has_border();
+  } else {
+    clear_has_border();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Zone.border)
+}
+
+// optional .hdmap_proto.Zone.ZoneType Type = 3;
+bool Zone::has_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void Zone::set_has_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void Zone::clear_has_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void Zone::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+ ::hdmap_proto::Zone_ZoneType Zone::type() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.Type)
+  return static_cast< ::hdmap_proto::Zone_ZoneType >(type_);
+}
+ void Zone::set_type(::hdmap_proto::Zone_ZoneType value) {
+  assert(::hdmap_proto::Zone_ZoneType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Zone.Type)
+}
+
+// repeated .hdmap_proto.Id link_pre_ids = 4;
+int Zone::link_pre_ids_size() const {
+  return link_pre_ids_.size();
+}
+void Zone::clear_link_pre_ids() {
+  link_pre_ids_.Clear();
+}
+const ::hdmap_proto::Id& Zone::link_pre_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Get(index);
+}
+::hdmap_proto::Id* Zone::mutable_link_pre_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Mutable(index);
+}
+::hdmap_proto::Id* Zone::add_link_pre_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+Zone::mutable_link_pre_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Zone.link_pre_ids)
+  return &link_pre_ids_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+Zone::link_pre_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Zone.link_pre_ids)
+  return link_pre_ids_;
+}
+
+// repeated .hdmap_proto.Id link_suc_ids = 5;
+int Zone::link_suc_ids_size() const {
+  return link_suc_ids_.size();
+}
+void Zone::clear_link_suc_ids() {
+  link_suc_ids_.Clear();
+}
+const ::hdmap_proto::Id& Zone::link_suc_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Get(index);
+}
+::hdmap_proto::Id* Zone::mutable_link_suc_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Mutable(index);
+}
+::hdmap_proto::Id* Zone::add_link_suc_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+Zone::mutable_link_suc_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Zone.link_suc_ids)
+  return &link_suc_ids_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+Zone::link_suc_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Zone.link_suc_ids)
+  return link_suc_ids_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -1082,7 +1500,7 @@ bool Obstacle_ObstacleType_IsValid(int value) {
   }
 }
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const Obstacle_ObstacleType Obstacle::UN_KNOWN;
 const Obstacle_ObstacleType Obstacle::TRUNK;
 const Obstacle_ObstacleType Obstacle::PERSON;
@@ -1092,17 +1510,17 @@ const Obstacle_ObstacleType Obstacle::UNCERTAIN;
 const Obstacle_ObstacleType Obstacle::ObstacleType_MIN;
 const Obstacle_ObstacleType Obstacle::ObstacleType_MAX;
 const int Obstacle::ObstacleType_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Obstacle::kIdFieldNumber;
 const int Obstacle::kBorderFieldNumber;
 const int Obstacle::kHeightFieldNumber;
 const int Obstacle::kTypeFieldNumber;
 const int Obstacle::kLinkIdsFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Obstacle::Obstacle()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Obstacle)
 }
@@ -1113,7 +1531,8 @@ void Obstacle::InitAsDefaultInstance() {
 }
 
 Obstacle::Obstacle(const Obstacle& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Obstacle)
@@ -1157,12 +1576,17 @@ const Obstacle& Obstacle::default_instance() {
 
 Obstacle* Obstacle::default_instance_ = NULL;
 
-Obstacle* Obstacle::New() const {
-  return new Obstacle;
+Obstacle* Obstacle::New(::google::protobuf::Arena* arena) const {
+  Obstacle* n = new Obstacle;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Obstacle::Clear() {
-  if (_has_bits_[0 / 32] & 15) {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Obstacle)
+  if (_has_bits_[0 / 32] & 15u) {
     if (has_id()) {
       if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
     }
@@ -1174,12 +1598,14 @@ void Obstacle::Clear() {
   }
   link_ids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Obstacle::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Obstacle)
   for (;;) {
@@ -1251,12 +1677,15 @@ bool Obstacle::MergePartialFromCodedStream(
       case 5: {
         if (tag == 42) {
          parse_link_ids:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_link_ids:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_link_ids()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_link_ids;
+        if (input->ExpectTag(42)) goto parse_loop_link_ids;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1289,13 +1718,13 @@ void Obstacle::SerializeWithCachedSizes(
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->id(), output);
+      1, *this->id_, output);
   }
 
   // required .hdmap_proto.Polygon border = 2;
   if (has_border()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->border(), output);
+      2, *this->border_, output);
   }
 
   // optional double Height = 3;
@@ -1310,33 +1739,33 @@ void Obstacle::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Id link_ids = 5;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_ids_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->link_ids(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Obstacle)
 }
 
-::google::protobuf::uint8* Obstacle::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Obstacle::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Obstacle)
   // required .hdmap_proto.Id id = 1;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->id(), target);
+      InternalWriteMessageNoVirtualToArray(
+        1, *this->id_, false, target);
   }
 
   // required .hdmap_proto.Polygon border = 2;
   if (has_border()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->border(), target);
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->border_, false, target);
   }
 
   // optional double Height = 3;
@@ -1351,13 +1780,13 @@ void Obstacle::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Id link_ids = 5;
-  for (int i = 0; i < this->link_ids_size(); i++) {
+  for (unsigned int i = 0, n = this->link_ids_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->link_ids(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        5, this->link_ids(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -1365,24 +1794,45 @@ void Obstacle::SerializeWithCachedSizes(
   return target;
 }
 
-int Obstacle::ByteSize() const {
+int Obstacle::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:hdmap_proto.Obstacle)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_id()) {
     // required .hdmap_proto.Id id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->id());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
+  }
+
+  if (has_border()) {
+    // required .hdmap_proto.Polygon border = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->border_);
+  }
+
+  return total_size;
+}
+int Obstacle::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Obstacle)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required .hdmap_proto.Id id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->id_);
 
     // required .hdmap_proto.Polygon border = 2;
-    if (has_border()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->border());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->border_);
 
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[2 / 32] & 12u) {
     // optional double Height = 3;
     if (has_height()) {
       total_size += 1 + 8;
@@ -1403,7 +1853,7 @@ int Obstacle::ByteSize() const {
         this->link_ids(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -1415,19 +1865,27 @@ int Obstacle::ByteSize() const {
 }
 
 void Obstacle::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Obstacle* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Obstacle*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Obstacle)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Obstacle* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Obstacle>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Obstacle)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Obstacle)
     MergeFrom(*source);
   }
 }
 
 void Obstacle::MergeFrom(const Obstacle& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Obstacle)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   link_ids_.MergeFrom(from.link_ids_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -1443,16 +1901,20 @@ void Obstacle::MergeFrom(const Obstacle& from) {
       set_type(from.type());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Obstacle::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Obstacle)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Obstacle::CopyFrom(const Obstacle& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Obstacle)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1462,26 +1924,28 @@ bool Obstacle::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_id()) {
-    if (!this->id().IsInitialized()) return false;
+    if (!this->id_->IsInitialized()) return false;
   }
   if (has_border()) {
-    if (!this->border().IsInitialized()) return false;
+    if (!this->border_->IsInitialized()) return false;
   }
   if (!::google::protobuf::internal::AllAreInitialized(this->link_ids())) return false;
   return true;
 }
 
 void Obstacle::Swap(Obstacle* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(border_, other->border_);
-    std::swap(height_, other->height_);
-    std::swap(type_, other->type_);
-    link_ids_.Swap(&other->link_ids_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Obstacle::InternalSwap(Obstacle* other) {
+  std::swap(id_, other->id_);
+  std::swap(border_, other->border_);
+  std::swap(height_, other->height_);
+  std::swap(type_, other->type_);
+  link_ids_.UnsafeArenaSwap(&other->link_ids_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Obstacle::GetMetadata() const {
@@ -1492,20 +1956,191 @@ void Obstacle::Swap(Obstacle* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Obstacle
+
+// required .hdmap_proto.Id id = 1;
+bool Obstacle::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Obstacle::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Obstacle::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Obstacle::clear_id() {
+  if (id_ != NULL) id_->::hdmap_proto::Id::Clear();
+  clear_has_id();
+}
+const ::hdmap_proto::Id& Obstacle::id() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Obstacle.id)
+  return id_ != NULL ? *id_ : *default_instance_->id_;
+}
+::hdmap_proto::Id* Obstacle::mutable_id() {
+  set_has_id();
+  if (id_ == NULL) {
+    id_ = new ::hdmap_proto::Id;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Obstacle.id)
+  return id_;
+}
+::hdmap_proto::Id* Obstacle::release_id() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Obstacle.id)
+  clear_has_id();
+  ::hdmap_proto::Id* temp = id_;
+  id_ = NULL;
+  return temp;
+}
+void Obstacle::set_allocated_id(::hdmap_proto::Id* id) {
+  delete id_;
+  id_ = id;
+  if (id) {
+    set_has_id();
+  } else {
+    clear_has_id();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Obstacle.id)
+}
+
+// required .hdmap_proto.Polygon border = 2;
+bool Obstacle::has_border() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Obstacle::set_has_border() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Obstacle::clear_has_border() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Obstacle::clear_border() {
+  if (border_ != NULL) border_->::hdmap_proto::Polygon::Clear();
+  clear_has_border();
+}
+const ::hdmap_proto::Polygon& Obstacle::border() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Obstacle.border)
+  return border_ != NULL ? *border_ : *default_instance_->border_;
+}
+::hdmap_proto::Polygon* Obstacle::mutable_border() {
+  set_has_border();
+  if (border_ == NULL) {
+    border_ = new ::hdmap_proto::Polygon;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Obstacle.border)
+  return border_;
+}
+::hdmap_proto::Polygon* Obstacle::release_border() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Obstacle.border)
+  clear_has_border();
+  ::hdmap_proto::Polygon* temp = border_;
+  border_ = NULL;
+  return temp;
+}
+void Obstacle::set_allocated_border(::hdmap_proto::Polygon* border) {
+  delete border_;
+  border_ = border;
+  if (border) {
+    set_has_border();
+  } else {
+    clear_has_border();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Obstacle.border)
+}
+
+// optional double Height = 3;
+bool Obstacle::has_height() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void Obstacle::set_has_height() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void Obstacle::clear_has_height() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void Obstacle::clear_height() {
+  height_ = 0;
+  clear_has_height();
+}
+ double Obstacle::height() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Obstacle.Height)
+  return height_;
+}
+ void Obstacle::set_height(double value) {
+  set_has_height();
+  height_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Obstacle.Height)
+}
+
+// optional .hdmap_proto.Obstacle.ObstacleType Type = 4;
+bool Obstacle::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void Obstacle::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void Obstacle::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void Obstacle::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+ ::hdmap_proto::Obstacle_ObstacleType Obstacle::type() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Obstacle.Type)
+  return static_cast< ::hdmap_proto::Obstacle_ObstacleType >(type_);
+}
+ void Obstacle::set_type(::hdmap_proto::Obstacle_ObstacleType value) {
+  assert(::hdmap_proto::Obstacle_ObstacleType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Obstacle.Type)
+}
+
+// repeated .hdmap_proto.Id link_ids = 5;
+int Obstacle::link_ids_size() const {
+  return link_ids_.size();
+}
+void Obstacle::clear_link_ids() {
+  link_ids_.Clear();
+}
+const ::hdmap_proto::Id& Obstacle::link_ids(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Obstacle.link_ids)
+  return link_ids_.Get(index);
+}
+::hdmap_proto::Id* Obstacle::mutable_link_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Obstacle.link_ids)
+  return link_ids_.Mutable(index);
+}
+::hdmap_proto::Id* Obstacle::add_link_ids() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.Obstacle.link_ids)
+  return link_ids_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >*
+Obstacle::mutable_link_ids() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.Obstacle.link_ids)
+  return &link_ids_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Id >&
+Obstacle::link_ids() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.Obstacle.link_ids)
+  return link_ids_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Slope::kNxFieldNumber;
 const int Slope::kNyFieldNumber;
 const int Slope::kFlagFieldNumber;
 const int Slope::kSlopeValueFieldNumber;
 const int Slope::kPosFieldNumber;
 const int Slope::kNormalFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Slope::Slope()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.Slope)
 }
@@ -1516,7 +2151,8 @@ void Slope::InitAsDefaultInstance() {
 }
 
 Slope::Slope(const Slope& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.Slope)
@@ -1562,22 +2198,33 @@ const Slope& Slope::default_instance() {
 
 Slope* Slope::default_instance_ = NULL;
 
-Slope* Slope::New() const {
-  return new Slope;
+Slope* Slope::New(::google::protobuf::Arena* arena) const {
+  Slope* n = new Slope;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void Slope::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<Slope*>(16)->f) - \
-   reinterpret_cast<char*>(16))
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.Slope)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(Slope, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<Slope*>(16)->f)
+#endif
 
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
 
-  if (_has_bits_[0 / 32] & 63) {
+  if (_has_bits_[0 / 32] & 63u) {
     ZR_(nx_, slopevalue_);
     flag_ = 0u;
     if (has_pos()) {
@@ -1588,16 +2235,18 @@ void Slope::Clear() {
     }
   }
 
-#undef OFFSET_OF_FIELD_
+#undef ZR_HELPER_
 #undef ZR_
 
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool Slope::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.Slope)
   for (;;) {
@@ -1738,24 +2387,24 @@ void Slope::SerializeWithCachedSizes(
   // optional .hdmap_proto.Vector3d pos = 5;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->pos(), output);
+      5, *this->pos_, output);
   }
 
   // optional .hdmap_proto.Vector3d normal = 6;
   if (has_normal()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->normal(), output);
+      6, *this->normal_, output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.Slope)
 }
 
-::google::protobuf::uint8* Slope::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* Slope::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.Slope)
   // required int32 nx = 1;
   if (has_nx()) {
@@ -1780,18 +2429,18 @@ void Slope::SerializeWithCachedSizes(
   // optional .hdmap_proto.Vector3d pos = 5;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->pos(), target);
+      InternalWriteMessageNoVirtualToArray(
+        5, *this->pos_, false, target);
   }
 
   // optional .hdmap_proto.Vector3d normal = 6;
   if (has_normal()) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        6, this->normal(), target);
+      InternalWriteMessageNoVirtualToArray(
+        6, *this->normal_, false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -1799,24 +2448,45 @@ void Slope::SerializeWithCachedSizes(
   return target;
 }
 
-int Slope::ByteSize() const {
+int Slope::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:hdmap_proto.Slope)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_nx()) {
     // required int32 nx = 1;
-    if (has_nx()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->nx());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->nx());
+  }
+
+  if (has_ny()) {
+    // required int32 ny = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->ny());
+  }
+
+  return total_size;
+}
+int Slope::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Slope)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required int32 nx = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->nx());
 
     // required int32 ny = 2;
-    if (has_ny()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->ny());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->ny());
 
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[2 / 32] & 60u) {
     // optional uint32 flag = 3;
     if (has_flag()) {
       total_size += 1 +
@@ -1833,18 +2503,18 @@ int Slope::ByteSize() const {
     if (has_pos()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->pos());
+          *this->pos_);
     }
 
     // optional .hdmap_proto.Vector3d normal = 6;
     if (has_normal()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->normal());
+          *this->normal_);
     }
 
   }
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -1856,19 +2526,27 @@ int Slope::ByteSize() const {
 }
 
 void Slope::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Slope* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Slope*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.Slope)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const Slope* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slope>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.Slope)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.Slope)
     MergeFrom(*source);
   }
 }
 
 void Slope::MergeFrom(const Slope& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.Slope)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_nx()) {
       set_nx(from.nx());
@@ -1889,16 +2567,20 @@ void Slope::MergeFrom(const Slope& from) {
       mutable_normal()->::hdmap_proto::Vector3d::MergeFrom(from.normal());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void Slope::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.Slope)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Slope::CopyFrom(const Slope& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.Slope)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1908,26 +2590,28 @@ bool Slope::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_pos()) {
-    if (!this->pos().IsInitialized()) return false;
+    if (!this->pos_->IsInitialized()) return false;
   }
   if (has_normal()) {
-    if (!this->normal().IsInitialized()) return false;
+    if (!this->normal_->IsInitialized()) return false;
   }
   return true;
 }
 
 void Slope::Swap(Slope* other) {
-  if (other != this) {
-    std::swap(nx_, other->nx_);
-    std::swap(ny_, other->ny_);
-    std::swap(flag_, other->flag_);
-    std::swap(slopevalue_, other->slopevalue_);
-    std::swap(pos_, other->pos_);
-    std::swap(normal_, other->normal_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slope::InternalSwap(Slope* other) {
+  std::swap(nx_, other->nx_);
+  std::swap(ny_, other->ny_);
+  std::swap(flag_, other->flag_);
+  std::swap(slopevalue_, other->slopevalue_);
+  std::swap(pos_, other->pos_);
+  std::swap(normal_, other->normal_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Slope::GetMetadata() const {
@@ -1938,16 +2622,204 @@ void Slope::Swap(Slope* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slope
+
+// required int32 nx = 1;
+bool Slope::has_nx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void Slope::set_has_nx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void Slope::clear_has_nx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void Slope::clear_nx() {
+  nx_ = 0;
+  clear_has_nx();
+}
+ ::google::protobuf::int32 Slope::nx() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.nx)
+  return nx_;
+}
+ void Slope::set_nx(::google::protobuf::int32 value) {
+  set_has_nx();
+  nx_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.nx)
+}
+
+// required int32 ny = 2;
+bool Slope::has_ny() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void Slope::set_has_ny() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void Slope::clear_has_ny() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void Slope::clear_ny() {
+  ny_ = 0;
+  clear_has_ny();
+}
+ ::google::protobuf::int32 Slope::ny() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.ny)
+  return ny_;
+}
+ void Slope::set_ny(::google::protobuf::int32 value) {
+  set_has_ny();
+  ny_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.ny)
+}
+
+// optional uint32 flag = 3;
+bool Slope::has_flag() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void Slope::set_has_flag() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void Slope::clear_has_flag() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void Slope::clear_flag() {
+  flag_ = 0u;
+  clear_has_flag();
+}
+ ::google::protobuf::uint32 Slope::flag() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.flag)
+  return flag_;
+}
+ void Slope::set_flag(::google::protobuf::uint32 value) {
+  set_has_flag();
+  flag_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.flag)
+}
+
+// optional double SlopeValue = 4;
+bool Slope::has_slopevalue() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void Slope::set_has_slopevalue() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void Slope::clear_has_slopevalue() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void Slope::clear_slopevalue() {
+  slopevalue_ = 0;
+  clear_has_slopevalue();
+}
+ double Slope::slopevalue() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.SlopeValue)
+  return slopevalue_;
+}
+ void Slope::set_slopevalue(double value) {
+  set_has_slopevalue();
+  slopevalue_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.SlopeValue)
+}
+
+// optional .hdmap_proto.Vector3d pos = 5;
+bool Slope::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void Slope::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void Slope::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void Slope::clear_pos() {
+  if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
+  clear_has_pos();
+}
+const ::hdmap_proto::Vector3d& Slope::pos() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.pos)
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+::hdmap_proto::Vector3d* Slope::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) {
+    pos_ = new ::hdmap_proto::Vector3d;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Slope.pos)
+  return pos_;
+}
+::hdmap_proto::Vector3d* Slope::release_pos() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Slope.pos)
+  clear_has_pos();
+  ::hdmap_proto::Vector3d* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+void Slope::set_allocated_pos(::hdmap_proto::Vector3d* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Slope.pos)
+}
+
+// optional .hdmap_proto.Vector3d normal = 6;
+bool Slope::has_normal() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void Slope::set_has_normal() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void Slope::clear_has_normal() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void Slope::clear_normal() {
+  if (normal_ != NULL) normal_->::hdmap_proto::Vector3d::Clear();
+  clear_has_normal();
+}
+const ::hdmap_proto::Vector3d& Slope::normal() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.normal)
+  return normal_ != NULL ? *normal_ : *default_instance_->normal_;
+}
+::hdmap_proto::Vector3d* Slope::mutable_normal() {
+  set_has_normal();
+  if (normal_ == NULL) {
+    normal_ = new ::hdmap_proto::Vector3d;
+  }
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.Slope.normal)
+  return normal_;
+}
+::hdmap_proto::Vector3d* Slope::release_normal() {
+  // @@protoc_insertion_point(field_release:hdmap_proto.Slope.normal)
+  clear_has_normal();
+  ::hdmap_proto::Vector3d* temp = normal_;
+  normal_ = NULL;
+  return temp;
+}
+void Slope::set_allocated_normal(::hdmap_proto::Vector3d* normal) {
+  delete normal_;
+  normal_ = normal;
+  if (normal) {
+    set_has_normal();
+  } else {
+    clear_has_normal();
+  }
+  // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Slope.normal)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SlopeSets::kPixSizeFieldNumber;
 const int SlopeSets::kItemFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SlopeSets::SlopeSets()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:hdmap_proto.SlopeSets)
 }
@@ -1956,7 +2828,8 @@ void SlopeSets::InitAsDefaultInstance() {
 }
 
 SlopeSets::SlopeSets(const SlopeSets& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
   // @@protoc_insertion_point(copy_constructor:hdmap_proto.SlopeSets)
@@ -1995,20 +2868,27 @@ const SlopeSets& SlopeSets::default_instance() {
 
 SlopeSets* SlopeSets::default_instance_ = NULL;
 
-SlopeSets* SlopeSets::New() const {
-  return new SlopeSets;
+SlopeSets* SlopeSets::New(::google::protobuf::Arena* arena) const {
+  SlopeSets* n = new SlopeSets;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void SlopeSets::Clear() {
+// @@protoc_insertion_point(message_clear_start:hdmap_proto.SlopeSets)
   pixsize_ = 0;
   item_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool SlopeSets::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:hdmap_proto.SlopeSets)
   for (;;) {
@@ -2034,12 +2914,15 @@ bool SlopeSets::MergePartialFromCodedStream(
       case 3: {
         if (tag == 26) {
          parse_item:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+          DO_(input->IncrementRecursionDepth());
+         parse_loop_item:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
                 input, add_item()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_item;
+        if (input->ExpectTag(26)) goto parse_loop_item;
+        input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2075,20 +2958,20 @@ void SlopeSets::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Slope item = 3;
-  for (int i = 0; i < this->item_size(); i++) {
+  for (unsigned int i = 0, n = this->item_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->item(i), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:hdmap_proto.SlopeSets)
 }
 
-::google::protobuf::uint8* SlopeSets::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* SlopeSets::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:hdmap_proto.SlopeSets)
   // required double pixSize = 2;
   if (has_pixsize()) {
@@ -2096,13 +2979,13 @@ void SlopeSets::SerializeWithCachedSizes(
   }
 
   // repeated .hdmap_proto.Slope item = 3;
-  for (int i = 0; i < this->item_size(); i++) {
+  for (unsigned int i = 0, n = this->item_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->item(i), target);
+      InternalWriteMessageNoVirtualToArray(
+        3, this->item(i), false, target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
@@ -2111,14 +2994,12 @@ void SlopeSets::SerializeWithCachedSizes(
 }
 
 int SlopeSets::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:hdmap_proto.SlopeSets)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required double pixSize = 2;
-    if (has_pixsize()) {
-      total_size += 1 + 8;
-    }
-
+  // required double pixSize = 2;
+  if (has_pixsize()) {
+    total_size += 1 + 8;
   }
   // repeated .hdmap_proto.Slope item = 3;
   total_size += 1 * this->item_size();
@@ -2128,7 +3009,7 @@ int SlopeSets::ByteSize() const {
         this->item(i));
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -2140,35 +3021,47 @@ int SlopeSets::ByteSize() const {
 }
 
 void SlopeSets::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const SlopeSets* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const SlopeSets*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:hdmap_proto.SlopeSets)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const SlopeSets* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const SlopeSets>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hdmap_proto.SlopeSets)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:hdmap_proto.SlopeSets)
     MergeFrom(*source);
   }
 }
 
 void SlopeSets::MergeFrom(const SlopeSets& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:hdmap_proto.SlopeSets)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   item_.MergeFrom(from.item_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_pixsize()) {
       set_pixsize(from.pixsize());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void SlopeSets::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:hdmap_proto.SlopeSets)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SlopeSets::CopyFrom(const SlopeSets& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hdmap_proto.SlopeSets)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2182,13 +3075,15 @@ bool SlopeSets::IsInitialized() const {
 }
 
 void SlopeSets::Swap(SlopeSets* other) {
-  if (other != this) {
-    std::swap(pixsize_, other->pixsize_);
-    item_.Swap(&other->item_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SlopeSets::InternalSwap(SlopeSets* other) {
+  std::swap(pixsize_, other->pixsize_);
+  item_.UnsafeArenaSwap(&other->item_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata SlopeSets::GetMetadata() const {
@@ -2199,6 +3094,64 @@ void SlopeSets::Swap(SlopeSets* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SlopeSets
+
+// required double pixSize = 2;
+bool SlopeSets::has_pixsize() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void SlopeSets::set_has_pixsize() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void SlopeSets::clear_has_pixsize() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void SlopeSets::clear_pixsize() {
+  pixsize_ = 0;
+  clear_has_pixsize();
+}
+ double SlopeSets::pixsize() const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SlopeSets.pixSize)
+  return pixsize_;
+}
+ void SlopeSets::set_pixsize(double value) {
+  set_has_pixsize();
+  pixsize_ = value;
+  // @@protoc_insertion_point(field_set:hdmap_proto.SlopeSets.pixSize)
+}
+
+// repeated .hdmap_proto.Slope item = 3;
+int SlopeSets::item_size() const {
+  return item_.size();
+}
+void SlopeSets::clear_item() {
+  item_.Clear();
+}
+const ::hdmap_proto::Slope& SlopeSets::item(int index) const {
+  // @@protoc_insertion_point(field_get:hdmap_proto.SlopeSets.item)
+  return item_.Get(index);
+}
+::hdmap_proto::Slope* SlopeSets::mutable_item(int index) {
+  // @@protoc_insertion_point(field_mutable:hdmap_proto.SlopeSets.item)
+  return item_.Mutable(index);
+}
+::hdmap_proto::Slope* SlopeSets::add_item() {
+  // @@protoc_insertion_point(field_add:hdmap_proto.SlopeSets.item)
+  return item_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >*
+SlopeSets::mutable_item() {
+  // @@protoc_insertion_point(field_mutable_list:hdmap_proto.SlopeSets.item)
+  return &item_;
+}
+const ::google::protobuf::RepeatedPtrField< ::hdmap_proto::Slope >&
+SlopeSets::item() const {
+  // @@protoc_insertion_point(field_list:hdmap_proto.SlopeSets.item)
+  return item_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
