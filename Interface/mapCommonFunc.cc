@@ -376,10 +376,8 @@ SlopeInfo  geoSpatialSearch::getSlopeInfo(Vector3d curPos)
         return info;
     
     Slope slope = pSlopsets.item(nIndex);
-    info.m_flag = slope.flag();
     info.m_normal = slope.normal();
     info.m_pos = slope.pos();
-    info.m_SlopeValue = slope.slopevalue();
     info.m_bValid = true;
  
     return info;

@@ -68,22 +68,17 @@ void testSlope()
     hdmap_proto::Slope* pSlope1 = slopes->add_item();
     pSlope1->set_nx(2);
     pSlope1->set_ny(3);
-    pSlope1->set_flag(1);
-    pSlope1->set_slopevalue(0.2);
     
     //10行8列 坡向0 坡度值0.15
     hdmap_proto::Slope* pSlope2 = slopes->add_item();
     pSlope2->set_nx(10);
     pSlope2->set_ny(8);
-    pSlope2->set_flag(1);
-    pSlope2->set_slopevalue(0.15);
     
     //50行3列 坡向2 坡度值0.32
     hdmap_proto::Slope* pSlope3 = slopes->add_item();
     pSlope3->set_nx(50);
     pSlope3->set_ny(3);
-    pSlope3->set_flag(1);
-    pSlope3->set_slopevalue(0.32);
+
     
     //能计算的网格都一一添加坡度
     //....

@@ -58,10 +58,8 @@ repeated Id link_ids = 5;
 message Slope {
     required int32 nx = 1;
     required int32 ny = 2;
-    optional uint32 flag = 3;
-    optional double SlopeValue = 4;
     optional Vector3d pos = 5;
-    optional Vector3d normal = 6;
+    required Vector3d normal = 6;
 }
 
 message SlopeSets {

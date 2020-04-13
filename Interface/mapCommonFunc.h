@@ -55,8 +55,6 @@ struct GeoInfo
 struct SlopeInfo
 {
     bool m_bValid; // false指无效，返回默认值，true有效
-    uint  m_flag;
-    double m_SlopeValue;
     Vector3d m_pos;
     Vector3d m_normal;
     SlopeInfo(){m_bValid = false;}

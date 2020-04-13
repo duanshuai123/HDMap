@@ -110,11 +110,9 @@ void protobuf_AssignDesc_object_2eproto() {
       -1);
   Obstacle_ObstacleType_descriptor_ = Obstacle_descriptor_->enum_type(0);
   Slope_descriptor_ = file->message_type(3);
-  static const int Slope_offsets_[6] = {
+  static const int Slope_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, nx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, ny_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, flag_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, slopevalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slope, normal_),
   };
@@ -216,12 +214,11 @@ void protobuf_AddDesc_object_2eproto() {
     "cle.ObstacleType\022!\n\010link_ids\030\005 \003(\0132\017.hdm"
     "ap_proto.Id\"Z\n\014ObstacleType\022\014\n\010UN_KNOWN\020"
     "\000\022\t\n\005TRUNK\020\001\022\n\n\006PERSON\020\002\022\007\n\003CAR\020\003\022\r\n\tEXC"
-    "AVATOR\020\004\022\r\n\tUNCERTAIN\020\005\"\214\001\n\005Slope\022\n\n\002nx\030"
-    "\001 \002(\005\022\n\n\002ny\030\002 \002(\005\022\014\n\004flag\030\003 \001(\r\022\022\n\nSlope"
-    "Value\030\004 \001(\001\022\"\n\003pos\030\005 \001(\0132\025.hdmap_proto.V"
-    "ector3d\022%\n\006normal\030\006 \001(\0132\025.hdmap_proto.Ve"
-    "ctor3d\">\n\tSlopeSets\022\017\n\007pixSize\030\002 \002(\001\022 \n\004"
-    "item\030\003 \003(\0132\022.hdmap_proto.Slope", 1070);
+    "AVATOR\020\004\022\r\n\tUNCERTAIN\020\005\"j\n\005Slope\022\n\n\002nx\030\001"
+    " \002(\005\022\n\n\002ny\030\002 \002(\005\022\"\n\003pos\030\005 \001(\0132\025.hdmap_pr"
+    "oto.Vector3d\022%\n\006normal\030\006 \002(\0132\025.hdmap_pro"
+    "to.Vector3d\">\n\tSlopeSets\022\017\n\007pixSize\030\002 \002("
+    "\001\022 \n\004item\030\003 \003(\0132\022.hdmap_proto.Slope", 1035);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "object.proto", &protobuf_RegisterTypes);
   SemanticPoint::default_instance_ = new SemanticPoint();
@@ -2133,8 +2130,6 @@ Obstacle::link_ids() const {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Slope::kNxFieldNumber;
 const int Slope::kNyFieldNumber;
-const int Slope::kFlagFieldNumber;
-const int Slope::kSlopeValueFieldNumber;
 const int Slope::kPosFieldNumber;
 const int Slope::kNormalFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -2162,8 +2157,6 @@ void Slope::SharedCtor() {
   _cached_size_ = 0;
   nx_ = 0;
   ny_ = 0;
-  flag_ = 0u;
-  slopevalue_ = 0;
   pos_ = NULL;
   normal_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2224,9 +2217,8 @@ void Slope::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  if (_has_bits_[0 / 32] & 63u) {
-    ZR_(nx_, slopevalue_);
-    flag_ = 0u;
+  if (_has_bits_[0 / 32] & 15u) {
+    ZR_(nx_, ny_);
     if (has_pos()) {
       if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
     }
@@ -2279,36 +2271,6 @@ bool Slope::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_flag;
-        break;
-      }
-
-      // optional uint32 flag = 3;
-      case 3: {
-        if (tag == 24) {
-         parse_flag:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &flag_)));
-          set_has_flag();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(33)) goto parse_SlopeValue;
-        break;
-      }
-
-      // optional double SlopeValue = 4;
-      case 4: {
-        if (tag == 33) {
-         parse_SlopeValue:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &slopevalue_)));
-          set_has_slopevalue();
-        } else {
-          goto handle_unusual;
-        }
         if (input->ExpectTag(42)) goto parse_pos;
         break;
       }
@@ -2326,7 +2288,7 @@ bool Slope::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .hdmap_proto.Vector3d normal = 6;
+      // required .hdmap_proto.Vector3d normal = 6;
       case 6: {
         if (tag == 50) {
          parse_normal:
@@ -2374,23 +2336,13 @@ void Slope::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ny(), output);
   }
 
-  // optional uint32 flag = 3;
-  if (has_flag()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->flag(), output);
-  }
-
-  // optional double SlopeValue = 4;
-  if (has_slopevalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->slopevalue(), output);
-  }
-
   // optional .hdmap_proto.Vector3d pos = 5;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, *this->pos_, output);
   }
 
-  // optional .hdmap_proto.Vector3d normal = 6;
+  // required .hdmap_proto.Vector3d normal = 6;
   if (has_normal()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, *this->normal_, output);
@@ -2416,16 +2368,6 @@ void Slope::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ny(), target);
   }
 
-  // optional uint32 flag = 3;
-  if (has_flag()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->flag(), target);
-  }
-
-  // optional double SlopeValue = 4;
-  if (has_slopevalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->slopevalue(), target);
-  }
-
   // optional .hdmap_proto.Vector3d pos = 5;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -2433,7 +2375,7 @@ void Slope::SerializeWithCachedSizes(
         5, *this->pos_, false, target);
   }
 
-  // optional .hdmap_proto.Vector3d normal = 6;
+  // required .hdmap_proto.Vector3d normal = 6;
   if (has_normal()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -2466,13 +2408,20 @@ int Slope::RequiredFieldsByteSizeFallback() const {
         this->ny());
   }
 
+  if (has_normal()) {
+    // required .hdmap_proto.Vector3d normal = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->normal_);
+  }
+
   return total_size;
 }
 int Slope::ByteSize() const {
 // @@protoc_insertion_point(message_byte_size_start:hdmap_proto.Slope)
   int total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+  if (((_has_bits_[0] & 0x0000000b) ^ 0x0000000b) == 0) {  // All required fields are present.
     // required int32 nx = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2483,37 +2432,21 @@ int Slope::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->ny());
 
+    // required .hdmap_proto.Vector3d normal = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->normal_);
+
   } else {
     total_size += RequiredFieldsByteSizeFallback();
   }
-  if (_has_bits_[2 / 32] & 60u) {
-    // optional uint32 flag = 3;
-    if (has_flag()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->flag());
-    }
-
-    // optional double SlopeValue = 4;
-    if (has_slopevalue()) {
-      total_size += 1 + 8;
-    }
-
-    // optional .hdmap_proto.Vector3d pos = 5;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->pos_);
-    }
-
-    // optional .hdmap_proto.Vector3d normal = 6;
-    if (has_normal()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->normal_);
-    }
-
+  // optional .hdmap_proto.Vector3d pos = 5;
+  if (has_pos()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->pos_);
   }
+
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -2554,12 +2487,6 @@ void Slope::MergeFrom(const Slope& from) {
     if (from.has_ny()) {
       set_ny(from.ny());
     }
-    if (from.has_flag()) {
-      set_flag(from.flag());
-    }
-    if (from.has_slopevalue()) {
-      set_slopevalue(from.slopevalue());
-    }
     if (from.has_pos()) {
       mutable_pos()->::hdmap_proto::Vector3d::MergeFrom(from.pos());
     }
@@ -2587,7 +2514,7 @@ void Slope::CopyFrom(const Slope& from) {
 }
 
 bool Slope::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x0000000b) != 0x0000000b) return false;
 
   if (has_pos()) {
     if (!this->pos_->IsInitialized()) return false;
@@ -2605,8 +2532,6 @@ void Slope::Swap(Slope* other) {
 void Slope::InternalSwap(Slope* other) {
   std::swap(nx_, other->nx_);
   std::swap(ny_, other->ny_);
-  std::swap(flag_, other->flag_);
-  std::swap(slopevalue_, other->slopevalue_);
   std::swap(pos_, other->pos_);
   std::swap(normal_, other->normal_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -2673,63 +2598,15 @@ void Slope::clear_ny() {
   // @@protoc_insertion_point(field_set:hdmap_proto.Slope.ny)
 }
 
-// optional uint32 flag = 3;
-bool Slope::has_flag() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-void Slope::set_has_flag() {
-  _has_bits_[0] |= 0x00000004u;
-}
-void Slope::clear_has_flag() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-void Slope::clear_flag() {
-  flag_ = 0u;
-  clear_has_flag();
-}
- ::google::protobuf::uint32 Slope::flag() const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.flag)
-  return flag_;
-}
- void Slope::set_flag(::google::protobuf::uint32 value) {
-  set_has_flag();
-  flag_ = value;
-  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.flag)
-}
-
-// optional double SlopeValue = 4;
-bool Slope::has_slopevalue() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-void Slope::set_has_slopevalue() {
-  _has_bits_[0] |= 0x00000008u;
-}
-void Slope::clear_has_slopevalue() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-void Slope::clear_slopevalue() {
-  slopevalue_ = 0;
-  clear_has_slopevalue();
-}
- double Slope::slopevalue() const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.SlopeValue)
-  return slopevalue_;
-}
- void Slope::set_slopevalue(double value) {
-  set_has_slopevalue();
-  slopevalue_ = value;
-  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.SlopeValue)
-}
-
 // optional .hdmap_proto.Vector3d pos = 5;
 bool Slope::has_pos() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void Slope::set_has_pos() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void Slope::clear_has_pos() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void Slope::clear_pos() {
   if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
@@ -2765,15 +2642,15 @@ void Slope::set_allocated_pos(::hdmap_proto::Vector3d* pos) {
   // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Slope.pos)
 }
 
-// optional .hdmap_proto.Vector3d normal = 6;
+// required .hdmap_proto.Vector3d normal = 6;
 bool Slope::has_normal() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void Slope::set_has_normal() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void Slope::clear_has_normal() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void Slope::clear_normal() {
   if (normal_ != NULL) normal_->::hdmap_proto::Vector3d::Clear();

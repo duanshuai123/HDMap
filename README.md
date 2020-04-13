@@ -1,4 +1,4 @@
-Getting Started with HDMap
+
 =======
 
 这是一份自动生成的文档，以及建议的格式
@@ -10,8 +10,6 @@ Getting Started with HDMap
 首先要保证系统安装了Protobuf。
 
 # Usage 关于如何使用的介绍：
-参照测试test/main.cc；
-加载test/testData_ZGC.txt地图数据；
 构建路网，并做点对点的查询，输出路径坐标点。
 
 

@@ -713,20 +713,6 @@ class Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   ::google::protobuf::int32 ny() const;
   void set_ny(::google::protobuf::int32 value);
 
-  // optional uint32 flag = 3;
-  bool has_flag() const;
-  void clear_flag();
-  static const int kFlagFieldNumber = 3;
-  ::google::protobuf::uint32 flag() const;
-  void set_flag(::google::protobuf::uint32 value);
-
-  // optional double SlopeValue = 4;
-  bool has_slopevalue() const;
-  void clear_slopevalue();
-  static const int kSlopeValueFieldNumber = 4;
-  double slopevalue() const;
-  void set_slopevalue(double value);
-
   // optional .hdmap_proto.Vector3d pos = 5;
   bool has_pos() const;
   void clear_pos();
@@ -736,7 +722,7 @@ class Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   ::hdmap_proto::Vector3d* release_pos();
   void set_allocated_pos(::hdmap_proto::Vector3d* pos);
 
-  // optional .hdmap_proto.Vector3d normal = 6;
+  // required .hdmap_proto.Vector3d normal = 6;
   bool has_normal() const;
   void clear_normal();
   static const int kNormalFieldNumber = 6;
@@ -751,10 +737,6 @@ class Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   inline void clear_has_nx();
   inline void set_has_ny();
   inline void clear_has_ny();
-  inline void set_has_flag();
-  inline void clear_has_flag();
-  inline void set_has_slopevalue();
-  inline void clear_has_slopevalue();
   inline void set_has_pos();
   inline void clear_has_pos();
   inline void set_has_normal();
@@ -768,10 +750,8 @@ class Slope : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   mutable int _cached_size_;
   ::google::protobuf::int32 nx_;
   ::google::protobuf::int32 ny_;
-  double slopevalue_;
   ::hdmap_proto::Vector3d* pos_;
   ::hdmap_proto::Vector3d* normal_;
-  ::google::protobuf::uint32 flag_;
   friend void  protobuf_AddDesc_object_2eproto();
   friend void protobuf_AssignDesc_object_2eproto();
   friend void protobuf_ShutdownFile_object_2eproto();
@@ -1436,63 +1416,15 @@ inline void Slope::set_ny(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:hdmap_proto.Slope.ny)
 }
 
-// optional uint32 flag = 3;
-inline bool Slope::has_flag() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Slope::set_has_flag() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Slope::clear_has_flag() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Slope::clear_flag() {
-  flag_ = 0u;
-  clear_has_flag();
-}
-inline ::google::protobuf::uint32 Slope::flag() const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.flag)
-  return flag_;
-}
-inline void Slope::set_flag(::google::protobuf::uint32 value) {
-  set_has_flag();
-  flag_ = value;
-  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.flag)
-}
-
-// optional double SlopeValue = 4;
-inline bool Slope::has_slopevalue() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Slope::set_has_slopevalue() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Slope::clear_has_slopevalue() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Slope::clear_slopevalue() {
-  slopevalue_ = 0;
-  clear_has_slopevalue();
-}
-inline double Slope::slopevalue() const {
-  // @@protoc_insertion_point(field_get:hdmap_proto.Slope.SlopeValue)
-  return slopevalue_;
-}
-inline void Slope::set_slopevalue(double value) {
-  set_has_slopevalue();
-  slopevalue_ = value;
-  // @@protoc_insertion_point(field_set:hdmap_proto.Slope.SlopeValue)
-}
-
 // optional .hdmap_proto.Vector3d pos = 5;
 inline bool Slope::has_pos() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void Slope::set_has_pos() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void Slope::clear_has_pos() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void Slope::clear_pos() {
   if (pos_ != NULL) pos_->::hdmap_proto::Vector3d::Clear();
@@ -1528,15 +1460,15 @@ inline void Slope::set_allocated_pos(::hdmap_proto::Vector3d* pos) {
   // @@protoc_insertion_point(field_set_allocated:hdmap_proto.Slope.pos)
 }
 
-// optional .hdmap_proto.Vector3d normal = 6;
+// required .hdmap_proto.Vector3d normal = 6;
 inline bool Slope::has_normal() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void Slope::set_has_normal() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void Slope::clear_has_normal() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void Slope::clear_normal() {
   if (normal_ != NULL) normal_->::hdmap_proto::Vector3d::Clear();
